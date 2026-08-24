@@ -1,0 +1,31 @@
+name: Atualizar dados de trÃ¢nsito
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'    # a cada 2 horas
+  workflow_dispatch: {}
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Buscar dados de trÃ¢nsito
+        run: node scripts/fetch-transito.js > /tmp/transito.json
+
+      - name: Atualizar data.json
+        run: node scripts/merge-and-save.js "" /tmp/transito.json "" data.json
+
+      - name: Commitar mudanÃ§as
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add data.json
+          git diff --cached --quiet || git commit -m "Atualiza dados de trÃ¢nsito (automÃ¡tico)"
+          git push
+
