@@ -591,7 +591,7 @@ html,body{
 <script>
 // ---------- MÊS VIGENTE (calculado a partir da data real — nunca precisa editar na mão) ----------
 const MES_ATUAL = (() => {
-  const nome = new Date().toLocaleDateString('pt-BR', {month:'long'});
+  const nome = new Date().toLocaleDateString('pt-BR', {month:'long', timeZone:'America/Sao_Paulo'});
   return nome.charAt(0).toUpperCase() + nome.slice(1);
 })();
 
@@ -813,7 +813,7 @@ function isSlideActive(s){
 const DATA_URL = 'data.json';
 async function loadSlidesFromSource(){
   try{
-    const res = await fetch(DATA_URL + '?t=' + Date.now()); // evita cache do navegador
+    const res = await fetch(DATA_URL + '?t=' + Date.now());
     if(!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
     if(Array.isArray(data) && data.length) return data;
@@ -1182,9 +1182,9 @@ function buildTicker(){
 function tickClock(){
   const now = new Date();
   document.getElementById('clockTime').textContent =
-    now.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+    now.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit',timeZone:'America/Sao_Paulo'});
   document.getElementById('clockDate').textContent =
-    now.toLocaleDateString('pt-BR',{weekday:'long', day:'2-digit', month:'long'});
+    now.toLocaleDateString('pt-BR',{weekday:'long', day:'2-digit', month:'long', timeZone:'America/Sao_Paulo'});
 }
 tickClock();
 setInterval(tickClock,1000);
@@ -1193,22 +1193,43 @@ setInterval(tickClock,1000);
 async function refreshCurrency(){
   const slide = slides.find(s=>s.type==='currency');
   if(!slide) return;
+  let anySuccess = false;
   try{
-    const res = await fetch('https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,GBP-BRL,USDT-BRL,USDC-BRL,BTC-BRL');
+    // USDC-BRL não existe nessa API — se incluído no mesmo lote, quebra a busca
+    // inteira (retorna 404 pra todo o pedido). Por isso vai separado, abaixo.
+    const res = await fetch('https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,GBP-BRL,USDT-BRL,BTC-BRL');
+    if(!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
-    const map = {USD:'USDBRL', EUR:'EURBRL', GBP:'GBPBRL', USDT:'USDTBRL', USDC:'USDCBRL', BTC:'BTCBRL'};
+    // Mapeamento confirmado testando a API: USDT-BRL retorna sob a chave "USDBRLT", não "USDTBRL"
+    const map = {USD:'USDBRL', EUR:'EURBRL', GBP:'GBPBRL', USDT:'USDBRLT', BTC:'BTCBRL'};
     slide.list.forEach(c=>{
       const d = data[map[c.code]];
       if(d){
         c.value = parseFloat(d.bid);
         c.pct = parseFloat(d.pctChange);
+        anySuccess = true;
       }
     });
-    slide.updatedAt = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
   }catch(err){
-    // API indisponível (ex: sem acesso à internet neste ambiente) — mantém os valores de exemplo
-    slide.updatedAt = 'exemplo (sem conexão)';
+    console.warn('Falha ao buscar cotações (AwesomeAPI):', err);
   }
+  try{
+    // USDC-BRL via CoinGecko (fonte pública separada, já que a AwesomeAPI não cobre essa moeda)
+    const res2 = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=usd-coin&vs_currencies=brl&include_24hr_change=true');
+    if(!res2.ok) throw new Error('HTTP ' + res2.status);
+    const data2 = await res2.json();
+    const usdc = slide.list.find(c=>c.code==='USDC');
+    if(usdc && data2['usd-coin']){
+      usdc.value = data2['usd-coin'].brl;
+      usdc.pct = data2['usd-coin'].brl_24h_change;
+      anySuccess = true;
+    }
+  }catch(err){
+    console.warn('Falha ao buscar cotação do USDC (CoinGecko):', err);
+  }
+  slide.updatedAt = anySuccess
+    ? new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit',timeZone:'America/Sao_Paulo'})
+    : 'exemplo (sem conexão)';
   if(slides[current].type==='currency') renderCurrent();
 }
 
@@ -1238,7 +1259,7 @@ async function refreshWeather(){
     const [cond, icon] = mapWeatherCode(cw.weathercode);
     slide.cond = cond;
     slide.icon = icon;
-    slide.updatedAt = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+    slide.updatedAt = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit',timeZone:'America/Sao_Paulo'});
   }catch(err){
     // API indisponível — mantém os valores de exemplo
     slide.updatedAt = 'exemplo (sem conexão)';

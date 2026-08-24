@@ -20,8 +20,8 @@
     "eyebrow": "Pipeline de closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 21297391,
-    "mornoTotal": 2252609,
+    "quenteTotal": 16300000,
+    "mornoTotal": 150000,
     "top3": [
       {
         "name": "Integralmedica",
@@ -30,16 +30,16 @@
         "owner": "Carolina Andrade"
       },
       {
-        "name": "Aço Cearense",
+        "name": "Azul Pack",
         "value": 5000000,
         "temp": "quente",
         "owner": "Jarbas Vinícius"
       },
       {
-        "name": "Azul Pack",
-        "value": 5000000,
+        "name": "JP Comercio de Metais",
+        "value": 3000000,
         "temp": "quente",
-        "owner": "Jarbas Vinícius"
+        "owner": "Guilherme Belotto"
       }
     ]
   },
@@ -428,37 +428,37 @@
     "cond": "Parcialmente nublado",
     "icon": "⛅",
     "updatedAt": "—",
-    "rodizio": "Placas final 7 e 8",
-    "trafficUpdatedAt": "20/08/2026 (fonte: CET-SP)",
+    "rodizio": "Placas final 1 e 2",
+    "trafficUpdatedAt": "23/08/2026 (fonte: CET-SP)",
     "traffic": [
       {
-        "name": "Oeste",
-        "km": 151,
-        "pct": 32,
-        "level": "bad"
-      },
-      {
         "name": "Sul",
-        "km": 122,
-        "pct": 26,
+        "km": 42,
+        "pct": 31,
         "level": "bad"
       },
       {
         "name": "Leste",
-        "km": 89,
+        "km": 33,
+        "pct": 24,
+        "level": "mid"
+      },
+      {
+        "name": "Oeste",
+        "km": 26,
         "pct": 19,
         "level": "mid"
       },
       {
-        "name": "Centro",
-        "km": 58,
-        "pct": 12,
-        "level": "ok"
+        "name": "Norte",
+        "km": 23,
+        "pct": 17,
+        "level": "mid"
       },
       {
-        "name": "Norte",
-        "km": 50,
-        "pct": 11,
+        "name": "Centro",
+        "km": 12,
+        "pct": 9,
         "level": "ok"
       }
     ]
