@@ -1,0 +1,40 @@
+name: Atualizar evolução da carteira (CR2)
+
+on:
+  schedule:
+    - cron: '0 11 * * *'    # todo dia às 11h UTC (~08h em São Paulo)
+  workflow_dispatch: {}
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar Playwright
+        run: |
+          npm init -y
+          npm install playwright
+          npx playwright install --with-deps chromium
+
+      - name: Buscar dados do CR2
+        env:
+          CR2_EMAIL: ${{ secrets.CR2_EMAIL }}
+          CR2_PASSWORD: ${{ secrets.CR2_PASSWORD }}
+        run: node scripts/fetch-cr2.js > /tmp/cr2.json
+
+      - name: Atualizar data.json
+        run: node scripts/merge-and-save.js "" "" /tmp/cr2.json data.json
+
+      - name: Commitar mudanças
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add data.json
+          git diff --cached --quiet || git commit -m "Atualiza evolução da carteira (automático)"
+          git push
+
