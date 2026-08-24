@@ -1,0 +1,516 @@
+[
+  {
+    "type": "goal",
+    "duration": 20000,
+    "eyebrow": "Progresso da meta",
+    "showMonth": true,
+    "metaValor": 20000000,
+    "atual": 1993607.39,
+    "clientesAtivados": 4,
+    "clientesLista": [
+      "Texol Brasil",
+      "Daisan-Caracol",
+      "Minimal Club",
+      "Alic/Harvest"
+    ]
+  },
+  {
+    "type": "funnel",
+    "duration": 20000,
+    "eyebrow": "Pipeline de closing",
+    "showMonth": true,
+    "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
+    "quenteTotal": 21297391,
+    "mornoTotal": 2252609,
+    "top3": [
+      {
+        "name": "Integralmedica",
+        "value": 5000000,
+        "temp": "quente",
+        "owner": "Carolina Andrade"
+      },
+      {
+        "name": "Aço Cearense",
+        "value": 5000000,
+        "temp": "quente",
+        "owner": "Jarbas Vinícius"
+      },
+      {
+        "name": "Azul Pack",
+        "value": 5000000,
+        "temp": "quente",
+        "owner": "Jarbas Vinícius"
+      }
+    ]
+  },
+  {
+    "type": "wallet",
+    "duration": 20000,
+    "eyebrow": "Evolução da carteira · Últimos 30 dias",
+    "source": "Fonte: CR2",
+    "current": 229273554.83,
+    "pctChange": 1.41,
+    "series": [
+      {
+        "t": "21/07",
+        "v": 226076920.77
+      },
+      {
+        "t": "22/07",
+        "v": 227352798.64
+      },
+      {
+        "t": "23/07",
+        "v": 224850891.79
+      },
+      {
+        "t": "24/07",
+        "v": 223323359.54
+      },
+      {
+        "t": "25/07",
+        "v": 223323359.54
+      },
+      {
+        "t": "26/07",
+        "v": 223323359.54
+      },
+      {
+        "t": "27/07",
+        "v": 223154115.24
+      },
+      {
+        "t": "28/07",
+        "v": 222835063.91
+      },
+      {
+        "t": "29/07",
+        "v": 220911182.79
+      },
+      {
+        "t": "30/07",
+        "v": 224637017.36
+      },
+      {
+        "t": "31/07",
+        "v": 225251786.43
+      },
+      {
+        "t": "01/08",
+        "v": 225251786.43
+      },
+      {
+        "t": "02/08",
+        "v": 225251786.43
+      },
+      {
+        "t": "03/08",
+        "v": 224378463.02
+      },
+      {
+        "t": "04/08",
+        "v": 224817574.67
+      },
+      {
+        "t": "05/08",
+        "v": 226113709.18
+      },
+      {
+        "t": "06/08",
+        "v": 229976893.21
+      },
+      {
+        "t": "07/08",
+        "v": 228857090.18
+      },
+      {
+        "t": "08/08",
+        "v": 225871069.57
+      },
+      {
+        "t": "09/08",
+        "v": 225871069.57
+      },
+      {
+        "t": "10/08",
+        "v": 225093014.83
+      },
+      {
+        "t": "11/08",
+        "v": 225093014.83
+      },
+      {
+        "t": "12/08",
+        "v": 225257802.79
+      },
+      {
+        "t": "13/08",
+        "v": 225275966.26
+      },
+      {
+        "t": "14/08",
+        "v": 223826940.44
+      },
+      {
+        "t": "15/08",
+        "v": 223826940.44
+      },
+      {
+        "t": "16/08",
+        "v": 223826940.44
+      },
+      {
+        "t": "17/08",
+        "v": 226414451.79
+      },
+      {
+        "t": "18/08",
+        "v": 227480323.29
+      },
+      {
+        "t": "19/08",
+        "v": 229273554.83
+      },
+      {
+        "t": "20/08",
+        "v": 229273554.83
+      }
+    ]
+  },
+  {
+    "type": "ranking",
+    "duration": 18000,
+    "eyebrow": "Desempenho dos Vendedores",
+    "showMonth": true,
+    "divisions": [
+      {
+        "name": "Closing",
+        "sellers": [
+          {
+            "name": "Guilherme Belotto",
+            "deals": 1,
+            "value": 500000,
+            "color": "var(--gold)",
+            "photo": "https://avatars.slack-edge.com/2025-10-28/9780544893907_7bf5d63f04a9c28f15db_original.jpg"
+          },
+          {
+            "name": "Kaio Oliveira",
+            "deals": 1,
+            "value": 707704,
+            "color": "var(--sky)",
+            "photo": "https://avatars.slack-edge.com/2024-10-22/7905267593719_af4e22e63399aa29662c_original.jpg"
+          },
+          {
+            "name": "Fernando Velloso",
+            "deals": 2,
+            "value": 785903.39,
+            "color": "var(--mint)",
+            "photo": "https://avatars.slack-edge.com/2026-01-07/10260861435825_5aa6805d8f0441b16542_original.jpg"
+          }
+        ]
+      },
+      {
+        "name": "Parcerias · Hunting",
+        "sellers": [
+          {
+            "name": "Matheus Ferreira",
+            "oportunidades": 5,
+            "color": "var(--coral)",
+            "photo": "https://avatars.slack-edge.com/2025-11-18/9940118933413_1a51fa015cf3f9e6ce54_original.jpg"
+          }
+        ]
+      },
+      {
+        "name": "Parcerias · Farming",
+        "sellers": [
+          {
+            "name": "Matheus Ferreira",
+            "oportunidades": 6,
+            "color": "var(--coral)",
+            "photo": "https://avatars.slack-edge.com/2025-11-18/9940118933413_1a51fa015cf3f9e6ce54_original.jpg"
+          },
+          {
+            "name": "Julia Porto",
+            "oportunidades": 4,
+            "color": "#9B8CFF",
+            "photo": "https://avatars.slack-edge.com/2026-07-27/11681187214774_4d65265aedf197015d18_original.png"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "ranking",
+    "duration": 18000,
+    "eyebrow": "Desempenho dos Vendedores",
+    "showMonth": true,
+    "divisions": [
+      {
+        "name": "Onboarding e Retargeting",
+        "sellers": [
+          {
+            "name": "Gal Silva",
+            "oportunidades": 2,
+            "color": "var(--mint)",
+            "photo": "https://avatars.slack-edge.com/2026-07-28/11697637910849_01bfbadc9b3b85d6a7ed_original.jpg"
+          }
+        ]
+      },
+      {
+        "name": "Frete",
+        "sellers": [
+          {
+            "name": "Luciana Turisco",
+            "oportunidades": 6,
+            "metricLabel": "embarques confirmados",
+            "color": "var(--sky)",
+            "photo": "https://avatars.slack-edge.com/2026-07-06/11523554386418_8ca4e2220136e060a41f_original.png"
+          }
+        ]
+      },
+      {
+        "name": "Câmbio",
+        "sellers": [
+          {
+            "oportunidades": 9,
+            "metricLabel": "solicitações",
+            "people": [
+              {
+                "name": "Julia Guimarães",
+                "color": "#9B8CFF",
+                "photo": "https://avatars.slack-edge.com/2026-05-05/11047051384311_1378438d2118923bfc6a_original.png"
+              },
+              {
+                "name": "Gabriella Machado",
+                "color": "var(--coral)",
+                "photo": "https://avatars.slack-edge.com/2026-07-27/11687535000724_2923bf06d7522c503630_original.png"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "celebration",
+    "duration": 16000,
+    "eyebrow": "Novo cliente ativado",
+    "who": "Fernando Velloso",
+    "client": "Daisan-Caracol",
+    "amount": "R$ 419.147,26",
+    "postedAt": "2026-08-11T14:23:32-03:00"
+  },
+  {
+    "type": "birthdays",
+    "duration": 16000,
+    "eyebrow": "Aniversariantes do mês",
+    "people": [
+      {
+        "name": "Amanda Mazaro",
+        "date": "05/08",
+        "color": "var(--sky)",
+        "photo": "https://avatars.slack-edge.com/2024-08-05/7530915763364_1f304a8a553e207112b7_original.png"
+      },
+      {
+        "name": "Mari Costa",
+        "date": "09/08",
+        "color": "var(--mint)",
+        "photo": "https://avatars.slack-edge.com/2026-07-28/11692688417638_8f84941ae122828ef7f4_original.jpg"
+      },
+      {
+        "name": "Geovane Santos",
+        "date": "25/08",
+        "color": "var(--coral)",
+        "photo": "https://avatars.slack-edge.com/2026-08-05/11782965622496_812fb1c4d6c98ac4321d_original.jpg"
+      }
+    ]
+  },
+  {
+    "type": "companyAnniv",
+    "duration": 18000,
+    "eyebrow": "Aniversários de casa",
+    "showMonth": true,
+    "people": [
+      {
+        "name": "Guilherme Machado",
+        "years": 5,
+        "date": "02/08",
+        "color": "var(--gold)",
+        "photo": "https://avatars.slack-edge.com/2024-03-12/6787932592484_7ee6f51be14cb5b801ac_original.png"
+      },
+      {
+        "name": "Amanda Pczbiowski",
+        "years": 1,
+        "date": "04/08",
+        "color": "var(--sky)",
+        "photo": "https://avatars.slack-edge.com/2026-07-27/11667432337943_1d36f0d0eb8c7a0aeda4_original.png"
+      },
+      {
+        "name": "Amanda Mazaro",
+        "years": 2,
+        "date": "05/08",
+        "color": "var(--mint)",
+        "photo": "https://avatars.slack-edge.com/2024-08-05/7530915763364_1f304a8a553e207112b7_original.png"
+      },
+      {
+        "name": "Hellen Almeida",
+        "years": 2,
+        "date": "12/08",
+        "color": "var(--coral)",
+        "photo": "https://avatars.slack-edge.com/2025-10-20/9730248410194_2c7cb544b4c8c767ee26_original.jpg"
+      },
+      {
+        "name": "Henrique",
+        "years": 1,
+        "date": "18/08",
+        "color": "var(--sky)",
+        "photo": "https://avatars.slack-edge.com/2025-09-09/9502062326209_c7771d5cdd8bad3b05d3_original.jpg"
+      },
+      {
+        "name": "Isabela Matias",
+        "years": 2,
+        "date": "18/08",
+        "color": "#9B8CFF",
+        "photo": "https://avatars.slack-edge.com/2026-04-19/10947235481174_1f89712eb20354c0ffd9_original.png"
+      },
+      {
+        "name": "Daniela",
+        "years": 2,
+        "date": "19/08",
+        "color": "var(--gold)",
+        "photo": "https://avatars.slack-edge.com/2024-08-19/7595966490994_de4cdf9ddfbfcc97603a_original.jpg"
+      },
+      {
+        "name": "Julia Dioti",
+        "years": 1,
+        "date": "25/08",
+        "color": "var(--mint)",
+        "photo": "https://avatars.slack-edge.com/2026-07-28/11693549950178_ed3bdb44a5405c5dd226_original.jpg"
+      }
+    ]
+  },
+  {
+    "type": "newhire",
+    "duration": 16000,
+    "eyebrow": "Novo talento no time",
+    "name": "Luana Pereira",
+    "role": "Senior Commercial Analyst | Retarget",
+    "quote": "“Apaixonada por documentários de true crime e sempre pronta para um futevôlei. Bora dar as boas-vindas!”",
+    "joined": "Chegou em 18/08",
+    "joinedAt": "2026-08-18",
+    "photo": "https://avatars.slack-edge.com/2026-08-19/11865286922692_3a6276ee1ea85a9ae9be_original.jpg"
+  },
+  {
+    "type": "news",
+    "duration": 16000,
+    "eyebrow": "Novidades da empresa",
+    "items": [
+      {
+        "tag": "credito",
+        "title": "Crédito aprovado bate R$ 10,50M no mês",
+        "text": "Reflete direto no ritmo de fechamento do mês."
+      },
+      {
+        "tag": "aviso",
+        "title": "Uso das salas Itajaí, Shanghai e Santos",
+        "text": "Priorizadas para reuniões com 2+ pessoas. Reserva somente pela plataforma Control Room."
+      }
+    ]
+  },
+  {
+    "type": "weather",
+    "duration": 18000,
+    "eyebrow": "Clima e trânsito",
+    "city": "São Paulo, SP",
+    "lat": -23.5505,
+    "lon": -46.6333,
+    "temp": "23°C",
+    "cond": "Parcialmente nublado",
+    "icon": "⛅",
+    "updatedAt": "—",
+    "rodizio": "Placas final 7 e 8",
+    "trafficUpdatedAt": "20/08/2026 (fonte: CET-SP)",
+    "traffic": [
+      {
+        "name": "Oeste",
+        "km": 151,
+        "pct": 32,
+        "level": "bad"
+      },
+      {
+        "name": "Sul",
+        "km": 122,
+        "pct": 26,
+        "level": "bad"
+      },
+      {
+        "name": "Leste",
+        "km": 89,
+        "pct": 19,
+        "level": "mid"
+      },
+      {
+        "name": "Centro",
+        "km": 58,
+        "pct": 12,
+        "level": "ok"
+      },
+      {
+        "name": "Norte",
+        "km": 50,
+        "pct": 11,
+        "level": "ok"
+      }
+    ]
+  },
+  {
+    "type": "currency",
+    "duration": 16000,
+    "eyebrow": "Cotação de moedas",
+    "updatedAt": "—",
+    "list": [
+      {
+        "code": "USD",
+        "name": "Dólar americano",
+        "flag": "🇺🇸",
+        "value": 5.4,
+        "pct": 0.32
+      },
+      {
+        "code": "EUR",
+        "name": "Euro",
+        "flag": "🇪🇺",
+        "value": 5.86,
+        "pct": -0.18
+      },
+      {
+        "code": "GBP",
+        "name": "Libra esterlina",
+        "flag": "🇬🇧",
+        "value": 6.81,
+        "pct": 0.05
+      },
+      {
+        "code": "USDT",
+        "name": "Tether",
+        "flag": "₮",
+        "value": 5.42,
+        "pct": 0.04
+      },
+      {
+        "code": "USDC",
+        "name": "USD Coin",
+        "flag": "Ⓤ",
+        "value": 5.41,
+        "pct": 0.02
+      },
+      {
+        "code": "BTC",
+        "name": "Bitcoin",
+        "flag": "₿",
+        "value": 352000,
+        "pct": -1.24
+      }
+    ]
+  }
+]
