@@ -433,31 +433,31 @@
     "traffic": [
       {
         "name": "Sul",
-        "km": 7,
-        "pct": 39,
+        "km": 33,
+        "pct": 38,
         "level": "bad"
       },
       {
-        "name": "Oeste",
-        "km": 4,
-        "pct": 20,
+        "name": "Leste",
+        "km": 19,
+        "pct": 22,
         "level": "mid"
       },
       {
-        "name": "Leste",
-        "km": 4,
+        "name": "Oeste",
+        "km": 16,
         "pct": 19,
         "level": "mid"
       },
       {
         "name": "Norte",
-        "km": 3,
+        "km": 12,
         "pct": 13,
         "level": "ok"
       },
       {
         "name": "Centro",
-        "km": 2,
+        "km": 7,
         "pct": 9,
         "level": "ok"
       }
