@@ -433,32 +433,32 @@
     "traffic": [
       {
         "name": "Sul",
-        "km": 153,
-        "pct": 31,
-        "level": "bad"
-      },
-      {
-        "name": "Leste",
-        "km": 126,
-        "pct": 25,
+        "km": 18,
+        "pct": 34,
         "level": "bad"
       },
       {
         "name": "Norte",
-        "km": 102,
-        "pct": 20,
-        "level": "mid"
+        "km": 14,
+        "pct": 25,
+        "level": "bad"
       },
       {
-        "name": "Oeste",
-        "km": 93,
-        "pct": 19,
+        "name": "Leste",
+        "km": 12,
+        "pct": 23,
         "level": "mid"
       },
       {
         "name": "Centro",
-        "km": 26,
-        "pct": 5,
+        "km": 5,
+        "pct": 10,
+        "level": "ok"
+      },
+      {
+        "name": "Oeste",
+        "km": 4,
+        "pct": 8,
         "level": "ok"
       }
     ]
