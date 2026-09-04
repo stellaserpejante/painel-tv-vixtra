@@ -428,37 +428,37 @@
     "cond": "Parcialmente nublado",
     "icon": "⛅",
     "updatedAt": "—",
-    "rodizio": "Placas final 7 e 8",
-    "trafficUpdatedAt": "03 de setembro de 2026 (fonte: CET-SP)",
+    "rodizio": "Placas final 9 e 0",
+    "trafficUpdatedAt": "04 de setembro de 2026 (fonte: CET-SP)",
     "traffic": [
       {
-        "name": "Sul",
-        "km": 14,
-        "pct": 32,
-        "level": "bad"
-      },
-      {
         "name": "Leste",
-        "km": 11,
-        "pct": 26,
+        "km": 5,
+        "pct": 37,
         "level": "bad"
       },
       {
-        "name": "Norte",
-        "km": 7,
-        "pct": 16,
+        "name": "Sul",
+        "km": 3,
+        "pct": 24,
         "level": "mid"
       },
       {
         "name": "Oeste",
-        "km": 6,
-        "pct": 15,
+        "km": 2,
+        "pct": 19,
         "level": "mid"
       },
       {
+        "name": "Norte",
+        "km": 1,
+        "pct": 11,
+        "level": "ok"
+      },
+      {
         "name": "Centro",
-        "km": 4,
-        "pct": 10,
+        "km": 1,
+        "pct": 9,
         "level": "ok"
       }
     ]
