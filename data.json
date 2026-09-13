@@ -429,36 +429,36 @@
     "icon": "⛅",
     "updatedAt": "—",
     "rodizio": null,
-    "trafficUpdatedAt": "12 de setembro de 2026 (fonte: CET-SP)",
+    "trafficUpdatedAt": "13 de setembro de 2026 (fonte: CET-SP)",
     "traffic": [
       {
         "name": "Leste",
-        "km": 14,
-        "pct": 35,
+        "km": 7,
+        "pct": 30,
+        "level": "bad"
+      },
+      {
+        "name": "Sul",
+        "km": 6,
+        "pct": 26,
         "level": "bad"
       },
       {
         "name": "Norte",
-        "km": 8,
-        "pct": 20,
-        "level": "mid"
-      },
-      {
-        "name": "Sul",
-        "km": 8,
-        "pct": 20,
+        "km": 4,
+        "pct": 17,
         "level": "mid"
       },
       {
         "name": "Oeste",
-        "km": 6,
-        "pct": 15,
-        "level": "mid"
+        "km": 3,
+        "pct": 13,
+        "level": "ok"
       },
       {
         "name": "Centro",
-        "km": 4,
-        "pct": 10,
+        "km": 3,
+        "pct": 13,
         "level": "ok"
       }
     ]
