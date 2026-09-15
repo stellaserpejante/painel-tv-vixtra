@@ -434,31 +434,31 @@
       {
         "name": "Leste",
         "km": 3,
-        "pct": 27,
+        "pct": 60,
         "level": "bad"
-      },
-      {
-        "name": "Sul",
-        "km": 3,
-        "pct": 27,
-        "level": "bad"
-      },
-      {
-        "name": "Norte",
-        "km": 2,
-        "pct": 18,
-        "level": "mid"
       },
       {
         "name": "Oeste",
-        "km": 2,
-        "pct": 18,
+        "km": 1,
+        "pct": 20,
         "level": "mid"
       },
       {
-        "name": "Centro",
+        "name": "Sul",
         "km": 1,
-        "pct": 9,
+        "pct": 20,
+        "level": "mid"
+      },
+      {
+        "name": "Norte",
+        "km": 0,
+        "pct": 0,
+        "level": "ok"
+      },
+      {
+        "name": "Centro",
+        "km": 0,
+        "pct": 0,
         "level": "ok"
       }
     ]
