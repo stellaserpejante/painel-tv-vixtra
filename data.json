@@ -432,33 +432,33 @@
     "trafficUpdatedAt": "20 de setembro de 2026 (fonte: CET-SP)",
     "traffic": [
       {
-        "name": "Sul",
-        "km": 25,
-        "pct": 34,
+        "name": "Leste",
+        "km": 51,
+        "pct": 41,
         "level": "bad"
       },
       {
-        "name": "Leste",
-        "km": 18,
-        "pct": 24,
-        "level": "mid"
+        "name": "Sul",
+        "km": 39,
+        "pct": 31,
+        "level": "bad"
       },
       {
         "name": "Norte",
-        "km": 13,
-        "pct": 18,
+        "km": 19,
+        "pct": 15,
         "level": "mid"
       },
       {
         "name": "Oeste",
-        "km": 10,
-        "pct": 14,
+        "km": 11,
+        "pct": 9,
         "level": "ok"
       },
       {
         "name": "Centro",
-        "km": 8,
-        "pct": 11,
+        "km": 5,
+        "pct": 4,
         "level": "ok"
       }
     ]
