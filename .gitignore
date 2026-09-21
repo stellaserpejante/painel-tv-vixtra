@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# artefatos locais
+*.tar.gz
+tsconfig.tsbuildinfo
+.env
+.env.local
