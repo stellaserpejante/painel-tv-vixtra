@@ -1,6 +1,14 @@
 import 'server-only';
 import { searchDeals, listOwners, type HubSpotRecord, type HubSpotFilter } from './client';
-import { DEAL_STAGES, PIPELINES, PROPS, FORECAST_OWNER_IDS, MACRO_CANAIS_FORECAST } from './constants';
+import {
+  DEAL_STAGES,
+  PIPELINES,
+  PROPS,
+  FORECAST_OWNER_IDS,
+  MACRO_CANAIS_FORECAST,
+  RETARGETING,
+  CAMBIO,
+} from './constants';
 import { getCurrentPeriod, getCurrentQuarter, toHubSpotDateValue } from '@/lib/time';
 
 /**
@@ -351,7 +359,7 @@ export async function fetchEmbarquesConfirmados(): Promise<{
 export interface OportunidadesConfig {
   pipeline: string;
   /** Valores da propriedade nome_bdr__hunter__farmer_ que pertencem à área. */
-  bdrIds?: string[];
+  bdrIds?: readonly string[];
   /** Quando true, aplica a pontuação 0,5 / 1 baseada em small_lead. */
   usarSmallLead?: boolean;
 }
@@ -388,7 +396,7 @@ export async function fetchOportunidadesDoMes(
     filters.push({
       propertyName: PROPS.NOME_BDR,
       operator: 'IN' as const,
-      values: config.bdrIds,
+      values: [...config.bdrIds],
     });
   }
 
@@ -435,5 +443,84 @@ export async function fetchOportunidadesDoMes(
     pessoas,
     total: pessoas.reduce((s, p) => s + p.quantidade, 0),
     totalPontuacao: pessoas.reduce((s, p) => s + p.pontuacao, 0),
+  };
+}
+
+/* ================================================================== *
+ * RETARGETING — dashboard 20142518, relatório 169016141
+ *
+ * Diferente das outras áreas: o recorte é por TIME (hubspot_team_id) e a
+ * data considerada é a de ENTRADA na etapa 983301662, não a data da
+ * oportunidade.
+ * ================================================================== */
+
+export async function fetchRetargeting(): Promise<{
+  periodKey: string;
+  quantidade: number;
+  pessoa: string;
+}> {
+  const period = getCurrentPeriod();
+
+  const deals = await searchDeals({
+    filterGroups: [
+      {
+        filters: [
+          { propertyName: PROPS.PIPELINE, operator: 'IN', values: [RETARGETING.pipeline] },
+          { propertyName: 'hubspot_team_id', operator: 'IN', values: [RETARGETING.teamId] },
+          {
+            propertyName: RETARGETING.dateProperty,
+            operator: 'BETWEEN',
+            value: String(period.start.getTime()),
+            highValue: String(period.end.getTime()),
+          },
+        ],
+      },
+    ],
+    properties: [PROPS.DEALNAME, PROPS.OWNER, RETARGETING.dateProperty],
+  });
+
+  return {
+    periodKey: period.key,
+    quantidade: deals.length,
+    pessoa: RETARGETING.pessoa,
+  };
+}
+
+/* ================================================================== *
+ * CÂMBIO — dashboard 19074932, relatório 161366173
+ *
+ * Contagem de solicitações de cadastro criadas no mês dentro do pipeline
+ * de câmbio. O número é consolidado do time, exibido com as duas pessoas
+ * juntas, como pedido na especificação.
+ * ================================================================== */
+
+export async function fetchCambio(): Promise<{
+  periodKey: string;
+  quantidade: number;
+  pessoas: readonly string[];
+}> {
+  const period = getCurrentPeriod();
+
+  const deals = await searchDeals({
+    filterGroups: [
+      {
+        filters: [
+          { propertyName: PROPS.PIPELINE, operator: 'IN', values: [CAMBIO.pipeline] },
+          {
+            propertyName: PROPS.CREATEDATE,
+            operator: 'BETWEEN',
+            value: String(period.start.getTime()),
+            highValue: String(period.end.getTime()),
+          },
+        ],
+      },
+    ],
+    properties: [PROPS.DEALNAME, PROPS.CREATEDATE],
+  });
+
+  return {
+    periodKey: period.key,
+    quantidade: deals.length,
+    pessoas: CAMBIO.pessoas,
   };
 }

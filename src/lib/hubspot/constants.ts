@@ -117,6 +117,80 @@ export const FORECAST_OWNER_IDS = [
   '2069515993',
 ] as const;
 
+/* ------------------------------------------------------------------ *
+ * ÁREAS DE OPORTUNIDADES
+ *
+ * Mapeamento confirmado pela Stella, dashboard por dashboard, e validado
+ * lendo a definição de cada relatório. Os números entre parênteses são os
+ * valores que o HubSpot retornava em 21/09/2026, usados como referência
+ * para conferir a implementação depois do deploy.
+ * ------------------------------------------------------------------ */
+export const AREAS = {
+  /**
+   * Parcerias Hunting — dashboard 20139959, relatório 168996449 (5 opps).
+   * Contagem simples de oportunidades, sem pontuação.
+   */
+  HUNTING: {
+    reportId: 168996449,
+    dashboardId: 20139959,
+    pipeline: PIPELINES.COMERCIAL,
+    bdrIds: ['1598055246', '85322310'],
+    dateProperty: PROPS.DATA_OPORTUNIDADE,
+    usarSmallLead: false,
+  },
+
+  /**
+   * Parcerias Farming — dashboard 17422192, relatório 149259364 (11 opps).
+   * Aqui vale a regra de pontuação: Small Lead = Sim → 0,5; Não → 1.
+   */
+  FARMING: {
+    reportId: 149259364,
+    dashboardId: 17422192,
+    pipeline: PIPELINES.COMERCIAL,
+    bdrIds: ['2069515993', '85322310', '1566756950'],
+    dateProperty: PROPS.DATA_OPORTUNIDADE,
+    usarSmallLead: true,
+  },
+} as const;
+
+/**
+ * Retargeting — dashboard 20142518, relatório 169016141 (2 opps).
+ * Estrutura diferente das demais: pipeline próprio, recorte pelo time
+ * (não pelo proprietário) e data medida pela ENTRADA na etapa 983301662,
+ * não por data_da_oportunidade.
+ */
+export const RETARGETING = {
+  reportId: 169016141,
+  dashboardId: 20142518,
+  pipeline: '670475949',
+  teamId: '60328493',
+  /** Data de entrada na etapa que caracteriza a oportunidade. */
+  dateProperty: 'hs_v2_date_entered_983301662',
+  pessoa: 'Gal Silva',
+} as const;
+
+/**
+ * Câmbio — dashboard 19074932, relatório 161366173 "Solicitações
+ * semanalmente - Mensal" (5 solicitações em setembro/2026).
+ * É a contagem de negócios criados no mês dentro do pipeline de câmbio.
+ * O relatório não separa por pessoa: o número é do time, o que casa com o
+ * pedido de mostrar Gabriella e Julia juntas.
+ */
+export const CAMBIO = {
+  reportId: 161366173,
+  dashboardId: 19074932,
+  pipeline: '843320843',
+  dateProperty: PROPS.CREATEDATE,
+  pessoas: ['Gabriella Machado', 'Julia Guimaraes'],
+} as const;
+
+/** Frete — pessoa responsável (grafia confirmada pela Stella). */
+export const FRETE = {
+  reportId: 169003255,
+  dashboardId: 19471670,
+  pessoa: 'Luciana Turisco',
+} as const;
+
 /**
  * Relatórios de referência no HubSpot — guardados para rastreabilidade e
  * para a página de diagnóstico do admin.
