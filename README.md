@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Painel TV Vixtra
 
-## Getting Started
+Apresentação de acompanhamento da operação comercial da Vixtra, exibida na TV
+do escritório.
 
-First, run the development server:
+## Onde está o arquivo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+`apresentacao/TV-Comercial-Vixtra-Setembro-2026.pptx`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## O que tem dentro
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+14 slides: capa, progresso da meta, pipeline de closing, forecasting por
+farmer, evolução da carteira, dois slides de desempenho dos vendedores,
+novas ativações, aniversariantes do mês, aniversários de casa, novo
+integrante, novidades da empresa, câmbio do dia e o roteiro de atualização.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Os slides de nova ativação e de novo integrante têm animação automática —
+basta apresentar (F5) que tudo roda sozinho, sem clique.
 
-## Learn More
+## Como atualizar
 
-To learn more about Next.js, take a look at the following resources:
+Cada slide traz na área de notas a fonte exata do dado, com o número do
+relatório do HubSpot de onde ele veio. O último slide resume o roteiro
+mensal em cinco passos.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Para publicar uma versão nova pelo navegador: abra a pasta `apresentacao`,
+clique em **Add file > Upload files**, arraste o arquivo e confirme em
+**Commit changes**. Mantendo o mesmo nome, o GitHub substitui e guarda a
+versão anterior no histórico.
