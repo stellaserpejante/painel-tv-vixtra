@@ -362,30 +362,30 @@
     "icon": "⛅",
     "updatedAt": "—",
     "rodizio": "Placas final 3 e 4",
-    "trafficUpdatedAt": "22/09/2026 (fonte: CET-SP)",
+    "trafficUpdatedAt": "22 de setembro de 2026 (fonte: CET-SP)",
     "traffic": [
       {
-        "name": "Leste",
-        "km": 82,
-        "pct": 35,
+        "name": "Oeste",
+        "km": 69,
+        "pct": 30,
         "level": "bad"
       },
       {
-        "name": "Oeste",
-        "km": 54,
-        "pct": 23,
-        "level": "mid"
+        "name": "Leste",
+        "km": 64,
+        "pct": 28,
+        "level": "bad"
       },
       {
         "name": "Sul",
-        "km": 52,
+        "km": 50,
         "pct": 22,
         "level": "mid"
       },
       {
         "name": "Centro",
         "km": 27,
-        "pct": 11,
+        "pct": 12,
         "level": "ok"
       },
       {
