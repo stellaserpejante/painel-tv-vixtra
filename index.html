@@ -795,7 +795,8 @@ const DEFAULT_SLIDES = [
 
 // ---------- REGRAS DE EXPIRAÇÃO AUTOMÁTICA ----------
 // Celebração de ativação: fica visível por 24h após a postagem no #celebrations, depois some.
-// Novo talento: fica visível por 7 dias após a chegada, depois some.
+// Novo talento: fica visível por 30 dias após a chegada, depois some.
+// Dá para mudar caso a caso pondo "diasVisivel" no slide dentro do data.json.
 function isSlideActive(s){
   const now = new Date();
   if(s.type==='celebration' && s.postedAt){
@@ -804,7 +805,7 @@ function isSlideActive(s){
   }
   if(s.type==='newhire' && s.joinedAt){
     const daysSince = (now - new Date(s.joinedAt+'T00:00:00-03:00')) / (1000*60*60*24);
-    return daysSince <= 7;
+    return daysSince <= (s.diasVisivel || 30);
   }
   return true;
 }
@@ -1162,7 +1163,8 @@ function buildTicker(){
   const allSellers = slides.find(s=>s.type==='ranking').divisions.flatMap(d=>d.sellers);
   const sellersComValor = allSellers.filter(v=>v.value);
   const topSeller = sellersComValor.length ? sellersComValor.reduce((a,b)=> b.value>a.value ? b : a) : null;
-  const usd = curr.list.find(c=>c.code==='USD');
+  const wallet = slides.find(s=>s.type==='wallet');
+  const usd = curr ? curr.list.find(c=>c.code==='USD') : null;
   const falta = goal.metaValor - goal.atual;
   const bits = [
     `🎯 Faltam <b>${fmtBRL(falta)}</b> para bater a meta do mês`,
@@ -1171,8 +1173,8 @@ function buildTicker(){
     ...(cel ? [`🎉 <b>${cel.who}</b> ativou <b>${cel.client}</b> — ${cel.amount}`] : []),
     `🎂 <b>${bday.people.length}</b> aniversários este mês`,
     ...(newhire ? [`👋 Boas-vindas, <b>${newhire.name}</b>!`] : []),
-    `💵 Dólar a <b>R$ ${usd.value.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</b>`,
-    `📈 Carteira em <b>${fmtBRL(Math.round(slides.find(s=>s.type==='wallet').current))}</b>`,
+    ...(usd ? [`💵 Dólar a <b>R$ ${usd.value.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</b>`] : []),
+    ...(wallet ? [`📈 Carteira em <b>${fmtBRL(Math.round(wallet.current))}</b>`] : []),
   ];
   const track = document.getElementById('tickerMove');
   track.innerHTML = bits.map(b=>`<span>${b}</span>`).join('');

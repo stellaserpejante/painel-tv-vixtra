@@ -55,7 +55,8 @@
           {
             "name": "Antonio Mourão",
             "value": 10343215,
-            "color": "var(--mint)"
+            "color": "var(--mint)",
+            "photo": "https://avatars.slack-edge.com/2026-08-05/11743803696279_5a4e1f515c3cae4c40d8_512.png"
           },
           {
             "name": "Tiago Viel",
@@ -66,7 +67,8 @@
           {
             "name": "Carlos Ferrarezi",
             "value": 600000,
-            "color": "var(--gold)"
+            "color": "var(--gold)",
+            "photo": "https://avatars.slack-edge.com/2025-11-26/9998285655509_28c200815365935d41eb_512.jpg"
           }
         ]
       },
@@ -76,17 +78,20 @@
           {
             "name": "Antonio Mourão",
             "value": 14116000,
-            "color": "var(--mint)"
+            "color": "var(--mint)",
+            "photo": "https://avatars.slack-edge.com/2026-08-05/11743803696279_5a4e1f515c3cae4c40d8_512.png"
           },
           {
             "name": "André Vitoretti",
             "value": 4519000,
-            "color": "var(--coral)"
+            "color": "var(--coral)",
+            "photo": "https://avatars.slack-edge.com/2024-05-13/7103451712710_5de33c00bd6f9eb06bd1_512.jpg"
           },
           {
             "name": "Carlos Ferrarezi",
             "value": 3590043,
-            "color": "var(--gold)"
+            "color": "var(--gold)",
+            "photo": "https://avatars.slack-edge.com/2025-11-26/9998285655509_28c200815365935d41eb_512.jpg"
           }
         ]
       }
