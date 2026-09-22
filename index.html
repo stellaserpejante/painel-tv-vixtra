@@ -1040,7 +1040,7 @@ function renderSlide(s){
                     ${v.deals ? `<div class="meta">${v.deals} negócio${v.deals>1?'s':''}</div>` : ''}
                   </div>
                 `}
-                <div class="mini-value">${v.value ? fmtBRL(v.value) : (v.oportunidades!=null ? `${v.oportunidades} ${v.metricLabel || 'oport.'}` : '')}</div>
+                <div class="mini-value">${v.value ? fmtBRL(v.value) : (v.oportunidades!=null ? `${v.oportunidades.toLocaleString('pt-BR')} ${v.metricLabel || 'oport.'}` : '')}</div>
               </div>`).join('') : `<div class="division-empty">Em apuração</div>`}
           </div>`;
         }).join('')}
