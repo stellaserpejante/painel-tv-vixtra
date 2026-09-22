@@ -1,14 +1,42 @@
-name: Atualizar evolução da carteira (CR2)
+name: Atualizar evolução da carteira (CR2) — desligada
+
+# ATENÇÃO: esta rotina está DESLIGADA de propósito.
+#
+# O gráfico da carteira vem do CR2, que exige login. Enquanto não existirem
+# os segredos CR2_EMAIL e CR2_PASSWORD no repositório, ela falharia a cada
+# execução e encheria a aba Actions de e-mails de erro. Por isso não há
+# "schedule" aqui: ela só roda se alguém clicar em "Run workflow".
+#
+# Para ligar de vez:
+#   1. Settings → Secrets and variables → Actions → New repository secret
+#      CR2_EMAIL e CR2_PASSWORD
+#   2. Descomentar o bloco "schedule" abaixo.
 
 on:
-  schedule:
-    - cron: '0 11 * * *'    # todo dia às 11h UTC (~08h em São Paulo)
   workflow_dispatch: {}
+  # schedule:
+  #   - cron: '0 11 * * *'   # todo dia às 11h UTC (~08h em São Paulo)
+
+permissions:
+  contents: write
+
+concurrency:
+  group: atualiza-painel
+  cancel-in-progress: false
 
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
+      - name: Conferir se as credenciais do CR2 existem
+        env:
+          CR2_EMAIL: ${{ secrets.CR2_EMAIL }}
+        run: |
+          if [ -z "$CR2_EMAIL" ]; then
+            echo "Faltam os segredos CR2_EMAIL e CR2_PASSWORD. Cadastre-os em Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
@@ -35,6 +63,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add data.json
-          git diff --cached --quiet || git commit -m "Atualiza evolução da carteira (automático)"
+          git diff --cached --quiet && echo "Nada mudou." && exit 0
+          git commit -m "Atualiza evolução da carteira (automático)"
+          git pull --rebase --autostash
           git push
-

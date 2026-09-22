@@ -1,9 +1,18 @@
-name: Atualizar pipeline e ativacoes (HubSpot)
+name: Atualizar dados do HubSpot
 
 on:
   schedule:
-    - cron: '0 */4 * * *'     # a cada 4 horas (pipeline, valor ativado, clientes ativados)
-  workflow_dispatch: {}        # permite rodar manualmente pela aba Actions
+    - cron: '0 */2 * * *'    # de 2 em 2 horas
+  workflow_dispatch: {}       # e também sob demanda, pela aba Actions
+
+# Sem isto o "git push" do último passo é recusado com 403.
+permissions:
+  contents: write
+
+# Duas rotinas não escrevem no data.json ao mesmo tempo.
+concurrency:
+  group: atualiza-painel
+  cancel-in-progress: false
 
 jobs:
   update:
@@ -28,5 +37,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add data.json
-          git diff --cached --quiet || git commit -m "Atualiza dados do HubSpot (automático)"
+          git diff --cached --quiet && echo "Nada mudou." && exit 0
+          git commit -m "Atualiza dados do HubSpot (automático)"
+          git pull --rebase --autostash
           git push
