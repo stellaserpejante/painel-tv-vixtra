@@ -4,24 +4,24 @@
     "duration": 20000,
     "eyebrow": "Progresso da meta",
     "showMonth": true,
-    "metaValor": 20000000,
-    "atual": 1993607.39,
+    "metaValor": 13000000,
+    "atual": 2072534.72,
     "clientesAtivados": 4,
     "clientesLista": [
+      "Pneutek",
       "Texol Brasil",
-      "Daisan-Caracol",
-      "Minimal Club",
-      "Alic/Harvest"
+      "AR Fusion Brasil",
+      "Eggerding Brasil"
     ]
   },
   {
     "type": "funnel",
     "duration": 20000,
-    "eyebrow": "Pipeline de closing",
+    "eyebrow": "Forecasting closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 16300000,
-    "mornoTotal": 150000,
+    "quenteTotal": 17334421.93,
+    "mornoTotal": 22400000,
     "top3": [
       {
         "name": "Integralmedica",
@@ -30,157 +30,72 @@
         "owner": "Carolina Andrade"
       },
       {
-        "name": "Azul Pack",
+        "name": "Aço Cearense",
         "value": 5000000,
         "temp": "quente",
         "owner": "Jarbas Vinícius"
       },
       {
-        "name": "JP Comercio de Metais",
-        "value": 3000000,
+        "name": "Azul Pack",
+        "value": 5000000,
         "temp": "quente",
-        "owner": "Guilherme Belotto"
-      }
-    ]
-  },
-  {
-    "type": "wallet",
-    "duration": 20000,
-    "eyebrow": "Evolução da carteira · Últimos 30 dias",
-    "source": "Fonte: CR2",
-    "current": 229273554.83,
-    "pctChange": 1.41,
-    "series": [
-      {
-        "t": "21/07",
-        "v": 226076920.77
-      },
-      {
-        "t": "22/07",
-        "v": 227352798.64
-      },
-      {
-        "t": "23/07",
-        "v": 224850891.79
-      },
-      {
-        "t": "24/07",
-        "v": 223323359.54
-      },
-      {
-        "t": "25/07",
-        "v": 223323359.54
-      },
-      {
-        "t": "26/07",
-        "v": 223323359.54
-      },
-      {
-        "t": "27/07",
-        "v": 223154115.24
-      },
-      {
-        "t": "28/07",
-        "v": 222835063.91
-      },
-      {
-        "t": "29/07",
-        "v": 220911182.79
-      },
-      {
-        "t": "30/07",
-        "v": 224637017.36
-      },
-      {
-        "t": "31/07",
-        "v": 225251786.43
-      },
-      {
-        "t": "01/08",
-        "v": 225251786.43
-      },
-      {
-        "t": "02/08",
-        "v": 225251786.43
-      },
-      {
-        "t": "03/08",
-        "v": 224378463.02
-      },
-      {
-        "t": "04/08",
-        "v": 224817574.67
-      },
-      {
-        "t": "05/08",
-        "v": 226113709.18
-      },
-      {
-        "t": "06/08",
-        "v": 229976893.21
-      },
-      {
-        "t": "07/08",
-        "v": 228857090.18
-      },
-      {
-        "t": "08/08",
-        "v": 225871069.57
-      },
-      {
-        "t": "09/08",
-        "v": 225871069.57
-      },
-      {
-        "t": "10/08",
-        "v": 225093014.83
-      },
-      {
-        "t": "11/08",
-        "v": 225093014.83
-      },
-      {
-        "t": "12/08",
-        "v": 225257802.79
-      },
-      {
-        "t": "13/08",
-        "v": 225275966.26
-      },
-      {
-        "t": "14/08",
-        "v": 223826940.44
-      },
-      {
-        "t": "15/08",
-        "v": 223826940.44
-      },
-      {
-        "t": "16/08",
-        "v": 223826940.44
-      },
-      {
-        "t": "17/08",
-        "v": 226414451.79
-      },
-      {
-        "t": "18/08",
-        "v": 227480323.29
-      },
-      {
-        "t": "19/08",
-        "v": 229273554.83
-      },
-      {
-        "t": "20/08",
-        "v": 229273554.83
+        "owner": "Jarbas Vinícius"
       }
     ]
   },
   {
     "type": "ranking",
     "duration": 18000,
-    "eyebrow": "Desempenho dos Vendedores",
+    "eyebrow": "Forecasting por farmer",
+    "showMonth": false,
+    "divisions": [
+      {
+        "name": "Aumento de volume tomado",
+        "sellers": [
+          {
+            "name": "Antonio Mourão",
+            "value": 10343215,
+            "color": "var(--mint)"
+          },
+          {
+            "name": "Tiago Viel",
+            "value": 2000000,
+            "color": "var(--sky)",
+            "photo": "https://avatars.slack-edge.com/2026-02-23/10565767228802_f4abc21f076826b0bcda_512.jpg"
+          },
+          {
+            "name": "Carlos Ferrarezi",
+            "value": 600000,
+            "color": "var(--gold)"
+          }
+        ]
+      },
+      {
+        "name": "Renovação",
+        "sellers": [
+          {
+            "name": "Antonio Mourão",
+            "value": 14116000,
+            "color": "var(--mint)"
+          },
+          {
+            "name": "André Vitoretti",
+            "value": 4519000,
+            "color": "var(--coral)"
+          },
+          {
+            "name": "Carlos Ferrarezi",
+            "value": 3590043,
+            "color": "var(--gold)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "ranking",
+    "duration": 18000,
+    "eyebrow": "Desempenho dos vendedores",
     "showMonth": true,
     "divisions": [
       {
@@ -188,24 +103,24 @@
         "sellers": [
           {
             "name": "Guilherme Belotto",
+            "deals": 2,
+            "value": 1100000,
+            "color": "var(--gold)",
+            "photo": "https://avatars.slack-edge.com/2025-10-28/9780544893907_7bf5d63f04a9c28f15db_512.jpg"
+          },
+          {
+            "name": "Jarbas Vinícius",
             "deals": 1,
             "value": 500000,
-            "color": "var(--gold)",
-            "photo": "https://avatars.slack-edge.com/2025-10-28/9780544893907_7bf5d63f04a9c28f15db_original.jpg"
+            "color": "var(--mint)",
+            "photo": "https://avatars.slack-edge.com/2026-03-30/10807564491522_be0bce2ea9cdd5372e0d_512.png"
           },
           {
             "name": "Kaio Oliveira",
             "deals": 1,
-            "value": 707704,
+            "value": 472534.72,
             "color": "var(--sky)",
-            "photo": "https://avatars.slack-edge.com/2024-10-22/7905267593719_af4e22e63399aa29662c_original.jpg"
-          },
-          {
-            "name": "Fernando Velloso",
-            "deals": 2,
-            "value": 785903.39,
-            "color": "var(--mint)",
-            "photo": "https://avatars.slack-edge.com/2026-01-07/10260861435825_5aa6805d8f0441b16542_original.jpg"
+            "photo": "https://avatars.slack-edge.com/2024-10-22/7905267593719_af4e22e63399aa29662c_512.jpg"
           }
         ]
       },
@@ -213,10 +128,10 @@
         "name": "Parcerias · Hunting",
         "sellers": [
           {
-            "name": "Matheus Ferreira",
+            "name": "Fabio Papa e Matheus Ferreira",
             "oportunidades": 5,
             "color": "var(--coral)",
-            "photo": "https://avatars.slack-edge.com/2025-11-18/9940118933413_1a51fa015cf3f9e6ce54_original.jpg"
+            "photo": "https://avatars.slack-edge.com/2025-02-18/8471602891411_39878adfafb3753f9c3f_512.jpg"
           }
         ]
       },
@@ -225,15 +140,17 @@
         "sellers": [
           {
             "name": "Matheus Ferreira",
-            "oportunidades": 6,
+            "oportunidades": 7,
+            "metricLabel": "oportunidades",
             "color": "var(--coral)",
-            "photo": "https://avatars.slack-edge.com/2025-11-18/9940118933413_1a51fa015cf3f9e6ce54_original.jpg"
+            "photo": "https://avatars.slack-edge.com/2025-11-18/9940118933413_1a51fa015cf3f9e6ce54_512.jpg"
           },
           {
             "name": "Julia Porto",
-            "oportunidades": 4,
+            "oportunidades": 2.5,
+            "metricLabel": "oportunidades",
             "color": "#9B8CFF",
-            "photo": "https://avatars.slack-edge.com/2026-07-27/11681187214774_4d65265aedf197015d18_original.png"
+            "photo": "https://avatars.slack-edge.com/2026-07-27/11681187214774_4d65265aedf197015d18_512.png"
           }
         ]
       }
@@ -242,17 +159,17 @@
   {
     "type": "ranking",
     "duration": 18000,
-    "eyebrow": "Desempenho dos Vendedores",
+    "eyebrow": "Desempenho dos vendedores",
     "showMonth": true,
     "divisions": [
       {
-        "name": "Onboarding e Retargeting",
+        "name": "Retargeting",
         "sellers": [
           {
             "name": "Gal Silva",
             "oportunidades": 2,
             "color": "var(--mint)",
-            "photo": "https://avatars.slack-edge.com/2026-07-28/11697637910849_01bfbadc9b3b85d6a7ed_original.jpg"
+            "photo": "https://avatars.slack-edge.com/2026-07-28/11697637910849_01bfbadc9b3b85d6a7ed_512.jpg"
           }
         ]
       },
@@ -261,10 +178,10 @@
         "sellers": [
           {
             "name": "Luciana Turisco",
-            "oportunidades": 6,
+            "oportunidades": 2,
             "metricLabel": "embarques confirmados",
             "color": "var(--sky)",
-            "photo": "https://avatars.slack-edge.com/2026-07-06/11523554386418_8ca4e2220136e060a41f_original.png"
+            "photo": "https://avatars.slack-edge.com/2026-07-06/11523554386418_8ca4e2220136e060a41f_512.png"
           }
         ]
       },
@@ -272,18 +189,18 @@
         "name": "Câmbio",
         "sellers": [
           {
-            "oportunidades": 9,
+            "oportunidades": 5,
             "metricLabel": "solicitações",
             "people": [
               {
-                "name": "Julia Guimarães",
-                "color": "#9B8CFF",
-                "photo": "https://avatars.slack-edge.com/2026-05-05/11047051384311_1378438d2118923bfc6a_original.png"
-              },
-              {
                 "name": "Gabriella Machado",
                 "color": "var(--coral)",
-                "photo": "https://avatars.slack-edge.com/2026-07-27/11687535000724_2923bf06d7522c503630_original.png"
+                "photo": "https://avatars.slack-edge.com/2026-07-27/11687535000724_2923bf06d7522c503630_512.png"
+              },
+              {
+                "name": "Julia Guimarães",
+                "color": "#9B8CFF",
+                "photo": "https://avatars.slack-edge.com/2026-05-05/11047051384311_1378438d2118923bfc6a_512.png"
               }
             ]
           }
@@ -294,11 +211,11 @@
   {
     "type": "celebration",
     "duration": 16000,
-    "eyebrow": "Novo cliente ativado",
-    "who": "Fernando Velloso",
-    "client": "Daisan-Caracol",
-    "amount": "R$ 419.147,26",
-    "postedAt": "2026-08-11T14:23:32-03:00"
+    "eyebrow": "Nova ativação",
+    "who": "Kaio Oliveira",
+    "client": "Eggerding Brasil",
+    "amount": "R$ 472.534,72",
+    "postedAt": "2026-09-15T15:18:10-03:00"
   },
   {
     "type": "birthdays",
@@ -306,22 +223,52 @@
     "eyebrow": "Aniversariantes do mês",
     "people": [
       {
-        "name": "Amanda Mazaro",
-        "date": "05/08",
+        "name": "Cecília Moreira",
+        "date": "02/09",
         "color": "var(--sky)",
-        "photo": "https://avatars.slack-edge.com/2024-08-05/7530915763364_1f304a8a553e207112b7_original.png"
+        "photo": "https://avatars.slack-edge.com/2026-07-29/11703020069281_8682c109240963407884_512.jpg"
       },
       {
-        "name": "Mari Costa",
-        "date": "09/08",
+        "name": "Jorge Mortara",
+        "date": "05/09",
         "color": "var(--mint)",
-        "photo": "https://avatars.slack-edge.com/2026-07-28/11692688417638_8f84941ae122828ef7f4_original.jpg"
+        "photo": "https://avatars.slack-edge.com/2024-08-16/7610702252256_442bea9c162945333e49_512.jpg"
       },
       {
-        "name": "Geovane Santos",
-        "date": "25/08",
+        "name": "Guilherme Rosenthal",
+        "date": "09/09",
+        "color": "var(--gold)",
+        "photo": "https://avatars.slack-edge.com/2025-10-16/9725111939537_5888a0c4c5ed2eae45c6_512.png"
+      },
+      {
+        "name": "Henrique Pagnani",
+        "date": "12/09",
         "color": "var(--coral)",
-        "photo": "https://avatars.slack-edge.com/2026-08-05/11782965622496_812fb1c4d6c98ac4321d_original.jpg"
+        "photo": "https://avatars.slack-edge.com/2025-09-09/9502062326209_c7771d5cdd8bad3b05d3_512.jpg"
+      },
+      {
+        "name": "Pyetra Falcão",
+        "date": "13/09",
+        "color": "#9B8CFF",
+        "photo": "https://avatars.slack-edge.com/2026-08-06/11796393663968_3cb6b3ad7c5795eef472_512.png"
+      },
+      {
+        "name": "Guilherme Machado",
+        "date": "15/09",
+        "color": "var(--sky)",
+        "photo": "https://avatars.slack-edge.com/2024-03-12/6787932592484_7ee6f51be14cb5b801ac_512.png"
+      },
+      {
+        "name": "Tiago Viel",
+        "date": "24/09",
+        "color": "var(--mint)",
+        "photo": "https://avatars.slack-edge.com/2026-02-23/10565767228802_f4abc21f076826b0bcda_512.jpg"
+      },
+      {
+        "name": "Hellen Almeida",
+        "date": "28/09",
+        "color": "var(--gold)",
+        "photo": "https://avatars.slack-edge.com/2025-10-20/9730248410194_2c7cb544b4c8c767ee26_512.jpg"
       }
     ]
   },
@@ -332,60 +279,46 @@
     "showMonth": true,
     "people": [
       {
-        "name": "Guilherme Machado",
+        "name": "Franklin Santos",
+        "years": 1,
+        "date": "01/09",
+        "color": "var(--mint)",
+        "photo": "https://avatars.slack-edge.com/2026-08-26/11918136261217_c2a6d290c69afacafab5_512.jpg"
+      },
+      {
+        "name": "Caio Gelfi",
         "years": 5,
-        "date": "02/08",
+        "date": "08/09",
         "color": "var(--gold)",
-        "photo": "https://avatars.slack-edge.com/2024-03-12/6787932592484_7ee6f51be14cb5b801ac_original.png"
+        "photo": "https://avatars.slack-edge.com/2024-03-15/6807855125090_ada0fc6e0c989953f4a2_512.jpg"
       },
       {
-        "name": "Amanda Pczbiowski",
-        "years": 1,
-        "date": "04/08",
+        "name": "Adriana Simão",
+        "years": 5,
+        "date": "08/09",
         "color": "var(--sky)",
-        "photo": "https://avatars.slack-edge.com/2026-07-27/11667432337943_1d36f0d0eb8c7a0aeda4_original.png"
+        "photo": "https://avatars.slack-edge.com/2025-10-22/9733135825975_3d94b641f29dc207fc10_512.jpg"
       },
       {
-        "name": "Amanda Mazaro",
-        "years": 2,
-        "date": "05/08",
-        "color": "var(--mint)",
-        "photo": "https://avatars.slack-edge.com/2024-08-05/7530915763364_1f304a8a553e207112b7_original.png"
-      },
-      {
-        "name": "Hellen Almeida",
-        "years": 2,
-        "date": "12/08",
+        "name": "Guilherme Rosenthal",
+        "years": 5,
+        "date": "08/09",
         "color": "var(--coral)",
-        "photo": "https://avatars.slack-edge.com/2025-10-20/9730248410194_2c7cb544b4c8c767ee26_original.jpg"
+        "photo": "https://avatars.slack-edge.com/2025-10-16/9725111939537_5888a0c4c5ed2eae45c6_512.png"
       },
       {
-        "name": "Henrique",
-        "years": 1,
-        "date": "18/08",
-        "color": "var(--sky)",
-        "photo": "https://avatars.slack-edge.com/2025-09-09/9502062326209_c7771d5cdd8bad3b05d3_original.jpg"
-      },
-      {
-        "name": "Isabela Matias",
-        "years": 2,
-        "date": "18/08",
+        "name": "Leonardo Baltieri",
+        "years": 5,
+        "date": "08/09",
         "color": "#9B8CFF",
-        "photo": "https://avatars.slack-edge.com/2026-04-19/10947235481174_1f89712eb20354c0ffd9_original.png"
+        "photo": "https://avatars.slack-edge.com/2024-03-19/6829154042916_2636317fe6d688db4b51_512.jpg"
       },
       {
-        "name": "Daniela",
+        "name": "Murilo Stiaque",
         "years": 2,
-        "date": "19/08",
-        "color": "var(--gold)",
-        "photo": "https://avatars.slack-edge.com/2024-08-19/7595966490994_de4cdf9ddfbfcc97603a_original.jpg"
-      },
-      {
-        "name": "Julia Dioti",
-        "years": 1,
-        "date": "25/08",
+        "date": "30/09",
         "color": "var(--mint)",
-        "photo": "https://avatars.slack-edge.com/2026-07-28/11693549950178_ed3bdb44a5405c5dd226_original.jpg"
+        "photo": "https://avatars.slack-edge.com/2024-11-25/8081091985026_59a4963248013158ad8a_512.png"
       }
     ]
   },
@@ -393,12 +326,12 @@
     "type": "newhire",
     "duration": 16000,
     "eyebrow": "Novo talento no time",
-    "name": "Luana Pereira",
-    "role": "Senior Commercial Analyst | Retarget",
-    "quote": "“Apaixonada por documentários de true crime e sempre pronta para um futevôlei. Bora dar as boas-vindas!”",
-    "joined": "Chegou em 18/08",
-    "joinedAt": "2026-08-18",
-    "photo": "https://avatars.slack-edge.com/2026-08-19/11865286922692_3a6276ee1ea85a9ae9be_original.jpg"
+    "name": "Joe",
+    "role": "Senior Account Executive | Closing",
+    "quote": "“Tenho um canal no YouTube e adoro gravar vídeos, apesar de odiar editar haha. E amo viajar.”",
+    "joined": "Chegou em 14/09",
+    "joinedAt": "2026-09-14",
+    "photo": "https://avatars.slack-edge.com/2026-09-14/12061519280530_9c39dcc45d46e52e9656_512.jpg"
   },
   {
     "type": "news",
@@ -406,14 +339,14 @@
     "eyebrow": "Novidades da empresa",
     "items": [
       {
-        "tag": "credito",
-        "title": "Crédito aprovado bate R$ 10,50M no mês",
-        "text": "Reflete direto no ritmo de fechamento do mês."
-      },
-      {
         "tag": "aviso",
         "title": "Uso das salas Itajaí, Shanghai e Santos",
-        "text": "Priorizadas para reuniões com 2+ pessoas. Reserva somente pela plataforma Control Room."
+        "text": "Priorizadas para reuniões com 2+ pessoas. Reserva pela plataforma Control Room ou adicionando a sala desejada no invite da reunião."
+      },
+      {
+        "tag": "credito",
+        "title": "Crédito aprovado chega a R$ 3,0M no mês",
+        "text": "Soma do limite de crédito aprovado nas ativações de setembro."
       }
     ]
   },
@@ -428,36 +361,36 @@
     "cond": "Parcialmente nublado",
     "icon": "⛅",
     "updatedAt": "—",
-    "rodizio": "Placas final 1 e 2",
-    "trafficUpdatedAt": "21 de setembro de 2026 (fonte: CET-SP)",
+    "rodizio": "Placas final 3 e 4",
+    "trafficUpdatedAt": "22/09/2026 (fonte: CET-SP)",
     "traffic": [
       {
         "name": "Leste",
-        "km": 69,
-        "pct": 36,
+        "km": 82,
+        "pct": 35,
         "level": "bad"
       },
       {
-        "name": "Sul",
-        "km": 45,
+        "name": "Oeste",
+        "km": 54,
         "pct": 23,
         "level": "mid"
       },
       {
-        "name": "Oeste",
-        "km": 35,
-        "pct": 18,
+        "name": "Sul",
+        "km": 52,
+        "pct": 22,
         "level": "mid"
       },
       {
-        "name": "Norte",
-        "km": 26,
-        "pct": 14,
+        "name": "Centro",
+        "km": 27,
+        "pct": 11,
         "level": "ok"
       },
       {
-        "name": "Centro",
-        "km": 17,
+        "name": "Norte",
+        "km": 22,
         "pct": 9,
         "level": "ok"
       }
@@ -473,43 +406,43 @@
         "code": "USD",
         "name": "Dólar americano",
         "flag": "🇺🇸",
-        "value": 5.4,
-        "pct": 0.32
+        "value": 5.14,
+        "pct": -0.33
       },
       {
         "code": "EUR",
         "name": "Euro",
         "flag": "🇪🇺",
-        "value": 5.86,
-        "pct": -0.18
+        "value": 5.91,
+        "pct": -0.04
       },
       {
         "code": "GBP",
         "name": "Libra esterlina",
         "flag": "🇬🇧",
-        "value": 6.81,
-        "pct": 0.05
+        "value": 6.82,
+        "pct": -1.11
       },
       {
         "code": "USDT",
         "name": "Tether",
         "flag": "₮",
-        "value": 5.42,
-        "pct": 0.04
+        "value": 5,
+        "pct": 0
       },
       {
         "code": "USDC",
         "name": "USD Coin",
         "flag": "Ⓤ",
-        "value": 5.41,
-        "pct": 0.02
+        "value": 5.02,
+        "pct": 0
       },
       {
         "code": "BTC",
         "name": "Bitcoin",
         "flag": "₿",
-        "value": 352000,
-        "pct": -1.24
+        "value": 435261,
+        "pct": 4.44
       }
     ]
   }
