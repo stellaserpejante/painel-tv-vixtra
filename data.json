@@ -316,6 +316,28 @@
     ]
   },
   {
+    "type": "cambio",
+    "duration": 18000,
+    "eyebrow": "Câmbio",
+    "showMonth": true,
+    "volumeTotal": 27139640,
+    "margem": 36253,
+    "clientes": 36,
+    "transacoes": 141,
+    "people": [
+      {
+        "name": "Gabriella Machado",
+        "color": "var(--coral)",
+        "photo": "https://avatars.slack-edge.com/2026-07-27/11687535000724_2923bf06d7522c503630_512.png"
+      },
+      {
+        "name": "Julia Guimarães",
+        "color": "#9B8CFF",
+        "photo": "https://avatars.slack-edge.com/2026-05-05/11047051384311_1378438d2118923bfc6a_512.png"
+      }
+    ]
+  },
+  {
     "type": "celebration",
     "duration": 16000,
     "eyebrow": "Nova ativação",

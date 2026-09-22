@@ -477,6 +477,27 @@ html,body{
   margin-right:4px;
 }
 
+/* ===== SLIDE: CÂMBIO ===== */
+.cambio-hero{margin-bottom:clamp(20px,3vh,32px);}
+.cambio-hero .n{
+  font-family:'Big Shoulders Display',sans-serif;font-weight:800;
+  font-size:clamp(48px,7.4vw,118px);line-height:0.95;color:var(--mint);
+}
+.cambio-hero .l{
+  font-size:clamp(13px,1.15vw,17px);color:var(--muted);margin-top:8px;
+  font-family:'IBM Plex Mono',monospace;
+}
+.cambio-time{
+  display:flex;align-items:center;gap:14px;
+  margin-top:clamp(24px,4vh,40px);
+}
+.cambio-time .rotulo{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:clamp(11px,0.95vw,13px);color:var(--muted);
+  letter-spacing:0.08em;text-transform:uppercase;
+}
+.cambio-time .nomes{font-size:clamp(13px,1.05vw,16px);font-weight:600;color:var(--paper);}
+
 /* ===== SLIDE: CURRENCY ===== */
 .curr-row{display:flex;gap:clamp(14px,2vw,26px);flex-wrap:wrap;}
 .curr-card{
@@ -931,6 +952,26 @@ function renderSlide(s){
       </div>
       <div class="wallet-chart">${buildWalletSVG(s.series)}</div>
       <div class="wallet-source">${s.source}</div>`;
+  }
+  if(s.type==='cambio'){
+    return `
+      <div class="eyebrow">${eyebrowText(s)}</div>
+      <div class="cambio-hero">
+        <div class="n">${fmtBRL(s.volumeTotal)}</div>
+        <div class="l">Volume total de câmbio</div>
+      </div>
+      <div class="tiles-row">
+        <div class="tile"><div class="n">${fmtBRL(s.margem)}</div><div class="l">Margem de contribuição Vixtra</div></div>
+        <div class="tile"><div class="n" style="color:var(--sky)">${s.clientes.toLocaleString('pt-BR')}</div><div class="l">Clientes</div></div>
+        <div class="tile"><div class="n" style="color:var(--coral)">${s.transacoes.toLocaleString('pt-BR')}</div><div class="l">Transações</div></div>
+      </div>
+      <div class="cambio-time">
+        <span class="rotulo">Time de câmbio</span>
+        <div class="mini-avatar-group">
+          ${s.people.map(p=>`<div class="mini-avatar stacked" style="background:${avatarBg(p)}">${avatarInner(p)}</div>`).join('')}
+        </div>
+        <span class="nomes">${s.people.map(p=>p.name).join(' · ')}</span>
+      </div>`;
   }
   if(s.type==='celebration'){
     return `
