@@ -840,7 +840,7 @@ function fmtCompactM(n){
 }
 
 function buildWalletSVG(series){
-  const W=1000, H=280, padL=10, padR=10, padT=44, padB=34;
+  const W=1000, H=280, padL=58, padR=58, padT=44, padB=34;
   const plotW = W-padL-padR, plotH = H-padT-padB;
   const values = series.map(p=>p.v);
   const min = Math.min(...values), max = Math.max(...values);
@@ -927,7 +927,7 @@ function renderSlide(s){
       <div class="eyebrow">${eyebrowText(s)}</div>
       <div class="wallet-top">
         <div class="wallet-value">${fmtBRL(Math.round(s.current))}</div>
-        <div class="wallet-change ${isUp?'up':'down'}">${isUp?'▲':'▼'} ${Math.abs(s.pctChange).toFixed(2)}% em 30 dias</div>
+        <div class="wallet-change ${isUp?'up':'down'}">${isUp?'▲':'▼'} ${Math.abs(s.pctChange).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}% em 30 dias</div>
       </div>
       <div class="wallet-chart">${buildWalletSVG(s.series)}</div>
       <div class="wallet-source">${s.source}</div>`;
