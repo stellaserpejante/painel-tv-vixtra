@@ -1159,7 +1159,7 @@ function buildTicker(){
   const cel = slides.find(s=>s.type==='celebration'); // undefined se já passou de 24h
   const bday = slides.find(s=>s.type==='birthdays');
   const curr = slides.find(s=>s.type==='currency');
-  const newhire = slides.find(s=>s.type==='newhire'); // undefined se já passou de 7 dias
+  const newhire = slides.find(s=>s.type==='newhire'); // undefined se já passou da janela de exibição
   const allSellers = slides.find(s=>s.type==='ranking').divisions.flatMap(d=>d.sellers);
   const sellersComValor = allSellers.filter(v=>v.value);
   const topSeller = sellersComValor.length ? sellersComValor.reduce((a,b)=> b.value>a.value ? b : a) : null;
