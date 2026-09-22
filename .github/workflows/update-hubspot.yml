@@ -1,0 +1,32 @@
+name: Atualizar pipeline e ativacoes (HubSpot)
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'     # a cada 4 horas (pipeline, valor ativado, clientes ativados)
+  workflow_dispatch: {}        # permite rodar manualmente pela aba Actions
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Buscar dados do HubSpot
+        env:
+          HUBSPOT_TOKEN: ${{ secrets.HUBSPOT_TOKEN }}
+        run: node scripts/fetch-hubspot.js > /tmp/hubspot.json
+
+      - name: Atualizar data.json
+        run: node scripts/merge-and-save.js /tmp/hubspot.json "" "" data.json
+
+      - name: Commitar mudanças
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add data.json
+          git diff --cached --quiet || git commit -m "Atualiza dados do HubSpot (automático)"
+          git push
