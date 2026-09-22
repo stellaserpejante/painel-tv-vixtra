@@ -4,7 +4,7 @@
     "duration": 20000,
     "eyebrow": "Progresso da meta",
     "showMonth": true,
-    "metaValor": 13000000,
+    "metaValor": 17000000,
     "atual": 2072534.72,
     "clientesAtivados": 4,
     "clientesLista": [
@@ -20,14 +20,14 @@
     "eyebrow": "Forecasting closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 17334421.93,
-    "mornoTotal": 22400000,
+    "quenteTotal": 18334421,
+    "mornoTotal": 20500000,
     "top3": [
       {
-        "name": "Integralmedica",
+        "name": "Green Place",
         "value": 5000000,
         "temp": "quente",
-        "owner": "Carolina Andrade"
+        "owner": "Cecília Moreira"
       },
       {
         "name": "Aço Cearense",
@@ -36,10 +36,10 @@
         "owner": "Jarbas Vinícius"
       },
       {
-        "name": "Azul Pack",
-        "value": 5000000,
+        "name": "Munique Comercio e Representações LTDA",
+        "value": 3000000,
         "temp": "quente",
-        "owner": "Jarbas Vinícius"
+        "owner": "Guilherme Belotto"
       }
     ]
   },
@@ -130,17 +130,6 @@
         ]
       },
       {
-        "name": "Parcerias · Hunting",
-        "sellers": [
-          {
-            "name": "Fabio Papa e Matheus Ferreira",
-            "oportunidades": 5,
-            "color": "var(--coral)",
-            "photo": "https://avatars.slack-edge.com/2025-02-18/8471602891411_39878adfafb3753f9c3f_512.jpg"
-          }
-        ]
-      },
-      {
         "name": "Parcerias · Farming",
         "sellers": [
           {
@@ -187,27 +176,6 @@
             "metricLabel": "embarques confirmados",
             "color": "var(--sky)",
             "photo": "https://avatars.slack-edge.com/2026-07-06/11523554386418_8ca4e2220136e060a41f_512.png"
-          }
-        ]
-      },
-      {
-        "name": "Câmbio",
-        "sellers": [
-          {
-            "oportunidades": 5,
-            "metricLabel": "solicitações",
-            "people": [
-              {
-                "name": "Gabriella Machado",
-                "color": "var(--coral)",
-                "photo": "https://avatars.slack-edge.com/2026-07-27/11687535000724_2923bf06d7522c503630_512.png"
-              },
-              {
-                "name": "Julia Guimarães",
-                "color": "#9B8CFF",
-                "photo": "https://avatars.slack-edge.com/2026-05-05/11047051384311_1378438d2118923bfc6a_512.png"
-              }
-            ]
           }
         ]
       }
