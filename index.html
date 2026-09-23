@@ -1055,7 +1055,7 @@ function renderSlide(s){
                     ${v.deals ? `<div class="meta">${v.deals} negócio${v.deals>1?'s':''}</div>` : ''}
                   </div>
                 `}
-                <div class="mini-value">${v.value ? fmtBRL(v.value) : (v.oportunidades!=null ? `${v.oportunidades.toLocaleString('pt-BR')} ${v.metricLabel || 'oport.'}` : '')}</div>
+                <div class="mini-value">${v.value ? fmtBRL(v.value) : (v.oportunidades!=null ? `${v.oportunidades.toLocaleString('pt-BR')} ${rotuloMetrica(v.oportunidades, v.metricLabel)}` : '')}</div>
               </div>`).join('') : `<div class="division-empty">Em apuração</div>`}
             ${div.metrics ? `<div class="div-metrics">${div.metrics.map(m=>`<div class="div-metric"><span class="v">${m.value}</span><span class="l">${m.label}</span></div>`).join('')}</div>` : ''}
           </div>`;
@@ -1082,6 +1082,23 @@ function renderSlide(s){
       <div class="curr-updated">Atualizado às ${s.updatedAt}</div>`;
   }
   return '';
+}
+
+// Deixa o rótulo no singular quando a contagem é 1: '1 oportunidade',
+// '1 embarque confirmado', '1 solicitação'. Palavra a palavra, porque alguns
+// rótulos têm mais de uma ('embarques confirmados').
+function singular(rotulo){
+  return String(rotulo).split(' ').map(p=>{
+    if(/ões$/.test(p)) return p.replace(/ões$/,'ão');
+    if(/ães$/.test(p)) return p.replace(/ães$/,'ão');
+    if(/[rzns]es$/.test(p)) return p.replace(/es$/,'');
+    if(/s$/.test(p)) return p.replace(/s$/,'');
+    return p;
+  }).join(' ');
+}
+function rotuloMetrica(n, rotulo){
+  const base = rotulo || 'oportunidades';
+  return n === 1 ? singular(base) : base;
 }
 
 function initials(name){
