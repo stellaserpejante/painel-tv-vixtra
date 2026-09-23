@@ -1018,7 +1018,7 @@ function renderSlide(s){
         </div>
         <div class="traffic-col">
           <div class="rodizio-tag">🚗 Rodízio hoje: ${s.rodizio}</div>
-          <div class="traffic-title">Lentidão por região <span style="opacity:.6">(${s.trafficUpdatedAt})</span></div>
+          <div class="traffic-title">Lentidão por região <span style="opacity:.6">(${s.trafficUpdatedAt} · CET-SP)</span></div>
           ${s.traffic.map(r=>`
             <div class="route">
               <span class="led ${r.level}"></span>

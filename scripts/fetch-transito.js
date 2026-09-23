@@ -1,3 +1,13 @@
+/** '23 de setembro de 2026' -> '23/09'. Se nao reconhecer, devolve como veio. */
+function curto(d){
+  if(!d) return '';
+  const meses={janeiro:1,fevereiro:2,marco:3,'março':3,abril:4,maio:5,junho:6,julho:7,agosto:8,setembro:9,outubro:10,novembro:11,dezembro:12};
+  const m=String(d).toLowerCase().match(/(\d{1,2})\s+de\s+([a-zç]+)/);
+  if(m && meses[m[2]]) return String(m[1]).padStart(2,'0')+'/'+String(meses[m[2]]).padStart(2,'0');
+  const n=String(d).match(/(\d{2})\/(\d{2})/);
+  return n ? n[1]+'/'+n[2] : String(d);
+}
+
 /**
  * fetch-transito.js
  * ------------------------------------------------------------------
@@ -52,9 +62,9 @@ async function fetchTransito() {
 
   return {
     rodizio,
-    trafficUpdatedAt: dataAtualizacao
-      ? `${dataAtualizacao} (fonte: CET-SP)`
-      : 'fonte: CET-SP',
+    // Só a data. Os parenteses e a fonte quem escreve e o painel, senao sai
+    // 'Lentidao por regiao (23 de setembro de 2026 (fonte: CET-SP))'.
+    trafficUpdatedAt: curto(dataAtualizacao),
     traffic,
   };
 }
