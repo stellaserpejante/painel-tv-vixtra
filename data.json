@@ -268,7 +268,7 @@
         "sellers": [
           {
             "name": "Matheus Ferreira",
-            "oportunidades": 5,
+            "oportunidades": 8,
             "metricLabel": "oportunidades",
             "color": "var(--coral)",
             "photo": "https://avatars.slack-edge.com/2025-11-18/9940118933413_1a51fa015cf3f9e6ce54_512.jpg"
@@ -279,6 +279,19 @@
             "metricLabel": "oportunidades",
             "color": "#9B8CFF",
             "photo": "https://avatars.slack-edge.com/2026-07-27/11681187214774_4d65265aedf197015d18_512.png"
+          },
+          {
+            "name": "Raquel Figueiredo",
+            "oportunidades": 1,
+            "metricLabel": "oportunidades",
+            "color": "var(--sky)"
+          },
+          {
+            "name": "Franklin Santos",
+            "oportunidades": 1,
+            "metricLabel": "oportunidades",
+            "color": "var(--mint)",
+            "photo": "https://avatars.slack-edge.com/2026-08-26/11918136261217_c2a6d290c69afacafab5_512.jpg"
           }
         ]
       }
@@ -307,7 +320,7 @@
         "sellers": [
           {
             "name": "Luciana Turisco",
-            "oportunidades": 2,
+            "oportunidades": 14,
             "metricLabel": "embarques confirmados",
             "color": "var(--sky)",
             "photo": "https://avatars.slack-edge.com/2026-07-06/11523554386418_8ca4e2220136e060a41f_512.png"
