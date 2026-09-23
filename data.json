@@ -523,33 +523,33 @@
     "trafficUpdatedAt": "23/09",
     "traffic": [
       {
-        "name": "Sul",
-        "km": 153,
-        "pct": 29,
+        "name": "Leste",
+        "km": 189,
+        "pct": 26,
         "level": "bad"
       },
       {
         "name": "Oeste",
-        "km": 129,
+        "km": 178,
         "pct": 25,
         "level": "bad"
       },
       {
-        "name": "Leste",
-        "km": 115,
-        "pct": 22,
-        "level": "mid"
+        "name": "Sul",
+        "km": 181,
+        "pct": 25,
+        "level": "bad"
       },
       {
         "name": "Norte",
-        "km": 71,
-        "pct": 14,
-        "level": "ok"
+        "km": 126,
+        "pct": 18,
+        "level": "mid"
       },
       {
         "name": "Centro",
-        "km": 54,
-        "pct": 10,
+        "km": 43,
+        "pct": 6,
         "level": "ok"
       }
     ]
