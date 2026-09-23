@@ -1296,8 +1296,13 @@ async function refreshWeather(){
     slide.icon = icon;
     slide.updatedAt = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit',timeZone:'America/Sao_Paulo'});
   }catch(err){
-    // API indisponível — mantém os valores de exemplo
-    slide.updatedAt = 'exemplo (sem conexão)';
+    // API indisponível. Em vez de deixar no ar a última temperatura conhecida,
+    // que numa TV passa por atual e engana quem olha, o painel assume que não
+    // sabe. Trânsito e rodízio continuam, porque vêm de outra fonte.
+    slide.temp = '—';
+    slide.cond = 'Sem conexão com o serviço de clima';
+    slide.icon = '📡';
+    slide.updatedAt = 'não foi possível atualizar';
   }
   if(slides[current].type==='weather') renderCurrent();
 }
