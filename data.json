@@ -519,37 +519,37 @@
     "cond": "Pancadas de chuva",
     "icon": "🌧️",
     "updatedAt": "—",
-    "rodizio": "Placas final 5 e 6",
-    "trafficUpdatedAt": "23/09",
+    "rodizio": "Placas final 7 e 8",
+    "trafficUpdatedAt": "24/09",
     "traffic": [
       {
         "name": "Leste",
-        "km": 189,
-        "pct": 26,
-        "level": "bad"
-      },
-      {
-        "name": "Oeste",
-        "km": 178,
-        "pct": 25,
-        "level": "bad"
-      },
-      {
-        "name": "Sul",
-        "km": 181,
-        "pct": 25,
+        "km": 3,
+        "pct": 43,
         "level": "bad"
       },
       {
         "name": "Norte",
-        "km": 126,
-        "pct": 18,
-        "level": "mid"
+        "km": 1,
+        "pct": 14,
+        "level": "ok"
+      },
+      {
+        "name": "Oeste",
+        "km": 1,
+        "pct": 14,
+        "level": "ok"
       },
       {
         "name": "Centro",
-        "km": 43,
-        "pct": 6,
+        "km": 1,
+        "pct": 14,
+        "level": "ok"
+      },
+      {
+        "name": "Sul",
+        "km": 1,
+        "pct": 14,
         "level": "ok"
       }
     ]
