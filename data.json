@@ -515,39 +515,39 @@
     "city": "São Paulo, SP",
     "lat": -23.5505,
     "lon": -46.6333,
-    "temp": "17°C",
+    "temp": "20°C",
     "cond": "Nublado",
     "icon": "☁️",
-    "trafficUpdatedAt": "23/09",
+    "trafficUpdatedAt": "24/09 · 13:16",
     "traffic": [
       {
-        "name": "Sul",
-        "km": 125,
-        "pct": 31,
+        "name": "Oeste",
+        "km": 111,
+        "pct": 28,
         "level": "bad"
       },
       {
-        "name": "Oeste",
-        "km": 101,
-        "pct": 25,
+        "name": "Sul",
+        "km": 107,
+        "pct": 27,
         "level": "bad"
       },
       {
         "name": "Leste",
-        "km": 81,
-        "pct": 20,
+        "km": 86,
+        "pct": 21,
         "level": "mid"
       },
       {
         "name": "Norte",
-        "km": 54,
-        "pct": 13,
-        "level": "ok"
+        "km": 64,
+        "pct": 16,
+        "level": "mid"
       },
       {
         "name": "Centro",
-        "km": 42,
-        "pct": 10,
+        "km": 33,
+        "pct": 8,
         "level": "ok"
       }
     ]
@@ -561,43 +561,43 @@
         "code": "USD",
         "name": "Dólar americano",
         "flag": "🇺🇸",
-        "value": 5.15,
-        "pct": 0.95
+        "value": 5.17,
+        "pct": 0.14
       },
       {
         "code": "EUR",
         "name": "Euro",
         "flag": "🇪🇺",
-        "value": 5.87,
-        "pct": 0.46
+        "value": 5.88,
+        "pct": -0.02
       },
       {
         "code": "GBP",
         "name": "Libra esterlina",
         "flag": "🇬🇧",
         "value": 6.83,
-        "pct": 0.36
+        "pct": -0.07
       },
       {
         "code": "USDT",
         "name": "Tether",
         "flag": "₮",
-        "value": 5.11,
-        "pct": 0.95
+        "value": 5.13,
+        "pct": 0.14
       },
       {
         "code": "USDC",
         "name": "USD Coin",
         "flag": "Ⓤ",
-        "value": 5.17,
-        "pct": 0.75
+        "value": 5.2,
+        "pct": 1.01
       },
       {
         "code": "BTC",
         "name": "Bitcoin",
         "flag": "₿",
-        "value": 433003,
-        "pct": -1.5
+        "value": 434848,
+        "pct": -1.34
       }
     ]
   }

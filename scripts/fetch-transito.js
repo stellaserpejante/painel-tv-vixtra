@@ -1,13 +1,3 @@
-/** '23 de setembro de 2026' -> '23/09'. Se nao reconhecer, devolve como veio. */
-function curto(d){
-  if(!d) return '';
-  const meses={janeiro:1,fevereiro:2,marco:3,'março':3,abril:4,maio:5,junho:6,julho:7,agosto:8,setembro:9,outubro:10,novembro:11,dezembro:12};
-  const m=String(d).toLowerCase().match(/(\d{1,2})\s+de\s+([a-zç]+)/);
-  if(m && meses[m[2]]) return String(m[1]).padStart(2,'0')+'/'+String(meses[m[2]]).padStart(2,'0');
-  const n=String(d).match(/(\d{2})\/(\d{2})/);
-  return n ? n[1]+'/'+n[2] : String(d);
-}
-
 /**
  * fetch-transito.js
  * ------------------------------------------------------------------
@@ -32,9 +22,16 @@ async function fetchTransito() {
   // O rodízio não é raspado daqui: é regra fixa por dia da semana, e o painel
   // calcula sozinho. Raspar servia só para herdar o cache da CET.
 
-  // Data (ex: "São Paulo, 20 de agosto de 2026")
-  const dataMatch = html.match(/S[ãa]o Paulo,\s*(\d{1,2} de \w+ de \d{4})/i);
-  const dataAtualizacao = dataMatch ? dataMatch[1] : null;
+  // A data que a CET escreve na página ("São Paulo, 24 de setembro de 2026")
+  // é montada no navegador, então um fetch simples continua vendo a do dia
+  // anterior enquanto os quilômetros já vêm atualizados — foi assim que a TV
+  // passou um dia inteiro carimbando 23/09 em dados de hoje. O que o painel
+  // mostra agora é a hora em que esta rotina leu a página, que é exatamente a
+  // idade do número na tela.
+  const dataAtualizacao = new Date().toLocaleString('pt-BR', {
+    timeZone: 'America/Sao_Paulo', day: '2-digit', month: '2-digit',
+    hour: '2-digit', minute: '2-digit',
+  }).replace(',', ' ·');
 
   // Cada região: nome, seguido em algum ponto próximo por "NN km" e "(NN%)"
   const regioes = ['Norte', 'Oeste', 'Centro', 'Leste', 'Sul'];
@@ -62,7 +59,7 @@ async function fetchTransito() {
   return {
     // Só a data. Os parenteses e a fonte quem escreve e o painel, senao sai
     // 'Lentidao por regiao (23 de setembro de 2026 (fonte: CET-SP))'.
-    trafficUpdatedAt: curto(dataAtualizacao),
+    trafficUpdatedAt: dataAtualizacao,
     traffic,
   };
 }
