@@ -888,6 +888,19 @@ function buildWalletSVG(series){
     </svg>`;
 }
 
+// O rodízio é regra fixa, não notícia: segunda 1 e 2, terça 3 e 4, quarta 5 e 6,
+// quinta 7 e 8, sexta 9 e 0, e não vale no fim de semana. Antes vinha raspado
+// do site da CET junto com a lentidão, e bastava a página vir de cache para a
+// TV anunciar o rodízio do dia anterior. Calculado aqui, sempre acompanha o dia
+// que a TV está mostrando.
+// Observação: feriados suspendem o rodízio, e isso esta conta não sabe.
+function rodizioDeHoje(){
+  const hoje = new Date(new Date().toLocaleString('en-US',{timeZone:'America/Sao_Paulo'}));
+  const finais = {1:'1 e 2', 2:'3 e 4', 3:'5 e 6', 4:'7 e 8', 5:'9 e 0'};
+  const f = finais[hoje.getDay()];
+  return f ? `Placas final ${f}` : 'Sem rodízio no fim de semana';
+}
+
 function eyebrowText(s){
   return s.showMonth ? `${s.eyebrow} · ${MES_ATUAL}` : s.eyebrow;
 }
@@ -1016,7 +1029,7 @@ function renderSlide(s){
           <div class="cond">${s.cond}</div>
         </div>
         <div class="traffic-col">
-          <div class="rodizio-tag">🚗 Rodízio hoje: ${s.rodizio}</div>
+          <div class="rodizio-tag">🚗 Rodízio hoje: ${rodizioDeHoje()}</div>
           <div class="traffic-title">Lentidão por região <span style="opacity:.6">(${s.trafficUpdatedAt} · CET-SP)</span></div>
           ${s.traffic.map(r=>`
             <div class="route">

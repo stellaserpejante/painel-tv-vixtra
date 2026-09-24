@@ -188,7 +188,6 @@ function main() {
   if (transito) {
     const weather = findSlide(slides, 'weather');
     if (weather) {
-      weather.rodizio = transito.rodizio;
       weather.trafficUpdatedAt = transito.trafficUpdatedAt;
       weather.traffic = transito.traffic;
       mudancas.push('trânsito');

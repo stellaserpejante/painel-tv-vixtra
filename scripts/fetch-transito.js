@@ -29,9 +29,8 @@ async function fetchTransito() {
   if (!res.ok) throw new Error(`CET-SP retornou HTTP ${res.status}`);
   const html = await res.text();
 
-  // Rodízio (ex: "Rodízio: Placas de final 7 e 8")
-  const rodizioMatch = html.match(/Rod[íi]zio:\s*Placas de final\s*([\dA-Za-z\s e]+?)</i);
-  const rodizio = rodizioMatch ? `Placas final ${rodizioMatch[1].trim()}` : null;
+  // O rodízio não é raspado daqui: é regra fixa por dia da semana, e o painel
+  // calcula sozinho. Raspar servia só para herdar o cache da CET.
 
   // Data (ex: "São Paulo, 20 de agosto de 2026")
   const dataMatch = html.match(/S[ãa]o Paulo,\s*(\d{1,2} de \w+ de \d{4})/i);
@@ -61,7 +60,6 @@ async function fetchTransito() {
   traffic.sort((a, b) => b.pct - a.pct);
 
   return {
-    rodizio,
     // Só a data. Os parenteses e a fonte quem escreve e o painel, senao sai
     // 'Lentidao por regiao (23 de setembro de 2026 (fonte: CET-SP))'.
     trafficUpdatedAt: curto(dataAtualizacao),
