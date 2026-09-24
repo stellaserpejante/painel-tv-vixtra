@@ -173,7 +173,8 @@ function main() {
     // quem responde por cada frente continuam vindo do data.json.
     atualizarContagem(findDivision(slides, 'Retargeting'), hubspot.retargeting);
     atualizarContagem(findDivision(slides, 'Frete'), hubspot.frete);
-    atualizarContagem(findDivision(slides, 'Câmbio'), hubspot.cambio);
+    // Câmbio não entra aqui: a divisão mostra quatro métricas próprias
+    // (volume, margem, clientes, transações) e não uma contagem de negócios.
     mudancas.push('retargeting, frete e câmbio');
 
     // --- Novidades: o card de crédito aprovado ------------------------

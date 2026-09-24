@@ -8,10 +8,10 @@
     "atual": 2072534.72,
     "clientesAtivados": 4,
     "clientesLista": [
-      "PNEUTEK - Crédito",
-      "AR FUSION BRASIL LTDA",
-      "TEXOL BRASIL LTDA",
-      "EGGERDING BRASIL MINERAIS INDUSTRIAIS LTDA"
+      "Pneutek",
+      "Texol Brasil",
+      "AR Fusion Brasil",
+      "Eggerding Brasil"
     ]
   },
   {
@@ -154,23 +154,23 @@
     "eyebrow": "Forecasting closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 19245421.93,
-    "mornoTotal": 15500000,
+    "quenteTotal": 19745421,
+    "mornoTotal": 20500000,
     "top3": [
       {
-        "name": "AÇO CEARENSE INDUSTRIAL LTDA",
-        "value": 5000000,
-        "temp": "quente",
-        "owner": "Jarbas Vinícius"
-      },
-      {
-        "name": " GREEN PLACE",
+        "name": "Green Place",
         "value": 5000000,
         "temp": "quente",
         "owner": "Cecília Moreira"
       },
       {
-        "name": "MUNIQUE COMERCIO E REPRESENTACOES LTDA",
+        "name": "Aço Cearense",
+        "value": 5000000,
+        "temp": "quente",
+        "owner": "Jarbas Vinícius"
+      },
+      {
+        "name": "Munique Comercio e Representações LTDA",
         "value": 3000000,
         "temp": "quente",
         "owner": "Guilherme Belotto"
@@ -187,22 +187,22 @@
         "name": "Aumento de volume tomado",
         "sellers": [
           {
-            "name": "Carlos Ferrarezi",
-            "value": 26626534,
-            "color": "var(--gold)",
-            "photo": "https://avatars.slack-edge.com/2025-11-26/9998285655509_28c200815365935d41eb_512.jpg"
-          },
-          {
-            "name": "André Vitoretti",
-            "value": 15772000,
-            "color": "var(--coral)",
-            "photo": "https://avatars.slack-edge.com/2024-05-13/7103451712710_5de33c00bd6f9eb06bd1_512.jpg"
-          },
-          {
             "name": "Antonio Mourão",
-            "value": 4021000,
+            "value": 14116000,
             "color": "var(--mint)",
             "photo": "https://avatars.slack-edge.com/2026-08-05/11743803696279_5a4e1f515c3cae4c40d8_512.png"
+          },
+          {
+            "name": "Tiago Viel",
+            "value": 2000000,
+            "color": "var(--sky)",
+            "photo": "https://avatars.slack-edge.com/2026-02-23/10565767228802_f4abc21f076826b0bcda_512.jpg"
+          },
+          {
+            "name": "Carlos Ferrarezi",
+            "value": 600000,
+            "color": "var(--gold)",
+            "photo": "https://avatars.slack-edge.com/2025-11-26/9998285655509_28c200815365935d41eb_512.jpg"
           }
         ]
       },
@@ -211,19 +211,19 @@
         "sellers": [
           {
             "name": "Antonio Mourão",
-            "value": 8352000,
+            "value": 10343215,
             "color": "var(--mint)",
             "photo": "https://avatars.slack-edge.com/2026-08-05/11743803696279_5a4e1f515c3cae4c40d8_512.png"
           },
           {
             "name": "André Vitoretti",
-            "value": 4560000,
+            "value": 4519000,
             "color": "var(--coral)",
             "photo": "https://avatars.slack-edge.com/2024-05-13/7103451712710_5de33c00bd6f9eb06bd1_512.jpg"
           },
           {
             "name": "Carlos Ferrarezi",
-            "value": 1000000,
+            "value": 3590043,
             "color": "var(--gold)",
             "photo": "https://avatars.slack-edge.com/2025-11-26/9998285655509_28c200815365935d41eb_512.jpg"
           }
@@ -242,22 +242,22 @@
         "sellers": [
           {
             "name": "Guilherme Belotto",
-            "value": 1100000,
             "deals": 2,
+            "value": 1100000,
             "color": "var(--gold)",
             "photo": "https://avatars.slack-edge.com/2025-10-28/9780544893907_7bf5d63f04a9c28f15db_512.jpg"
           },
           {
             "name": "Jarbas Vinícius",
-            "value": 500000,
             "deals": 1,
+            "value": 500000,
             "color": "var(--mint)",
             "photo": "https://avatars.slack-edge.com/2026-03-30/10807564491522_be0bce2ea9cdd5372e0d_512.png"
           },
           {
             "name": "Kaio Oliveira",
-            "value": 472534.72,
             "deals": 1,
+            "value": 472534.72,
             "color": "var(--sky)",
             "photo": "https://avatars.slack-edge.com/2024-10-22/7905267593719_af4e22e63399aa29662c_512.jpg"
           }
@@ -269,16 +269,29 @@
           {
             "name": "Matheus Ferreira",
             "oportunidades": 8,
+            "metricLabel": "oportunidades",
             "color": "var(--coral)",
-            "photo": "https://avatars.slack-edge.com/2025-11-18/9940118933413_1a51fa015cf3f9e6ce54_512.jpg",
-            "metricLabel": "oportunidades"
+            "photo": "https://avatars.slack-edge.com/2025-11-18/9940118933413_1a51fa015cf3f9e6ce54_512.jpg"
           },
           {
             "name": "Julia Porto",
-            "oportunidades": 3.5,
+            "oportunidades": 2.5,
+            "metricLabel": "oportunidades",
             "color": "#9B8CFF",
-            "photo": "https://avatars.slack-edge.com/2026-07-27/11681187214774_4d65265aedf197015d18_512.png",
-            "metricLabel": "oportunidades"
+            "photo": "https://avatars.slack-edge.com/2026-07-27/11681187214774_4d65265aedf197015d18_512.png"
+          },
+          {
+            "name": "Raquel Figueiredo",
+            "oportunidades": 1,
+            "metricLabel": "oportunidades",
+            "color": "var(--sky)"
+          },
+          {
+            "name": "Franklin Santos",
+            "oportunidades": 1,
+            "metricLabel": "oportunidades",
+            "color": "var(--mint)",
+            "photo": "https://avatars.slack-edge.com/2026-08-26/11918136261217_c2a6d290c69afacafab5_512.jpg"
           }
         ]
       }
@@ -307,7 +320,7 @@
         "sellers": [
           {
             "name": "Luciana Turisco",
-            "oportunidades": 12,
+            "oportunidades": 14,
             "metricLabel": "embarques confirmados",
             "color": "var(--sky)",
             "photo": "https://avatars.slack-edge.com/2026-07-06/11523554386418_8ca4e2220136e060a41f_512.png"
@@ -329,8 +342,7 @@
                 "color": "#9B8CFF",
                 "photo": "https://avatars.slack-edge.com/2026-05-05/11047051384311_1378438d2118923bfc6a_512.png"
               }
-            ],
-            "oportunidades": 0
+            ]
           }
         ],
         "metrics": [
