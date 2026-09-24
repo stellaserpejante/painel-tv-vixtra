@@ -275,7 +275,7 @@
           },
           {
             "name": "Julia Porto",
-            "oportunidades": 2.5,
+            "oportunidades": 3.5,
             "metricLabel": "oportunidades",
             "color": "#9B8CFF",
             "photo": "https://avatars.slack-edge.com/2026-07-27/11681187214774_4d65265aedf197015d18_512.png"
@@ -288,7 +288,7 @@
           },
           {
             "name": "Franklin Santos",
-            "oportunidades": 1,
+            "oportunidades": 0.5,
             "metricLabel": "oportunidades",
             "color": "var(--mint)",
             "photo": "https://avatars.slack-edge.com/2026-08-26/11918136261217_c2a6d290c69afacafab5_512.jpg"
