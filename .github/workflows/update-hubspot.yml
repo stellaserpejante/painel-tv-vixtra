@@ -1,19 +1,9 @@
 name: Atualizar dados do HubSpot
 
-# AGENDAMENTO SUSPENSO EM 24/09/2026.
-#
-# A primeira execucao com o token cadastrado sobrescreveu numeros que a Stella
-# tinha conferido a mao, com valores que nao batem com os relatorios dela:
-# forecasting por farmer bem diferente, parcerias farming perdendo duas
-# pessoas, frete 12 no lugar de 14, morno 15,5M no lugar de 20,5M. Enquanto
-# consulta por consulta nao for conferida contra os relatorios do portal, a
-# rotina so roda quando alguem clica - nao de hora em hora por cima do painel.
-#
-# Para religar: descomentar o bloco schedule abaixo.
 on:
-  workflow_dispatch: {}
-  # schedule:
-  #   - cron: '0 */2 * * *'    # de 2 em 2 horas
+  schedule:
+    - cron: '0 */2 * * *'    # de 2 em 2 horas
+  workflow_dispatch: {}       # e tambem sob demanda, pela aba Actions
 
 # Sem isto o "git push" do último passo é recusado com 403.
 permissions:

@@ -134,16 +134,19 @@ function main() {
     }
 
     // --- Forecasting por farmer --------------------------------------
+    // Vem chaveado pelo nome da operação no HubSpot ("Aumento de volume
+    // tomado", "Renovação", "Reativação"), que é o mesmo nome da coluna no
+    // painel. Operação que não tenha coluna correspondente simplesmente não
+    // aparece — se um dia surgir Reativação, é criar a coluna no data.json.
     if (hubspot.forecastingFarmer) {
-      const aumento = findDivision(slides, 'Aumento de volume tomado');
-      const renovacao = findDivision(slides, 'Renovação');
-      if (aumento) {
-        aumento.sellers = vestir(hubspot.forecastingFarmer.aumento.slice(0, 3), elenco);
+      const aplicadas = [];
+      for (const [operacao, pessoas] of Object.entries(hubspot.forecastingFarmer)) {
+        const div = findDivision(slides, operacao);
+        if (!div) continue;
+        div.sellers = vestir(pessoas.slice(0, 3), elenco);
+        aplicadas.push(operacao);
       }
-      if (renovacao) {
-        renovacao.sellers = vestir(hubspot.forecastingFarmer.renovacao.slice(0, 3), elenco);
-      }
-      if (aumento || renovacao) mudancas.push('forecasting por farmer');
+      if (aplicadas.length) mudancas.push('forecasting por farmer (' + aplicadas.join(', ') + ')');
     }
 
     // --- Desempenho: closing -----------------------------------------
@@ -154,18 +157,15 @@ function main() {
     }
 
     // --- Desempenho: parcerias ---------------------------------------
-    if (hubspot.parcerias) {
-      const hunting = findDivision(slides, 'Parcerias · Hunting');
+    // Até quatro pessoas: a coluna hoje mostra quatro, e cortar em três
+    // deixaria alguém de fora sem ninguém perceber.
+    if (hubspot.parcerias && hubspot.parcerias.farming) {
       const farming = findDivision(slides, 'Parcerias · Farming');
-      if (hunting && hubspot.parcerias.hunting) {
-        hunting.sellers = vestir(hubspot.parcerias.hunting.slice(0, 3), elenco)
+      if (farming) {
+        farming.sellers = vestir(hubspot.parcerias.farming.slice(0, 4), elenco)
           .map((v) => ({ ...v, metricLabel: 'oportunidades' }));
+        mudancas.push('ranking de parcerias');
       }
-      if (farming && hubspot.parcerias.farming) {
-        farming.sellers = vestir(hubspot.parcerias.farming.slice(0, 3), elenco)
-          .map((v) => ({ ...v, metricLabel: 'oportunidades' }));
-      }
-      if (hunting || farming) mudancas.push('ranking de parcerias');
     }
 
     // --- Desempenho: retargeting, frete e câmbio ----------------------

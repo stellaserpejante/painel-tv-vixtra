@@ -3,14 +3,15 @@
  * ---------------------------------------------------------------------------
  * Busca no HubSpot tudo que o painel mostra automaticamente e imprime um JSON
  * no stdout. O merge-and-save.js aplica esse JSON por cima do data.json,
- * preservando os slides manuais (aniversários, novo talento, novidades).
+ * preservando os slides manuais.
  *
- * Requer a variável de ambiente HUBSPOT_TOKEN (token de app privado com
- * escopo crm.objects.deals.read e crm.objects.owners.read).
+ * Requer a variável de ambiente HUBSPOT_TOKEN (app privado com escopo
+ * crm.objects.deals.read e crm.objects.owners.read).
  *
- * IDs DESTE PORTAL (44743501) — extraídos da definição dos relatórios que a
- * Stella indicou como fonte de verdade. Não são padrão do HubSpot: se algum
- * pipeline ou etapa for recriado lá, é aqui que se atualiza.
+ * CADA CONSULTA AQUI É CÓPIA DE UM RELATÓRIO SALVO DO PORTAL 44743501. O
+ * número do relatório está em cima de cada função. Se alguém mexer no
+ * relatório lá dentro, é aqui que se acerta — e a forma de conferir é sempre
+ * a mesma: abrir o relatório e comparar o número com o do painel.
  * ---------------------------------------------------------------------------
  */
 
@@ -23,46 +24,40 @@ if (!TOKEN) {
 const BASE = 'https://api.hubapi.com';
 
 /* --------------------------------------------------------------------- */
-/* Mapeamento confirmado dashboard por dashboard                          */
+/* Datas                                                                  */
 /* --------------------------------------------------------------------- */
 
-const PIPELINES = {
-  COMERCIAL: '670574125',   // closing, forecasting e parcerias
-  FARMING: '799124839',     // Farmers - Funil de Operação
-  FRETE: '877239977',       // embarques
-  RETARGETING: '670475949', // Opps neste mês (Retargeting)
-  CAMBIO: '843320843',      // solicitações de cadastro
-};
+/**
+ * Deslocamento do fuso de São Paulo num dado instante, em milissegundos.
+ *
+ * Isto existe porque a rotina roda num servidor em UTC. `new Date(ano, mes, 1)`
+ * lá dentro dá meia-noite UTC, não meia-noite de São Paulo — três horas antes.
+ * Era esse o motivo de o forecasting do painel vir meio milhão abaixo do
+ * relatório: negócios que fecham depois das 21h do último dia do mês caíam
+ * fora da janela.
+ */
+function deslocamentoSaoPaulo(instante) {
+  const f = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Sao_Paulo', hour12: false,
+    year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit',
+  });
+  const p = Object.fromEntries(
+    f.formatToParts(new Date(instante)).map((x) => [x.type, x.value])
+  );
+  const comoSeFosseUtc = Date.UTC(
+    +p.year, +p.month - 1, +p.day, +p.hour % 24, +p.minute, +p.second
+  );
+  return comoSeFosseUtc - instante;
+}
 
-// Etapas que caracterizam cliente ATIVADO.
-// Relatórios 140792840 / 149250442 / 148884903.
-const STAGES_ATIVADO = ['983479988', '1208919954'];
+/** Epoch (ms) de uma data/hora civil de São Paulo. */
+function emSaoPaulo(ano, mes, dia, h = 0, min = 0, s = 0) {
+  const palpite = Date.UTC(ano, mes, dia, h, min, s);
+  return palpite - deslocamentoSaoPaulo(palpite);
+}
 
-// Etapas em aberto do pipeline de closing. Relatório 140793599.
-const STAGES_PIPELINE = ['983479985', '983479986', '983479987', '1268615190'];
-
-// Owners incluídos no forecasting. Relatório 140793599.
-const OWNERS_FORECAST = [
-  '746504206', '19342453', '1115600915', '252246912',
-  '1411261526', '84532627', '89091132', '2069515993',
-];
-
-const MACRO_CANAIS = ['Direto', 'Farming', 'Parceirias', 'Trading'];
-
-// Pessoas de parceria, na propriedade nome_bdr__hunter__farmer_.
-// Relatório 168996449 (hunting) e 149259364 (farming).
-const BDR_HUNTING = ['1598055246', '85322310'];
-const BDR_FARMING = ['2069515993', '85322310', '1566756950'];
-
-const STAGE_EMBARQUE = '1315985497';
-const TEAM_RETARGETING = '60328493';
-const DATE_RETARGETING = 'hs_v2_date_entered_983301662';
-
-/* --------------------------------------------------------------------- */
-/* Datas — sempre o mês vigente, nunca uma data escrita à mão             */
-/* --------------------------------------------------------------------- */
-
-/** Mês vigente no fuso de São Paulo, em epoch UTC (formato aceito pelo HubSpot). */
+/** Mês vigente. Nunca uma data escrita à mão. */
 function mesVigente() {
   const agora = new Date(
     new Date().toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' })
@@ -72,27 +67,32 @@ function mesVigente() {
   return {
     ano,
     mes: mes + 1,
-    // Propriedades do tipo `date` guardam meia-noite UTC.
+    // Propriedades do tipo `date` guardam meia-noite UTC — sem fuso.
     inicioData: String(Date.UTC(ano, mes, 1)),
     fimData: String(Date.UTC(ano, mes + 1, 0)),
-    // Propriedades `datetime` usam o instante local convertido.
-    inicioHora: String(new Date(ano, mes, 1).getTime()),
-    fimHora: String(new Date(ano, mes + 1, 0, 23, 59, 59).getTime()),
+    // Propriedades `datetime` guardam um instante: usa-se o fuso de São Paulo.
+    inicioHora: String(emSaoPaulo(ano, mes, 1)),
+    fimHora: String(emSaoPaulo(ano, mes + 1, 1) - 1),
   };
 }
 
-/** Limites do trimestre vigente, usados no forecasting. */
-function quarterVigente() {
-  const agora = new Date(
-    new Date().toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' })
-  );
-  const ano = agora.getFullYear();
-  const q = Math.floor(agora.getMonth() / 3);
-  return {
-    inicio: String(new Date(ano, q * 3, 1).getTime()),
-    fim: String(new Date(ano, q * 3 + 3, 0, 23, 59, 59).getTime()),
-  };
-}
+/* --------------------------------------------------------------------- */
+/* IDs deste portal (44743501)                                            */
+/* --------------------------------------------------------------------- */
+
+const PIPELINES = {
+  COMERCIAL: '670574125',
+  FRETE: '877239977',
+  RETARGETING: '670475949',
+};
+
+// Etapas que caracterizam cliente ativado.
+const STAGES_ATIVADO = ['983479988', '1208919954'];
+
+const STAGE_FARMING_FORECAST = '1412586077';
+const STAGE_EMBARQUE = '1315985497';
+const TEAM_RETARGETING = '60328493';
+const DATE_RETARGETING = 'hs_v2_date_entered_983301662';
 
 /* --------------------------------------------------------------------- */
 /* Cliente HTTP                                                           */
@@ -107,10 +107,7 @@ async function buscarNegocios(filters, properties) {
 
     const res = await fetch(`${BASE}/crm/v3/objects/deals/search`, {
       method: 'POST',
-      headers: {
-        Authorization: `Bearer ${TOKEN}`,
-        'Content-Type': 'application/json',
-      },
+      headers: { Authorization: `Bearer ${TOKEN}`, 'Content-Type': 'application/json' },
       body: JSON.stringify(corpo),
     });
 
@@ -153,13 +150,40 @@ async function owners() {
 }
 
 const num = (v) => (v ? Number(v) || 0 : 0);
+
+/** 'Quente  (Quente)' -> 'quente'. O HubSpot devolve o rótulo com sufixo. */
 const temp = (v) => String(v || '').replace(/\s*\(.*\)\s*$/, '').trim().toLowerCase();
+
+/**
+ * Nome de cliente legível numa TV.
+ *
+ * O CRM guarda "EGGERDING BRASIL MINERAIS INDUSTRIAIS LTDA" e "PNEUTEK -
+ * Crédito". Na tela isso vira ruído: tira-se o sufixo de produto, a forma
+ * societária e o caixa alta. É só apresentação — o dado não muda.
+ */
+function nomeDeCliente(bruto) {
+  let n = String(bruto || '').trim();
+  n = n.replace(/\s*[-–]\s*(cr[ée]dito|c[âa]mbio|frete|conta de c[âa]mbio).*$/i, '');
+  n = n.replace(/\s*\b(ltda|s\.?\s?a\.?|me|epp|eireli|s\/a)\b\.?\s*$/i, '');
+  n = n.replace(/\s+/g, ' ').trim();
+  // Caixa alta vira Capitalizado; nomes já mistos ficam como estão.
+  if (n === n.toUpperCase()) {
+    const minusculas = new Set(['de', 'da', 'do', 'das', 'dos', 'e']);
+    n = n.toLowerCase().split(' ').map((p, i) =>
+      i > 0 && minusculas.has(p) ? p : p.charAt(0).toUpperCase() + p.slice(1)
+    ).join(' ');
+  }
+  return n;
+}
 
 /* --------------------------------------------------------------------- */
 /* Consultas                                                              */
 /* --------------------------------------------------------------------- */
 
-/** Volume ativado, clientes ativados, crédito aprovado e ranking de closers. */
+/**
+ * Ativações do mês: volume ativado, clientes, crédito aprovado e ranking de
+ * closing. Etapas de ativado + data_da_ativacao no mês.
+ */
 async function ativacoes() {
   const p = mesVigente();
   const negocios = await buscarNegocios(
@@ -172,7 +196,6 @@ async function ativacoes() {
 
   const nomes = await owners();
   const porCloser = {};
-
   for (const d of negocios) {
     const dono = d.properties.hubspot_owner_id;
     if (!dono) continue;
@@ -187,40 +210,39 @@ async function ativacoes() {
     creditoAprovado: negocios.reduce((s, d) => s + num(d.properties.limite_aprovado_credito), 0),
     clientesLista: negocios
       .sort((a, b) => num(b.properties.volume_ativado) - num(a.properties.volume_ativado))
-      .map((d) => (d.properties.dealname || '').trim()),
+      .map((d) => nomeDeCliente(d.properties.dealname)),
     closers: Object.entries(porCloser)
       .map(([id, v]) => ({ name: nomes[id] || `Owner ${id}`, value: v.valor, deals: v.negocios }))
       .sort((a, b) => b.value - a.value),
   };
 }
 
-/** Forecasting de closing: quente e morno do mês vigente + top 3 negócios. */
+/**
+ * Forecasting closing — relatório 140793599
+ * ("Forecasting do quarter - Por mês (volume)").
+ *
+ * O relatório abre o quarter inteiro e quebra por mês; o painel mostra só o
+ * mês vigente, então aqui o recorte de closedate já vem no mês. Antes a
+ * consulta pegava o quarter e filtrava o mês depois, em JavaScript, com as
+ * bordas em UTC — e o painel ficava R$ 500 mil abaixo do relatório.
+ */
 async function forecastingClosing() {
   const p = mesVigente();
-  const q = quarterVigente();
-
   const negocios = await buscarNegocios(
     [
       { propertyName: 'pipeline', operator: 'IN', values: [PIPELINES.COMERCIAL] },
-      { propertyName: 'dealstage', operator: 'IN', values: STAGES_PIPELINE },
-      { propertyName: 'macro_canal', operator: 'IN', values: MACRO_CANAIS },
-      { propertyName: 'hubspot_owner_id', operator: 'IN', values: OWNERS_FORECAST },
-      { propertyName: 'closedate', operator: 'BETWEEN', value: q.inicio, highValue: q.fim },
+      { propertyName: 'dealstage', operator: 'IN', values: ['983479985', '983479986', '983479987', '1268615190'] },
+      { propertyName: 'macro_canal', operator: 'IN', values: ['Direto', 'Farming', 'Parceirias', 'Trading'] },
+      { propertyName: 'hubspot_owner_id', operator: 'IN', values: ['746504206', '19342453', '1115600915', '252246912', '1411261526', '84532627', '89091132', '2069515993'] },
+      { propertyName: 'closedate', operator: 'BETWEEN', value: p.inicioHora, highValue: p.fimHora },
     ],
     ['dealname', 'amount', 'temperatura_do_negocio', 'closedate', 'hubspot_owner_id']
   );
 
   const nomes = await owners();
-  const doMes = negocios.filter((d) => {
-    const c = d.properties.closedate;
-    if (!c) return false;
-    const t = new Date(c).getTime();
-    return t >= Number(p.inicioHora) && t <= Number(p.fimHora);
-  });
-
-  const soma = (lista, t) =>
-    lista.filter((d) => temp(d.properties.temperatura_do_negocio) === t)
-         .reduce((s, d) => s + num(d.properties.amount), 0);
+  const soma = (t) => negocios
+    .filter((d) => temp(d.properties.temperatura_do_negocio) === t)
+    .reduce((s, d) => s + num(d.properties.amount), 0);
 
   const peso = (d) => {
     const t = temp(d.properties.temperatura_do_negocio);
@@ -228,13 +250,13 @@ async function forecastingClosing() {
   };
 
   return {
-    quenteTotal: soma(doMes, 'quente'),
-    mornoTotal: soma(doMes, 'morno'),
-    top3: [...doMes]
+    quenteTotal: soma('quente'),
+    mornoTotal: soma('morno'),
+    top3: [...negocios]
       .sort((a, b) => peso(b) - peso(a) || num(b.properties.amount) - num(a.properties.amount))
       .slice(0, 3)
       .map((d) => ({
-        name: d.properties.dealname || 'Sem nome',
+        name: nomeDeCliente(d.properties.dealname),
         value: num(d.properties.amount),
         temp: temp(d.properties.temperatura_do_negocio) || 'frio',
         owner: nomes[d.properties.hubspot_owner_id] || null,
@@ -242,51 +264,63 @@ async function forecastingClosing() {
   };
 }
 
-/** Forecasting por farmer: aumento de volume tomado e renovação. */
+/**
+ * Forecasting por farmer — relatório 347059207
+ * ("[FARMING] Forecasting mês atual - por Farmer").
+ *
+ * Uma etapa só, mês vigente por closedate, e a quebra é pela propriedade
+ * `operacao` — não `tipo_de_operacao`, que foi o palpite errado da primeira
+ * versão e trazia o pipeline de farming inteiro, sem recorte de data.
+ */
+const OPERACOES_FARMER = ['Aumento de volume tomado', 'Reativação', 'Renovação'];
+
 async function forecastingFarmer() {
+  const p = mesVigente();
   const negocios = await buscarNegocios(
-    [{ propertyName: 'pipeline', operator: 'IN', values: [PIPELINES.FARMING] }],
-    ['dealname', 'amount', 'tipo_de_operacao', 'hubspot_owner_id']
+    [
+      { propertyName: 'dealstage', operator: 'IN', values: [STAGE_FARMING_FORECAST] },
+      { propertyName: 'operacao', operator: 'IN', values: OPERACOES_FARMER },
+      { propertyName: 'closedate', operator: 'BETWEEN', value: p.inicioHora, highValue: p.fimHora },
+    ],
+    ['dealname', 'amount', 'operacao', 'closedate', 'hubspot_owner_id']
   );
 
   const nomes = await owners();
-  const porFarmer = {};
-
+  const porOperacao = {};
   for (const d of negocios) {
     const dono = d.properties.hubspot_owner_id;
-    if (!dono) continue;
-    const tipo = String(d.properties.tipo_de_operacao || '').toLowerCase();
-    porFarmer[dono] = porFarmer[dono] || { aumento: 0, renovacao: 0 };
-    if (tipo.includes('renova')) porFarmer[dono].renovacao += num(d.properties.amount);
-    else porFarmer[dono].aumento += num(d.properties.amount);
+    const op = String(d.properties.operacao || '').trim();
+    if (!dono || !op) continue;
+    porOperacao[op] = porOperacao[op] || {};
+    porOperacao[op][dono] = (porOperacao[op][dono] || 0) + num(d.properties.amount);
   }
 
-  const lista = Object.entries(porFarmer).map(([id, v]) => ({
-    name: nomes[id] || `Owner ${id}`,
-    aumento: v.aumento,
-    renovacao: v.renovacao,
-  }));
+  const lista = (op) => Object.entries(porOperacao[op] || {})
+    .map(([id, v]) => ({ name: nomes[id] || `Owner ${id}`, value: v }))
+    .filter((f) => f.value > 0)
+    .sort((a, b) => b.value - a.value);
 
-  return {
-    aumento: lista.filter((f) => f.aumento > 0)
-      .map((f) => ({ name: f.name, value: f.aumento }))
-      .sort((a, b) => b.value - a.value),
-    renovacao: lista.filter((f) => f.renovacao > 0)
-      .map((f) => ({ name: f.name, value: f.renovacao }))
-      .sort((a, b) => b.value - a.value),
-  };
+  // Chaveado pelo nome da operação, que é o mesmo nome da coluna no painel.
+  const saida = {};
+  for (const op of OPERACOES_FARMER) saida[op] = lista(op);
+  return saida;
 }
 
 /**
- * Oportunidades de parcerias, agrupadas pela pessoa de BDR/parceria.
- * Em farming vale a regra de pontuação: com Small Lead conta 0,5.
+ * Parcerias farming — relatório 149259364 ("Oportunidades - Este Mês").
+ *
+ * Contagem de negócios por pessoa de BDR/hunter/farmer, com a regra de
+ * pontuação da Stella: negócio marcado como Small Lead vale 0,5 oportunidade;
+ * os demais valem 1.
  */
-async function parcerias(bdrIds, usarSmallLead) {
+const BDR_FARMING = ['2069515993', '83054562', '85322310', '1566756950', '98365645'];
+
+async function parceriasFarming() {
   const p = mesVigente();
   const negocios = await buscarNegocios(
     [
       { propertyName: 'pipeline', operator: 'IN', values: [PIPELINES.COMERCIAL] },
-      { propertyName: 'nome_bdr__hunter__farmer_', operator: 'IN', values: bdrIds },
+      { propertyName: 'nome_bdr__hunter__farmer_', operator: 'IN', values: BDR_FARMING },
       { propertyName: 'data_da_oportunidade', operator: 'BETWEEN', value: p.inicioData, highValue: p.fimData },
     ],
     ['dealname', 'nome_bdr__hunter__farmer_', 'small_lead']
@@ -294,16 +328,12 @@ async function parcerias(bdrIds, usarSmallLead) {
 
   const nomes = await owners();
   const porPessoa = {};
-
   for (const d of negocios) {
     const bdr = d.properties.nome_bdr__hunter__farmer_;
     if (!bdr) continue;
-    let valor = 1;
-    if (usarSmallLead) {
-      const sl = String(d.properties.small_lead || '').toLowerCase();
-      valor = sl === 'true' || sl === 'sim' ? 0.5 : 1;
-    }
-    porPessoa[bdr] = (porPessoa[bdr] || 0) + valor;
+    const sl = String(d.properties.small_lead || '').toLowerCase();
+    const vale = sl === 'true' || sl === 'sim' ? 0.5 : 1;
+    porPessoa[bdr] = (porPessoa[bdr] || 0) + vale;
   }
 
   return Object.entries(porPessoa)
@@ -325,27 +355,19 @@ async function retargeting() {
   return negocios.length;
 }
 
-/** Embarques confirmados no mês. */
+/**
+ * Frete — relatório 168980717 ("Negócios com Embarques Confirmados - mês").
+ *
+ * O recorte é por closedate, não por createdate. Com createdate o painel
+ * mostrava 12 onde o relatório mostrava 14.
+ */
 async function frete() {
   const p = mesVigente();
   const negocios = await buscarNegocios(
     [
       { propertyName: 'pipeline', operator: 'IN', values: [PIPELINES.FRETE] },
       { propertyName: 'dealstage', operator: 'IN', values: [STAGE_EMBARQUE] },
-      { propertyName: 'createdate', operator: 'BETWEEN', value: p.inicioHora, highValue: p.fimHora },
-    ],
-    ['dealname']
-  );
-  return negocios.length;
-}
-
-/** Solicitações de cadastro de câmbio criadas no mês. */
-async function cambio() {
-  const p = mesVigente();
-  const negocios = await buscarNegocios(
-    [
-      { propertyName: 'pipeline', operator: 'IN', values: [PIPELINES.CAMBIO] },
-      { propertyName: 'createdate', operator: 'BETWEEN', value: p.inicioHora, highValue: p.fimHora },
+      { propertyName: 'closedate', operator: 'BETWEEN', value: p.inicioHora, highValue: p.fimHora },
     ],
     ['dealname']
   );
@@ -357,17 +379,14 @@ async function cambio() {
 async function main() {
   const p = mesVigente();
 
-  const [ativados, closing, farmer, hunting, farmingParcerias, retg, frt, cmb] =
-    await Promise.all([
-      ativacoes(),
-      forecastingClosing(),
-      forecastingFarmer(),
-      parcerias(BDR_HUNTING, false),
-      parcerias(BDR_FARMING, true),
-      retargeting(),
-      frete(),
-      cambio(),
-    ]);
+  const [ativados, closing, farmer, farmingParcerias, retg, frt] = await Promise.all([
+    ativacoes(),
+    forecastingClosing(),
+    forecastingFarmer(),
+    parceriasFarming(),
+    retargeting(),
+    frete(),
+  ]);
 
   console.log(JSON.stringify({
     geradoEm: new Date().toISOString(),
@@ -375,10 +394,10 @@ async function main() {
     ativados,
     pipeline: closing,
     forecastingFarmer: farmer,
-    parcerias: { hunting, farming: farmingParcerias },
+    parcerias: { farming: farmingParcerias },
     retargeting: retg,
     frete: frt,
-    cambio: cmb,
+    // Câmbio não entra: a Stella manda esses números uma vez por semana.
   }, null, 2));
 }
 
