@@ -515,41 +515,40 @@
     "city": "São Paulo, SP",
     "lat": -23.5505,
     "lon": -46.6333,
-    "temp": "14°C",
-    "cond": "Pancadas de chuva",
-    "icon": "🌧️",
-    "updatedAt": "—",
-    "rodizio": "Placas final 7 e 8",
-    "trafficUpdatedAt": "24/09",
+    "temp": "17°C",
+    "cond": "Nublado",
+    "icon": "☁️",
+    "rodizio": "Placas final 5 e 6",
+    "trafficUpdatedAt": "23/09",
     "traffic": [
       {
         "name": "Sul",
-        "km": 174,
-        "pct": 33,
+        "km": 125,
+        "pct": 31,
         "level": "bad"
       },
       {
         "name": "Oeste",
-        "km": 148,
-        "pct": 28,
+        "km": 101,
+        "pct": 25,
         "level": "bad"
       },
       {
         "name": "Leste",
-        "km": 89,
-        "pct": 17,
+        "km": 81,
+        "pct": 20,
         "level": "mid"
       },
       {
         "name": "Norte",
-        "km": 71,
+        "km": 54,
         "pct": 13,
         "level": "ok"
       },
       {
         "name": "Centro",
-        "km": 49,
-        "pct": 9,
+        "km": 42,
+        "pct": 10,
         "level": "ok"
       }
     ]
@@ -558,49 +557,48 @@
     "type": "currency",
     "duration": 16000,
     "eyebrow": "Cotação de moedas",
-    "updatedAt": "—",
     "list": [
       {
         "code": "USD",
         "name": "Dólar americano",
         "flag": "🇺🇸",
-        "value": 5.14,
-        "pct": -0.33
+        "value": 5.15,
+        "pct": 0.95
       },
       {
         "code": "EUR",
         "name": "Euro",
         "flag": "🇪🇺",
-        "value": 5.91,
-        "pct": -0.04
+        "value": 5.87,
+        "pct": 0.46
       },
       {
         "code": "GBP",
         "name": "Libra esterlina",
         "flag": "🇬🇧",
-        "value": 6.82,
-        "pct": -1.11
+        "value": 6.83,
+        "pct": 0.36
       },
       {
         "code": "USDT",
         "name": "Tether",
         "flag": "₮",
-        "value": 5,
-        "pct": 0
+        "value": 5.11,
+        "pct": 0.95
       },
       {
         "code": "USDC",
         "name": "USD Coin",
         "flag": "Ⓤ",
-        "value": 5.02,
-        "pct": 0
+        "value": 5.17,
+        "pct": 0.75
       },
       {
         "code": "BTC",
         "name": "Bitcoin",
         "flag": "₿",
-        "value": 435261,
-        "pct": 4.44
+        "value": 433003,
+        "pct": -1.5
       }
     ]
   }

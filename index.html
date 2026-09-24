@@ -1074,11 +1074,11 @@ function renderSlide(s){
             <div class="curr-card">
               <div class="pair"><span class="flag">${c.flag}</span>${c.code} / BRL</div>
               <div class="val">R$ ${valStr}</div>
-              <div class="var ${isUp?'up':'down'}">${isUp?'▲':'▼'} ${Math.abs(c.pct).toFixed(2)}% hoje</div>
+              <div class="var ${isUp?'up':'down'}">${isUp?'▲':'▼'} ${Math.abs(c.pct).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}% hoje</div>
             </div>`;
         }).join('')}
       </div>
-      <div class="curr-updated">Atualizado às ${s.updatedAt}</div>`;
+      ${s.offline ? `<div class="curr-updated">Não foi possível atualizar as cotações agora</div>` : ''}`;
   }
   return '';
 }
@@ -1261,9 +1261,9 @@ async function refreshCurrency(){
   }catch(err){
     console.warn('Falha ao buscar cotação do USDC (CoinGecko):', err);
   }
-  slide.updatedAt = anySuccess
-    ? new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit',timeZone:'America/Sao_Paulo'})
-    : 'exemplo (sem conexão)';
+  // Sem horário no slide: o que importa para quem olha é saber se o número
+  // vale ou não. Se nenhuma das duas fontes respondeu, o painel avisa.
+  slide.offline = !anySuccess;
   if(slides[current].type==='currency') renderCurrent();
 }
 
@@ -1293,7 +1293,6 @@ async function refreshWeather(){
     const [cond, icon] = mapWeatherCode(cw.weathercode);
     slide.cond = cond;
     slide.icon = icon;
-    slide.updatedAt = new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit',timeZone:'America/Sao_Paulo'});
   }catch(err){
     // API indisponível. Em vez de deixar no ar a última temperatura conhecida,
     // que numa TV passa por atual e engana quem olha, o painel assume que não
@@ -1301,7 +1300,6 @@ async function refreshWeather(){
     slide.temp = '—';
     slide.cond = 'Sem conexão com o serviço de clima';
     slide.icon = '📡';
-    slide.updatedAt = 'não foi possível atualizar';
   }
   if(slides[current].type==='weather') renderCurrent();
 }
