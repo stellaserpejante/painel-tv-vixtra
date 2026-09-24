@@ -825,6 +825,34 @@ function isSlideActive(s){
   return true;
 }
 
+// ---------- O PAINEL SE ATUALIZA SOZINHO ----------
+// A TV fica dias com a mesma aba aberta. O data.json ela rebusca de 2 em 2
+// minutos, mas o index.html fica no cache do navegador — então dava para a TV
+// rodar código velho em cima de dados novos. Foi exatamente o que aconteceu
+// quando o rodízio passou a ser calculado aqui dentro: quem estava com a
+// página em cache simplesmente parou de ver o rodízio, sem nenhum aviso.
+//
+// Daqui em diante o painel confere de 5 em 5 minutos se saiu versão nova do
+// próprio arquivo e se recarrega sozinho quando sai.
+//
+// IMPORTANTE: ao mexer no index.html, troque a data/número abaixo. É ela que
+// avisa às telas abertas que existe coisa nova.
+const VERSAO_PAINEL = /* versao-do-painel */ '2026-09-24-01';
+
+async function conferirVersaoDoPainel(){
+  try{
+    const res = await fetch('index.html?t=' + Date.now(), { cache: 'no-store' });
+    if(!res.ok) return;
+    const texto = await res.text();
+    const m = texto.match(/versao-do-painel \*\/ '([^']+)'/);
+    if(m && m[1] !== VERSAO_PAINEL){
+      console.info('Versão nova do painel (' + m[1] + '). Recarregando.');
+      location.reload();
+    }
+  }catch(e){ /* sem rede agora; tenta de novo no próximo ciclo */ }
+}
+setInterval(conferirVersaoDoPainel, 5*60*1000);
+
 // ---------- FONTE DE DADOS (troque aqui para conectar a uma fonte real — ver bloco de comentários acima) ----------
 const DATA_URL = 'data.json';
 async function loadSlidesFromSource(){

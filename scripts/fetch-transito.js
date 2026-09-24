@@ -14,6 +14,21 @@
  * ------------------------------------------------------------------
  */
 
+/**
+ * Rodízio por regra: segunda 1 e 2, terça 3 e 4, quarta 5 e 6, quinta 7 e 8,
+ * sexta 9 e 0, nada no fim de semana. (Feriado suspende, e a conta não sabe.)
+ *
+ * O painel novo calcula isto sozinho na hora de desenhar. Isto aqui existe só
+ * para as telas que ainda estão com uma versão antiga do index.html em cache,
+ * que lê o valor pronto do data.json.
+ */
+function rodizioDeHoje() {
+  const hoje = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' }));
+  const finais = { 1: '1 e 2', 2: '3 e 4', 3: '5 e 6', 4: '7 e 8', 5: '9 e 0' };
+  const f = finais[hoje.getDay()];
+  return f ? `Placas final ${f}` : 'Sem rodízio no fim de semana';
+}
+
 async function fetchTransito() {
   const res = await fetch('https://www.cetsp.com.br/');
   if (!res.ok) throw new Error(`CET-SP retornou HTTP ${res.status}`);
@@ -57,6 +72,8 @@ async function fetchTransito() {
   traffic.sort((a, b) => b.pct - a.pct);
 
   return {
+    // Só para telas com o index.html antigo em cache; o painel novo calcula.
+    rodizio: rodizioDeHoje(),
     // Só a data. Os parenteses e a fonte quem escreve e o painel, senao sai
     // 'Lentidao por regiao (23 de setembro de 2026 (fonte: CET-SP))'.
     trafficUpdatedAt: dataAtualizacao,
