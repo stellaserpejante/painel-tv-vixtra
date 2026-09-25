@@ -1,5 +1,17 @@
 [
   {
+    "type": "celebration",
+    "duration": 16000,
+    "eyebrow": "Nova ativação",
+    "showMonth": false,
+    "who": "Jarbas Vinícius",
+    "client": "Aço Cearense Industrial",
+    "valorAtivado": 5000000,
+    "limiteAprovado": 5200000,
+    "postedAt": "2026-09-25T12:10:32.113Z",
+    "photo": "https://avatars.slack-edge.com/2026-03-30/10807564491522_be0bce2ea9cdd5372e0d_512.png"
+  },
+  {
     "type": "goal",
     "duration": 20000,
     "eyebrow": "Progresso da meta",
@@ -325,15 +337,6 @@
         ]
       }
     ]
-  },
-  {
-    "type": "celebration",
-    "duration": 16000,
-    "eyebrow": "Nova ativação",
-    "who": "Kaio Oliveira",
-    "client": "Eggerding Brasil",
-    "amount": "R$ 472.534,72",
-    "postedAt": "2026-09-15T15:18:10-03:00"
   },
   {
     "type": "birthdays",

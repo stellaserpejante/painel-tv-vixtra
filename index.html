@@ -254,6 +254,72 @@ html,body{
   padding:10px 26px;border-radius:999px;
   background:rgba(45,217,168,0.08);
 }
+/* O sino balança sozinho, como no slide do PowerPoint. */
+.celebrate .sino{
+  font-size:clamp(46px,7vw,86px);
+  transform-origin:50% 12%;
+  animation:sobe .7s cubic-bezier(.2,.8,.2,1) both, badalo 1.6s ease-in-out .7s 6;
+}
+@keyframes badalo{
+  0%,100%{transform:rotate(0deg);}
+  10%{transform:rotate(16deg);} 25%{transform:rotate(-13deg);}
+  40%{transform:rotate(9deg);}  55%{transform:rotate(-6deg);}
+  70%{transform:rotate(3deg);}  85%{transform:rotate(-1deg);}
+}
+/* Entradas em cascata: cada bloco sobe um pouquinho depois do anterior. */
+@keyframes sobe{ from{opacity:0;transform:translateY(26px);} to{opacity:1;transform:translateY(0);} }
+.celebrate .toca,
+.celebrate .headline,
+.celebrate .closer,
+.celebrate .cel-valores{ animation:sobe .7s cubic-bezier(.2,.8,.2,1) both; }
+.celebrate .toca{animation-delay:.15s;}
+.celebrate .headline{animation-delay:.3s;}
+.celebrate .closer{animation-delay:.5s;}
+.celebrate .cel-valores{animation-delay:.7s;}
+
+.celebrate .toca{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:clamp(13px,1.3vw,18px);
+  letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);margin-top:4px;
+}
+.celebrate .closer{
+  display:flex;align-items:center;gap:12px;
+  margin-top:clamp(16px,2.4vh,26px);
+  font-size:clamp(14px,1.4vw,20px);color:var(--muted);
+}
+.celebrate .closer b{color:var(--paper);font-weight:600;}
+.celebrate .closer .foto{
+  width:clamp(38px,3.6vw,50px);height:clamp(38px,3.6vw,50px);
+  border-radius:50%;overflow:hidden;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Big Shoulders Display',sans-serif;font-weight:800;color:#04121a;
+  font-size:clamp(14px,1.2vw,17px);
+}
+.celebrate .closer .foto img{width:100%;height:100%;object-fit:cover;}
+.cel-valores{
+  display:flex;gap:clamp(12px,1.6vw,20px);flex-wrap:wrap;justify-content:center;
+  margin-top:clamp(20px,3vh,30px);
+}
+.cel-chip{
+  border-radius:16px;padding:clamp(12px,1.4vw,18px) clamp(20px,2.4vw,32px);
+  border:1px solid;display:flex;flex-direction:column;gap:4px;min-width:220px;
+}
+.cel-chip .rot{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:clamp(10px,0.9vw,12px);letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--muted);
+}
+.cel-chip .val{
+  font-family:'Big Shoulders Display',sans-serif;font-weight:800;
+  font-size:clamp(28px,3.2vw,46px);line-height:1;
+}
+.cel-chip.destaque{background:rgba(45,217,168,0.10);border-color:rgba(45,217,168,0.35);}
+.cel-chip.destaque .val{color:var(--mint);animation:pulsar 1.8s ease-in-out 1.2s 3;}
+.cel-chip.credito{background:rgba(255,182,39,0.08);border-color:rgba(255,182,39,0.3);}
+.cel-chip.credito .val{color:var(--gold);}
+@keyframes pulsar{ 0%,100%{transform:scale(1);} 50%{transform:scale(1.07);} }
+
 .confetti{position:absolute;top:-20px;border-radius:2px;opacity:0.9;animation:fall linear infinite;}
 @keyframes fall{
   0%{transform:translateY(-40px) rotate(0deg);}
@@ -837,7 +903,7 @@ function isSlideActive(s){
 //
 // IMPORTANTE: ao mexer no index.html, troque a data/número abaixo. É ela que
 // avisa às telas abertas que existe coisa nova.
-const VERSAO_PAINEL = /* versao-do-painel */ '2026-09-24-02';
+const VERSAO_PAINEL = /* versao-do-painel */ '2026-09-25-01';
 
 async function conferirVersaoDoPainel(){
   try{
@@ -989,13 +1055,25 @@ function renderSlide(s){
       <div class="wallet-source">${s.source}</div>`;
   }
   if(s.type==='celebration'){
+    // Layout novo, com os dois valores lado a lado. O `amount` antigo ainda
+    // funciona: se o slide vier só com ele, vira o valor da ativação.
+    const ativado = s.valorAtivado != null ? fmtBRL(s.valorAtivado) : s.amount;
+    const credito = s.limiteAprovado != null ? fmtBRL(s.limiteAprovado) : null;
     return `
       <div class="celebrate">
         ${makeConfetti()}
-        <div class="badge">🎉</div>
+        <div class="sino">🔔</div>
         <div class="eyebrow" style="justify-content:center;">${eyebrowText(s)}</div>
-        <div class="headline"><span class="who">${s.who}</span> ativou a conta ${s.client}</div>
-        <div class="amount">Valor ativado: ${s.amount}</div>
+        <div class="toca">Toca o sino!</div>
+        <div class="headline">${s.client}</div>
+        <div class="closer">
+          <div class="foto" style="background:${avatarBg(s)}">${avatarInner({name:s.who, photo:s.photo})}</div>
+          <span>Ativado por <b>${s.who}</b></span>
+        </div>
+        <div class="cel-valores">
+          <div class="cel-chip destaque"><span class="rot">Valor da ativação</span><span class="val">${ativado}</span></div>
+          ${credito ? `<div class="cel-chip credito"><span class="rot">Limite aprovado</span><span class="val">${credito}</span></div>` : ''}
+        </div>
       </div>`;
   }
   if(s.type==='birthdays'){
