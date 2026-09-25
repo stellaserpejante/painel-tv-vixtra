@@ -9,7 +9,8 @@
     "valorAtivado": 5000000,
     "limiteAprovado": 5200000,
     "postedAt": "2026-09-25T12:10:32.113Z",
-    "photo": "https://avatars.slack-edge.com/2026-03-30/10807564491522_be0bce2ea9cdd5372e0d_512.png"
+    "photo": "https://avatars.slack-edge.com/2026-03-30/10807564491522_be0bce2ea9cdd5372e0d_512.png",
+    "diasVisivel": 7
   },
   {
     "type": "goal",

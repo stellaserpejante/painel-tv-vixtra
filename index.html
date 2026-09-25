@@ -875,14 +875,15 @@ const DEFAULT_SLIDES = [
    ========================================================================== */
 
 // ---------- REGRAS DE EXPIRAÇÃO AUTOMÁTICA ----------
-// Celebração de ativação: fica visível por 24h após a postagem no #celebrations, depois some.
+// Celebração de ativação: 24h após a postagem, e some. Para deixar mais tempo,
+// ponha "diasVisivel" no slide dentro do data.json (7 = uma semana).
 // Novo talento: fica visível por 30 dias após a chegada, depois some.
 // Dá para mudar caso a caso pondo "diasVisivel" no slide dentro do data.json.
 function isSlideActive(s){
   const now = new Date();
   if(s.type==='celebration' && s.postedAt){
-    const hoursSince = (now - new Date(s.postedAt)) / (1000*60*60);
-    return hoursSince <= 24;
+    const horasDesde = (now - new Date(s.postedAt)) / (1000*60*60);
+    return horasDesde <= (s.diasVisivel || 1) * 24;
   }
   if(s.type==='newhire' && s.joinedAt){
     const daysSince = (now - new Date(s.joinedAt+'T00:00:00-03:00')) / (1000*60*60*24);
@@ -903,7 +904,7 @@ function isSlideActive(s){
 //
 // IMPORTANTE: ao mexer no index.html, troque a data/número abaixo. É ela que
 // avisa às telas abertas que existe coisa nova.
-const VERSAO_PAINEL = /* versao-do-painel */ '2026-09-25-01';
+const VERSAO_PAINEL = /* versao-do-painel */ '2026-09-25-02';
 
 async function conferirVersaoDoPainel(){
   try{
