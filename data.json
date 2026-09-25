@@ -168,7 +168,7 @@
     "eyebrow": "Forecasting closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 14745421.93,
+    "quenteTotal": 15025418.77,
     "mornoTotal": 20500000,
     "top3": [
       {
@@ -279,7 +279,7 @@
         "sellers": [
           {
             "name": "Matheus Ferreira",
-            "oportunidades": 10,
+            "oportunidades": 11,
             "color": "var(--coral)",
             "photo": "https://avatars.slack-edge.com/2025-11-18/9940118933413_1a51fa015cf3f9e6ce54_512.jpg",
             "metricLabel": "oportunidades"
@@ -319,7 +319,7 @@
         "sellers": [
           {
             "name": "Gal Silva",
-            "oportunidades": 2,
+            "oportunidades": 0,
             "color": "var(--mint)",
             "photo": "https://avatars.slack-edge.com/2026-07-28/11697637910849_01bfbadc9b3b85d6a7ed_512.jpg",
             "metricLabel": "oportunidades"
