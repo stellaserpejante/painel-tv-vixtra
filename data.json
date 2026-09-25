@@ -5,9 +5,15 @@
     "eyebrow": "Progresso da meta",
     "showMonth": true,
     "metaValor": 17000000,
-    "atual": 0,
-    "clientesAtivados": 0,
-    "clientesLista": []
+    "atual": 7072534.72,
+    "clientesAtivados": 5,
+    "clientesLista": [
+      "Aço Cearense Industrial",
+      "Pneutek",
+      "Ar Fusion Brasil",
+      "Texol Brasil",
+      "Eggerding Brasil Minerais Industriais"
+    ]
   },
   {
     "type": "wallet",
@@ -180,49 +186,11 @@
     "divisions": [
       {
         "name": "Aumento de volume tomado",
-        "sellers": [
-          {
-            "name": "Antonio Mourão",
-            "value": 12692000,
-            "color": "var(--mint)",
-            "photo": "https://avatars.slack-edge.com/2026-08-05/11743803696279_5a4e1f515c3cae4c40d8_512.png"
-          },
-          {
-            "name": "Tiago Viel",
-            "value": 2000000,
-            "color": "var(--sky)",
-            "photo": "https://avatars.slack-edge.com/2026-02-23/10565767228802_f4abc21f076826b0bcda_512.jpg"
-          },
-          {
-            "name": "Carlos Ferrarezi",
-            "value": 600000,
-            "color": "var(--gold)",
-            "photo": "https://avatars.slack-edge.com/2025-11-26/9998285655509_28c200815365935d41eb_512.jpg"
-          }
-        ]
+        "sellers": []
       },
       {
         "name": "Renovação",
-        "sellers": [
-          {
-            "name": "André Vitoretti",
-            "value": 4519000,
-            "color": "var(--coral)",
-            "photo": "https://avatars.slack-edge.com/2024-05-13/7103451712710_5de33c00bd6f9eb06bd1_512.jpg"
-          },
-          {
-            "name": "Carlos Ferrarezi",
-            "value": 3590043,
-            "color": "var(--gold)",
-            "photo": "https://avatars.slack-edge.com/2025-11-26/9998285655509_28c200815365935d41eb_512.jpg"
-          },
-          {
-            "name": "Antonio Mourão",
-            "value": 1769781.18,
-            "color": "var(--mint)",
-            "photo": "https://avatars.slack-edge.com/2026-08-05/11743803696279_5a4e1f515c3cae4c40d8_512.png"
-          }
-        ]
+        "sellers": []
       }
     ]
   },
@@ -234,7 +202,26 @@
     "divisions": [
       {
         "name": "Closing",
-        "sellers": []
+        "sellers": [
+          {
+            "name": "Jarbas Vinícius",
+            "value": 5500000,
+            "deals": 2,
+            "color": "var(--gold)"
+          },
+          {
+            "name": "Guilherme Belotto",
+            "value": 1100000,
+            "deals": 2,
+            "color": "var(--mint)"
+          },
+          {
+            "name": "Kaio Oliveira",
+            "value": 472534.72,
+            "deals": 1,
+            "color": "var(--sky)"
+          }
+        ]
       },
       {
         "name": "Parcerias · Farming",
