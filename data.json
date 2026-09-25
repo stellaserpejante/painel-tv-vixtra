@@ -18,15 +18,9 @@
     "eyebrow": "Progresso da meta",
     "showMonth": true,
     "metaValor": 17000000,
-    "atual": 7072534.72,
-    "clientesAtivados": 5,
-    "clientesLista": [
-      "Aço Cearense Industrial",
-      "Pneutek",
-      "Ar Fusion Brasil",
-      "Texol Brasil",
-      "Eggerding Brasil Minerais Industriais"
-    ]
+    "atual": 0,
+    "clientesAtivados": 0,
+    "clientesLista": []
   },
   {
     "type": "wallet",
@@ -168,8 +162,8 @@
     "eyebrow": "Forecasting closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 15025418.77,
-    "mornoTotal": 20500000,
+    "quenteTotal": 13614418.77,
+    "mornoTotal": 15500000,
     "top3": [
       {
         "name": "Green Place",
@@ -184,8 +178,8 @@
         "owner": "Guilherme Belotto"
       },
       {
-        "name": "Veel Trade - Sociedade Catarinense de Comércio (grupo Cecil)- New Deal",
-        "value": 1411000,
+        "name": "Univel/universal Automotive - Encomenda Prexx - New Deal",
+        "value": 1279996.84,
         "temp": "quente",
         "owner": "Fernando Velloso"
       }
@@ -279,7 +273,7 @@
         "sellers": [
           {
             "name": "Matheus Ferreira",
-            "oportunidades": 11,
+            "oportunidades": 12,
             "color": "var(--coral)",
             "photo": "https://avatars.slack-edge.com/2025-11-18/9940118933413_1a51fa015cf3f9e6ce54_512.jpg",
             "metricLabel": "oportunidades"
@@ -319,7 +313,7 @@
         "sellers": [
           {
             "name": "Gal Silva",
-            "oportunidades": 0,
+            "oportunidades": 2,
             "color": "var(--mint)",
             "photo": "https://avatars.slack-edge.com/2026-07-28/11697637910849_01bfbadc9b3b85d6a7ed_512.jpg",
             "metricLabel": "oportunidades"
