@@ -388,6 +388,12 @@ async function main() {
     frete(),
   ]);
 
+  // Resumo no log da rotina. Sem isto, uma consulta que volta vazia so
+  // aparece quando alguem nota a coluna sumida na TV.
+  console.error(`[${p.ano}-${String(p.mes).padStart(2,"0")}] ativacoes=${ativados.clientesAtivados} ` +
+    `closing=${closing.top3.length} farmer=${Object.entries(farmer).map(([k,v])=>k+":"+v.length).join(",")} ` +
+    `parcerias=${farmingParcerias.length} retargeting=${retg} frete=${frt}`);
+
   console.log(JSON.stringify({
     geradoEm: new Date().toISOString(),
     periodo: `${p.ano}-${String(p.mes).padStart(2, '0')}`,

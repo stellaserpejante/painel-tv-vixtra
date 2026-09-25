@@ -32,14 +32,10 @@
     "type": "wallet",
     "duration": 20000,
     "eyebrow": "Evolução da carteira · Últimos 30 dias",
-    "source": "Fonte: CR2 · série diária de 25/08 a 24/09",
+    "source": "Fonte: CR2 · série diária de 26/08 a 25/09",
     "current": 246880000,
-    "pctChange": 8.38,
+    "pctChange": 8.32,
     "series": [
-      {
-        "t": "25/08",
-        "v": 227800000
-      },
       {
         "t": "26/08",
         "v": 227910000
@@ -159,6 +155,10 @@
       {
         "t": "24/09",
         "v": 246880000
+      },
+      {
+        "t": "25/09",
+        "v": 246880000
       }
     ]
   },
@@ -199,11 +199,44 @@
     "divisions": [
       {
         "name": "Aumento de volume tomado",
-        "sellers": []
+        "sellers": [
+          {
+            "name": "Antonio Mourão",
+            "value": 14116000,
+            "color": "var(--gold)"
+          },
+          {
+            "name": "Tiago Viel",
+            "value": 2000000,
+            "color": "var(--mint)",
+            "photo": "https://avatars.slack-edge.com/2026-02-23/10565767228802_f4abc21f076826b0bcda_512.jpg"
+          },
+          {
+            "name": "Carlos Ferrarezi",
+            "value": 600000,
+            "color": "var(--sky)"
+          }
+        ]
       },
       {
         "name": "Renovação",
-        "sellers": []
+        "sellers": [
+          {
+            "name": "Antonio Mourão",
+            "value": 10343215,
+            "color": "var(--gold)"
+          },
+          {
+            "name": "André Vitoretti",
+            "value": 4519000,
+            "color": "var(--mint)"
+          },
+          {
+            "name": "Carlos Ferrarezi",
+            "value": 3590043,
+            "color": "var(--sky)"
+          }
+        ]
       }
     ]
   },

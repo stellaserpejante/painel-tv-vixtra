@@ -89,6 +89,27 @@ function vestir(pessoas, elenco) {
   });
 }
 
+/**
+ * Troca a lista de uma divisão — mas nunca a esvazia.
+ *
+ * Em 25/09 uma execução voltou do HubSpot com as duas divisões de farmer
+ * vazias e o painel apagou as duas colunas na TV, sem nenhum aviso. Lista
+ * vazia quase sempre é soluço de consulta, não a verdade do mês; e mesmo
+ * quando for verdade, é melhor mostrar o número de ontem do que um branco.
+ * Quando isso acontecer, o log da rotina registra.
+ */
+function aplicarLista(divisao, novos, rotulo, vestirFn) {
+  if (!divisao) return false;
+  if (!Array.isArray(novos) || novos.length === 0) {
+    if ((divisao.sellers || []).length > 0) {
+      console.error(`Aviso: o HubSpot não devolveu ninguém para "${rotulo}". Mantido o que já estava no painel.`);
+    }
+    return false;
+  }
+  divisao.sellers = vestirFn(novos);
+  return true;
+}
+
 /** Troca só o número de uma divisão de uma pessoa só, preservando nome e foto. */
 function atualizarContagem(divisao, valor) {
   if (!divisao || valor == null) return;
@@ -138,13 +159,23 @@ function main() {
     // tomado", "Renovação", "Reativação"), que é o mesmo nome da coluna no
     // painel. Operação que não tenha coluna correspondente simplesmente não
     // aparece — se um dia surgir Reativação, é criar a coluna no data.json.
-    if (hubspot.forecastingFarmer) {
+    // FORECASTING POR FARMER: DESLIGADO DE PROPOSITO (25/09/2026).
+    //
+    // A consulta reproduz o relatorio 347059207 em parte - o total do Andre
+    // Vitoretti bate ao centavo - mas nao no Antonio Mourao: o relatorio da
+    // R$ 10.343.214,95 de renovacao e a consulta, R$ 1.769.781,18. Alguma
+    // etapa do pipeline de farming entra na conta do relatorio e nao na minha.
+    // Ate isso fechar, as duas colunas ficam com os numeros conferidos a mao.
+    // Para religar: trocar false por true aqui.
+    const FARMER_AUTOMATICO = false;
+    if (FARMER_AUTOMATICO && hubspot.forecastingFarmer) {
       const aplicadas = [];
       for (const [operacao, pessoas] of Object.entries(hubspot.forecastingFarmer)) {
         const div = findDivision(slides, operacao);
         if (!div) continue;
-        div.sellers = vestir(pessoas.slice(0, 3), elenco);
-        aplicadas.push(operacao);
+        if (aplicarLista(div, pessoas.slice(0, 3), operacao, (l) => vestir(l, elenco))) {
+          aplicadas.push(operacao);
+        }
       }
       if (aplicadas.length) mudancas.push('forecasting por farmer (' + aplicadas.join(', ') + ')');
     }
@@ -152,8 +183,10 @@ function main() {
     // --- Desempenho: closing -----------------------------------------
     const closing = findDivision(slides, 'Closing');
     if (closing && hubspot.ativados && hubspot.ativados.closers) {
-      closing.sellers = vestir(hubspot.ativados.closers.slice(0, 3), elenco);
-      mudancas.push('ranking de closing');
+      if (aplicarLista(closing, hubspot.ativados.closers.slice(0, 3), 'Closing',
+            (l) => vestir(l, elenco))) {
+        mudancas.push('ranking de closing');
+      }
     }
 
     // --- Desempenho: parcerias ---------------------------------------
@@ -162,9 +195,10 @@ function main() {
     if (hubspot.parcerias && hubspot.parcerias.farming) {
       const farming = findDivision(slides, 'Parcerias · Farming');
       if (farming) {
-        farming.sellers = vestir(hubspot.parcerias.farming.slice(0, 4), elenco)
-          .map((v) => ({ ...v, metricLabel: 'oportunidades' }));
-        mudancas.push('ranking de parcerias');
+        if (aplicarLista(farming, hubspot.parcerias.farming.slice(0, 4), 'Parcerias · Farming',
+              (l) => vestir(l, elenco).map((v) => ({ ...v, metricLabel: 'oportunidades' })))) {
+          mudancas.push('ranking de parcerias');
+        }
       }
     }
 
