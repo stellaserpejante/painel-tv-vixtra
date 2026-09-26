@@ -319,7 +319,7 @@
         "sellers": [
           {
             "name": "Gal Silva",
-            "oportunidades": 0,
+            "oportunidades": 2,
             "color": "var(--mint)",
             "photo": "https://avatars.slack-edge.com/2026-07-28/11697637910849_01bfbadc9b3b85d6a7ed_512.jpg",
             "metricLabel": "oportunidades"
