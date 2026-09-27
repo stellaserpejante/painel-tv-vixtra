@@ -18,9 +18,15 @@
     "eyebrow": "Progresso da meta",
     "showMonth": true,
     "metaValor": 17000000,
-    "atual": 0,
-    "clientesAtivados": 0,
-    "clientesLista": []
+    "atual": 7072534.72,
+    "clientesAtivados": 5,
+    "clientesLista": [
+      "Aço Cearense Industrial",
+      "Pneutek",
+      "Ar Fusion Brasil",
+      "Texol Brasil",
+      "Eggerding Brasil Minerais Industriais"
+    ]
   },
   {
     "type": "wallet",
@@ -313,7 +319,7 @@
         "sellers": [
           {
             "name": "Gal Silva",
-            "oportunidades": 2,
+            "oportunidades": 0,
             "color": "var(--mint)",
             "photo": "https://avatars.slack-edge.com/2026-07-28/11697637910849_01bfbadc9b3b85d6a7ed_512.jpg",
             "metricLabel": "oportunidades"
