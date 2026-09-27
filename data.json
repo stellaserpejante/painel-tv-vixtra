@@ -168,28 +168,9 @@
     "eyebrow": "Forecasting closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 13614418.77,
-    "mornoTotal": 15500000,
-    "top3": [
-      {
-        "name": "Green Place",
-        "value": 5000000,
-        "temp": "quente",
-        "owner": "Cecília Moreira"
-      },
-      {
-        "name": "Munique Comercio e Representacoes",
-        "value": 3000000,
-        "temp": "quente",
-        "owner": "Guilherme Belotto"
-      },
-      {
-        "name": "Univel/universal Automotive - Encomenda Prexx - New Deal",
-        "value": 1279996.84,
-        "temp": "quente",
-        "owner": "Fernando Velloso"
-      }
-    ]
+    "quenteTotal": 0,
+    "mornoTotal": 0,
+    "top3": []
   },
   {
     "type": "ranking",
@@ -319,7 +300,7 @@
         "sellers": [
           {
             "name": "Gal Silva",
-            "oportunidades": 0,
+            "oportunidades": 2,
             "color": "var(--mint)",
             "photo": "https://avatars.slack-edge.com/2026-07-28/11697637910849_01bfbadc9b3b85d6a7ed_512.jpg",
             "metricLabel": "oportunidades"
