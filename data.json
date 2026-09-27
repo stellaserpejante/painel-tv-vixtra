@@ -18,15 +18,9 @@
     "eyebrow": "Progresso da meta",
     "showMonth": true,
     "metaValor": 17000000,
-    "atual": 7072534.72,
-    "clientesAtivados": 5,
-    "clientesLista": [
-      "Aço Cearense Industrial",
-      "Pneutek",
-      "Ar Fusion Brasil",
-      "Texol Brasil",
-      "Eggerding Brasil Minerais Industriais"
-    ]
+    "atual": 0,
+    "clientesAtivados": 0,
+    "clientesLista": []
   },
   {
     "type": "wallet",
