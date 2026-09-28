@@ -159,16 +159,7 @@ function main() {
     // tomado", "Renovação", "Reativação"), que é o mesmo nome da coluna no
     // painel. Operação que não tenha coluna correspondente simplesmente não
     // aparece — se um dia surgir Reativação, é criar a coluna no data.json.
-    // FORECASTING POR FARMER: DESLIGADO DE PROPOSITO (25/09/2026).
-    //
-    // A consulta reproduz o relatorio 347059207 em parte - o total do Andre
-    // Vitoretti bate ao centavo - mas nao no Antonio Mourao: o relatorio da
-    // R$ 10.343.214,95 de renovacao e a consulta, R$ 1.769.781,18. Alguma
-    // etapa do pipeline de farming entra na conta do relatorio e nao na minha.
-    // Ate isso fechar, as duas colunas ficam com os numeros conferidos a mao.
-    // Para religar: trocar false por true aqui.
-    const FARMER_AUTOMATICO = false;
-    if (FARMER_AUTOMATICO && hubspot.forecastingFarmer) {
+    if (hubspot.forecastingFarmer) {
       const aplicadas = [];
       for (const [operacao, pessoas] of Object.entries(hubspot.forecastingFarmer)) {
         const div = findDivision(slides, operacao);
