@@ -98,33 +98,57 @@ const DATE_RETARGETING = 'hs_v2_date_entered_983301662';
 /* Cliente HTTP                                                           */
 /* --------------------------------------------------------------------- */
 
+/**
+ * Busca paginada, com repeticao quando o HubSpot recusa por excesso de
+ * requisicoes.
+ *
+ * ESTE ERA O BUG QUE APAGAVA O PAINEL. A versao anterior fazia `continue` ao
+ * receber 429; como isso pula para a condicao do `do/while` e `after` ainda
+ * era undefined na primeira pagina, o laco terminava e a funcao devolvia uma
+ * lista VAZIA — sem erro, sem aviso. A rotina seguia feliz e gravava o vazio
+ * por cima do painel. Foi o que zerou a meta em 28/09 e o que esvaziou o
+ * forecasting por farmer em 25/09: some uma secao diferente a cada vez,
+ * conforme qual das consultas paralelas levava o 429.
+ *
+ * Agora cada pagina e repetida com espera crescente, e se mesmo assim nao vier,
+ * a funcao levanta erro — a rotina falha alto, em vez de gravar vazio.
+ */
 async function buscarNegocios(filters, properties) {
   const resultados = [];
   let after;
-  do {
+
+  for (;;) {
     const corpo = { filterGroups: [{ filters }], properties, limit: 100 };
     if (after) corpo.after = after;
 
-    const res = await fetch(`${BASE}/crm/v3/objects/deals/search`, {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${TOKEN}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify(corpo),
-    });
+    let pagina = null;
+    for (let tentativa = 1; tentativa <= 6; tentativa++) {
+      const res = await fetch(`${BASE}/crm/v3/objects/deals/search`, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${TOKEN}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify(corpo),
+      });
 
-    if (res.status === 429) {
-      await new Promise((r) => setTimeout(r, 3000));
-      continue;
-    }
-    if (!res.ok) {
+      if (res.ok) { pagina = await res.json(); break; }
+
+      if (res.status === 429 || res.status >= 500) {
+        const espera = 1000 * 2 ** (tentativa - 1);
+        console.error(`HubSpot ${res.status}; repetindo em ${espera}ms (tentativa ${tentativa} de 6)`);
+        await new Promise((r) => setTimeout(r, espera));
+        continue;
+      }
+
       throw new Error(`HubSpot ${res.status}: ${(await res.text()).slice(0, 200)}`);
     }
 
-    const pagina = await res.json();
+    if (!pagina) {
+      throw new Error('O HubSpot recusou a busca em todas as 6 tentativas (limite de requisições).');
+    }
+
     resultados.push(...pagina.results);
     after = pagina.paging && pagina.paging.next && pagina.paging.next.after;
-  } while (after);
-
-  return resultados;
+    if (!after) return resultados;
+  }
 }
 
 let cacheOwners = null;
@@ -379,14 +403,15 @@ async function frete() {
 async function main() {
   const p = mesVigente();
 
-  const [ativados, closing, farmer, farmingParcerias, retg, frt] = await Promise.all([
-    ativacoes(),
-    forecastingClosing(),
-    forecastingFarmer(),
-    parceriasFarming(),
-    retargeting(),
-    frete(),
-  ]);
+  // Uma consulta de cada vez. Em paralelo, as seis estouravam o limite por
+  // segundo da API de busca e alguem levava 429. O trabalho todo leva poucos
+  // segundos de qualquer forma.
+  const ativados = await ativacoes();
+  const closing = await forecastingClosing();
+  const farmer = await forecastingFarmer();
+  const farmingParcerias = await parceriasFarming();
+  const retg = await retargeting();
+  const frt = await frete();
 
   // Resumo no log da rotina. Sem isto, uma consulta que volta vazia so
   // aparece quando alguem nota a coluna sumida na TV.
