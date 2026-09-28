@@ -23,8 +23,8 @@
     "clientesLista": [
       "Aço Cearense Industrial",
       "Pneutek",
+      "Ar Fusion Brasil",
       "Texol Brasil",
-      "AR Fusion Brasil",
       "Eggerding Brasil Minerais Industriais"
     ]
   },
@@ -168,14 +168,14 @@
     "eyebrow": "Forecasting closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 10114418.77,
-    "mornoTotal": 14500000,
+    "quenteTotal": 4579996.84,
+    "mornoTotal": 10000000,
     "top3": [
       {
-        "name": "Green Place",
-        "value": 5000000,
+        "name": "Casa Flora",
+        "value": 1500000,
         "temp": "quente",
-        "owner": "Cecília Moreira"
+        "owner": "Kaio Oliveira"
       },
       {
         "name": "Univel/universal Automotive - Encomenda Prexx - New Deal",
@@ -282,7 +282,7 @@
         "sellers": [
           {
             "name": "Matheus Ferreira",
-            "oportunidades": 17,
+            "oportunidades": 17.5,
             "color": "var(--coral)",
             "photo": "https://avatars.slack-edge.com/2025-11-18/9940118933413_1a51fa015cf3f9e6ce54_512.jpg",
             "metricLabel": "oportunidades"
@@ -296,7 +296,7 @@
           },
           {
             "name": "Raquel Figueiredo",
-            "oportunidades": 2,
+            "oportunidades": 1,
             "color": "var(--sky)",
             "metricLabel": "oportunidades"
           },
@@ -334,7 +334,7 @@
         "sellers": [
           {
             "name": "Luciana Turisco",
-            "oportunidades": 13,
+            "oportunidades": 14,
             "metricLabel": "embarques confirmados",
             "color": "var(--sky)",
             "photo": "https://avatars.slack-edge.com/2026-07-06/11523554386418_8ca4e2220136e060a41f_512.png"
