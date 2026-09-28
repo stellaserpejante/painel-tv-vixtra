@@ -361,11 +361,11 @@
         ],
         "metrics": [
           {
-            "value": "R$ 27.139.640",
+            "value": "R$ 35.395.025",
             "label": "Volume total"
           },
           {
-            "value": "R$ 36.253",
+            "value": "R$ 48.431",
             "label": "Margem Vixtra"
           },
           {
@@ -373,7 +373,7 @@
             "label": "Clientes"
           },
           {
-            "value": "141",
+            "value": "177",
             "label": "Transações"
           }
         ]
