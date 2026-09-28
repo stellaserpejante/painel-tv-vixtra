@@ -168,9 +168,28 @@
     "eyebrow": "Forecasting closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 0,
-    "mornoTotal": 0,
-    "top3": []
+    "quenteTotal": 13614418.77,
+    "mornoTotal": 15500000,
+    "top3": [
+      {
+        "name": "Green Place",
+        "value": 5000000,
+        "temp": "quente",
+        "owner": "Cecília Moreira"
+      },
+      {
+        "name": "Munique Comercio e Representacoes",
+        "value": 3000000,
+        "temp": "quente",
+        "owner": "Guilherme Belotto"
+      },
+      {
+        "name": "Univel/universal Automotive - Encomenda Prexx - New Deal",
+        "value": 1279996.84,
+        "temp": "quente",
+        "owner": "Fernando Velloso"
+      }
+    ]
   },
   {
     "type": "ranking",
