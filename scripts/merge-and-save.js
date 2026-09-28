@@ -151,12 +151,24 @@ function main() {
 
   if (hubspot) {
     // --- Progresso da meta -------------------------------------------
+    // A meta so e reescrita quando a consulta traz ativacao. Zero vindo do
+    // HubSpot quase sempre e soluco de consulta, e zerar a meta na TV no meio
+    // do mes e o pior erro que este painel pode cometer: some o valor ativado,
+    // some a lista de clientes e a barra de progresso volta ao inicio. Se for
+    // zero de verdade (dia 1o do mes, por exemplo), o proprio mes vira e a
+    // primeira ativacao corrige. Quando isso acontecer, fica registrado no log.
     const goal = findSlide(slides, 'goal');
     if (goal && hubspot.ativados) {
-      goal.atual = hubspot.ativados.volumeAtivado;
-      goal.clientesAtivados = hubspot.ativados.clientesAtivados;
-      goal.clientesLista = hubspot.ativados.clientesLista;
-      mudancas.push('meta do mês');
+      const veioVazio = !hubspot.ativados.clientesAtivados;
+      const tinhaDado = goal.clientesAtivados > 0 || goal.atual > 0;
+      if (veioVazio && tinhaDado) {
+        console.error('Aviso: o HubSpot não devolveu nenhuma ativação do mês. Meta mantida como estava.');
+      } else {
+        goal.atual = hubspot.ativados.volumeAtivado;
+        goal.clientesAtivados = hubspot.ativados.clientesAtivados;
+        goal.clientesLista = hubspot.ativados.clientesLista;
+        mudancas.push('meta do mês');
+      }
     }
 
     // --- Forecasting closing -----------------------------------------
