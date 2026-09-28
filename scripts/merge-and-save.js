@@ -58,6 +58,20 @@ const PALETA = ['var(--gold)', 'var(--mint)', 'var(--sky)', 'var(--coral)', '#9B
  */
 function montarElenco(slides) {
   const elenco = {};
+
+  // Base: o cadastro de fotos em fotos.json. Antes o elenco saia so do proprio
+  // data.json, e ai bastava a rotina reescrever um ranking num momento em que
+  // aquela pessoa nao estivesse em nenhuma outra lista para a foto dela sumir
+  // de vez - foi o que aconteceu com os tres closers. Com o cadastro por fora,
+  // a foto sobrevive a qualquer reescrita.
+  try {
+    const cadastro = JSON.parse(fs.readFileSync("fotos.json", "utf-8"));
+    for (const [nome, foto] of Object.entries(cadastro)) {
+      elenco[nome.toLowerCase().trim()] = { photo: foto };
+    }
+  } catch (e) {
+    console.error("Aviso: nao consegui ler fotos.json. As fotos vao sair so do data.json.");
+  }
   const registrar = (p) => {
     if (!p || !p.name) return;
     const chave = String(p.name).toLowerCase().trim();

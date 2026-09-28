@@ -252,19 +252,22 @@
             "name": "Jarbas Vinícius",
             "value": 5500000,
             "deals": 2,
-            "color": "var(--gold)"
+            "color": "var(--gold)",
+            "photo": "https://avatars.slack-edge.com/2026-03-30/10807564491522_be0bce2ea9cdd5372e0d_512.png"
           },
           {
             "name": "Guilherme Belotto",
             "value": 1100000,
             "deals": 2,
-            "color": "var(--mint)"
+            "color": "var(--mint)",
+            "photo": "https://avatars.slack-edge.com/2025-10-28/9780544893907_7bf5d63f04a9c28f15db_512.jpg"
           },
           {
             "name": "Kaio Oliveira",
             "value": 472534.72,
             "deals": 1,
-            "color": "var(--sky)"
+            "color": "var(--sky)",
+            "photo": "https://avatars.slack-edge.com/2024-10-22/7905267593719_af4e22e63399aa29662c_512.jpg"
           }
         ]
       },
