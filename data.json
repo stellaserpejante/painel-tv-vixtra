@@ -224,12 +224,6 @@
         "name": "Renovação",
         "sellers": [
           {
-            "name": "André Vitoretti",
-            "value": 3670000,
-            "color": "var(--mint)",
-            "photo": "https://avatars.slack-edge.com/2024-05-13/7103451712710_5de33c00bd6f9eb06bd1_512.jpg"
-          },
-          {
             "name": "Carlos Ferrarezi",
             "value": 3590043,
             "color": "var(--sky)",
@@ -240,6 +234,12 @@
             "value": 1769781.18,
             "color": "var(--gold)",
             "photo": "https://avatars.slack-edge.com/2026-08-05/11743803696279_5a4e1f515c3cae4c40d8_512.png"
+          },
+          {
+            "name": "André Vitoretti",
+            "value": 800000,
+            "color": "var(--mint)",
+            "photo": "https://avatars.slack-edge.com/2024-05-13/7103451712710_5de33c00bd6f9eb06bd1_512.jpg"
           }
         ]
       }
