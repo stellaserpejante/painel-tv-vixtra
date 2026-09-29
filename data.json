@@ -488,7 +488,7 @@
   {
     "type": "news",
     "duration": 16000,
-    "eyebrow": "Novidades da empresa",
+    "eyebrow": "Radar Vixtra",
     "items": [
       {
         "tag": "aviso",
@@ -499,6 +499,20 @@
         "tag": "credito",
         "title": "Crédito aprovado chega a R$ 8,2M no mês",
         "text": "Soma do limite de crédito aprovado nas ativações de setembro."
+      },
+      {
+        "tag": "evento",
+        "title": "Próximos eventos",
+        "linhas": [
+          {
+            "quando": "30/09",
+            "oque": "Evento co-branded com a Your Capital, em Jundiaí"
+          },
+          {
+            "quando": "10/11",
+            "oque": "Café da manhã com o economista Pérsio Arida — Fasano Itaim, São Paulo"
+          }
+        ]
       }
     ]
   },

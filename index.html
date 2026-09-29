@@ -424,6 +424,14 @@ html,body{
 .news-tag.aviso{background:rgba(155,140,255,0.15);color:#9B8CFF;}
 .news-card h3{font-size:clamp(17px,1.5vw,21px);line-height:1.25;margin-bottom:8px;}
 .news-card p{color:var(--muted);font-size:clamp(13px,1.05vw,15px);line-height:1.45;}
+.news-tag.evento{background:rgba(45,217,168,0.15);color:var(--mint);}
+.news-lista{display:flex;flex-direction:column;gap:10px;}
+.news-lista .linha{display:flex;gap:10px;align-items:baseline;}
+.news-lista .quando{
+  font-family:'IBM Plex Mono',monospace;font-weight:600;
+  font-size:clamp(12px,1vw,14px);color:var(--gold);flex-shrink:0;
+}
+.news-lista .oque{color:var(--muted);font-size:clamp(13px,1.05vw,15px);line-height:1.4;}
 
 /* ===== SLIDE: WEATHER ===== */
 .weather-wrap{display:flex;gap:clamp(32px,6vw,80px);flex-wrap:wrap;align-items:center;}
@@ -904,7 +912,7 @@ function isSlideActive(s){
 //
 // IMPORTANTE: ao mexer no index.html, troque a data/número abaixo. É ela que
 // avisa às telas abertas que existe coisa nova.
-const VERSAO_PAINEL = /* versao-do-painel */ '2026-09-25-02';
+const VERSAO_PAINEL = /* versao-do-painel */ '2026-09-29-01';
 
 async function conferirVersaoDoPainel(){
   try{
@@ -1122,7 +1130,9 @@ function renderSlide(s){
           <div class="news-card">
             <span class="news-tag ${n.tag}">${n.tag}</span>
             <h3>${n.title}</h3>
-            <p>${n.text}</p>
+            ${n.linhas
+              ? `<div class="news-lista">${n.linhas.map(l=>`<div class="linha"><span class="quando">${l.quando}</span><span class="oque">${l.oque}</span></div>`).join('')}</div>`
+              : `<p>${n.text}</p>`}
           </div>`).join('')}
       </div>`;
   }
@@ -1312,17 +1322,13 @@ function buildTicker(){
   const bday = slides.find(s=>s.type==='birthdays');
   const curr = slides.find(s=>s.type==='currency');
   const newhire = slides.find(s=>s.type==='newhire'); // undefined se já passou da janela de exibição
-  const allSellers = slides.find(s=>s.type==='ranking').divisions.flatMap(d=>d.sellers);
-  const sellersComValor = allSellers.filter(v=>v.value);
-  const topSeller = sellersComValor.length ? sellersComValor.reduce((a,b)=> b.value>a.value ? b : a) : null;
   const wallet = slides.find(s=>s.type==='wallet');
   const usd = curr ? curr.list.find(c=>c.code==='USD') : null;
   const falta = goal.metaValor - goal.atual;
   const bits = [
     `🎯 Faltam <b>${fmtBRL(falta)}</b> para bater a meta do mês`,
-    ...(topSeller ? [`🏆 <b>${topSeller.name}</b> lidera o mês com ${fmtBRL(topSeller.value)}`] : []),
     `🔥 <b>${fmtBRL(slides.find(s=>s.type==='funnel').quenteTotal)}</b> em negócios quentes no pipeline de closing`,
-    ...(cel ? [`🎉 <b>${cel.who}</b> ativou <b>${cel.client}</b> — ${cel.amount}`] : []),
+    ...(cel ? [`🎉 <b>${cel.who}</b> ativou <b>${cel.client}</b> — ${cel.valorAtivado != null ? fmtBRL(cel.valorAtivado) : cel.amount}`] : []),
     `🎂 <b>${bday.people.length}</b> aniversários este mês`,
     ...(newhire ? [`👋 Boas-vindas, <b>${newhire.name}</b>!`] : []),
     ...(usd ? [`💵 Dólar a <b>R$ ${usd.value.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</b>`] : []),
