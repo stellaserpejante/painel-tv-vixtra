@@ -512,35 +512,35 @@
     "temp": "20°C",
     "cond": "Nublado",
     "icon": "☁️",
-    "trafficUpdatedAt": "28/09 · 17:37",
+    "trafficUpdatedAt": "28/09 · 23:05",
     "traffic": [
       {
-        "name": "Leste",
-        "km": 159,
-        "pct": 28,
-        "level": "bad"
-      },
-      {
         "name": "Sul",
-        "km": 148,
-        "pct": 26,
+        "km": 7,
+        "pct": 35,
         "level": "bad"
       },
       {
-        "name": "Oeste",
-        "km": 129,
-        "pct": 23,
-        "level": "mid"
+        "name": "Leste",
+        "km": 6,
+        "pct": 30,
+        "level": "bad"
       },
       {
         "name": "Norte",
-        "km": 93,
-        "pct": 17,
+        "km": 4,
+        "pct": 20,
         "level": "mid"
       },
       {
+        "name": "Oeste",
+        "km": 2,
+        "pct": 10,
+        "level": "ok"
+      },
+      {
         "name": "Centro",
-        "km": 30,
+        "km": 1,
         "pct": 5,
         "level": "ok"
       }
