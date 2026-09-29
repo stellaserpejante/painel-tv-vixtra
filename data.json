@@ -523,39 +523,39 @@
     "city": "São Paulo, SP",
     "lat": -23.5505,
     "lon": -46.6333,
-    "temp": "20°C",
-    "cond": "Nublado",
-    "icon": "☁️",
-    "trafficUpdatedAt": "29/09 · 13:33",
+    "temp": "31°C",
+    "cond": "Tempestade",
+    "icon": "⛈️",
+    "trafficUpdatedAt": "29/09 · 14:06",
     "traffic": [
       {
         "name": "Oeste",
-        "km": 112,
-        "pct": 31,
+        "km": 92,
+        "pct": 32,
         "level": "bad"
       },
       {
         "name": "Leste",
-        "km": 84,
-        "pct": 24,
-        "level": "mid"
+        "km": 77,
+        "pct": 26,
+        "level": "bad"
       },
       {
         "name": "Sul",
-        "km": 72,
+        "km": 59,
         "pct": 20,
         "level": "mid"
       },
       {
         "name": "Norte",
-        "km": 53,
-        "pct": 15,
-        "level": "mid"
+        "km": 39,
+        "pct": 13,
+        "level": "ok"
       },
       {
         "name": "Centro",
-        "km": 35,
-        "pct": 10,
+        "km": 25,
+        "pct": 9,
         "level": "ok"
       }
     ],
@@ -570,29 +570,29 @@
         "code": "USD",
         "name": "Dólar americano",
         "flag": "🇺🇸",
-        "value": 5.21,
-        "pct": 0.37
+        "value": 5.24,
+        "pct": 0.27
       },
       {
         "code": "EUR",
         "name": "Euro",
         "flag": "🇪🇺",
         "value": 5.92,
-        "pct": 0.33
+        "pct": -0.26
       },
       {
         "code": "GBP",
         "name": "Libra esterlina",
         "flag": "🇬🇧",
-        "value": 6.9,
-        "pct": 0.56
+        "value": 6.91,
+        "pct": -0.11
       },
       {
         "code": "USDT",
         "name": "Tether",
         "flag": "₮",
-        "value": 5.17,
-        "pct": 0.37
+        "value": 5.2,
+        "pct": 0.27
       },
       {
         "code": "USDC",
@@ -605,8 +605,8 @@
         "code": "BTC",
         "name": "Bitcoin",
         "flag": "₿",
-        "value": 435005,
-        "pct": -1.22
+        "value": 435092,
+        "pct": -0.41
       }
     ]
   }
