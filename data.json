@@ -127,15 +127,16 @@
     "eyebrow": "Progresso da meta",
     "showMonth": true,
     "metaValor": 17000000,
-    "atual": 9452535.56,
-    "clientesAtivados": 8,
+    "atual": 9952539.56,
+    "clientesAtivados": 9,
     "clientesLista": [
       "Aço Cearense Industrial",
-      "Univel / Universal Automotive",
-      "Duplor Comércio de Ferramentas Industriais e Serviços",
+      "Univel/universal Automotive - Encomenda Prexx - New Deal",
+      "Duplor Comercio de Ferramentas Industriais e Servicos",
       "Pneutek",
       "Casa Flora",
-      "AR Fusion Brasil",
+      "Valentin Comercio de Maquinas, Pecas e Solucoes Tecnicas",
+      "Ar Fusion Brasil",
       "Texol Brasil",
       "Eggerding Brasil Minerais Industriais"
     ]
@@ -280,26 +281,26 @@
     "eyebrow": "Forecasting closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 3300000,
+    "quenteTotal": 800000,
     "mornoTotal": 10000000,
     "top3": [
-      {
-        "name": "Casa Flora",
-        "value": 1500000,
-        "temp": "quente",
-        "owner": "Kaio Oliveira"
-      },
-      {
-        "name": "Valentin Comercio de Maquinas, Pecas e Solucoes Tecnicas",
-        "value": 1000000,
-        "temp": "quente",
-        "owner": "Kaio Oliveira"
-      },
       {
         "name": "Cap Trade Brasil Comercio Exterior e Distribuicao Ltd",
         "value": 500000,
         "temp": "quente",
         "owner": "Kaio Oliveira"
+      },
+      {
+        "name": "Kabel Industria e Comercio de Chicotes Eletricos",
+        "value": 300000,
+        "temp": "quente",
+        "owner": "Guilherme Belotto"
+      },
+      {
+        "name": "Integralmedica- Encomenda Trust New Deal",
+        "value": 5000000,
+        "temp": "morno",
+        "owner": "Fernando Velloso"
       }
     ]
   },
@@ -374,6 +375,13 @@
             "photo": "https://avatars.slack-edge.com/2026-03-30/10807564491522_be0bce2ea9cdd5372e0d_512.png"
           },
           {
+            "name": "Kaio Oliveira",
+            "value": 1472542.72,
+            "deals": 3,
+            "color": "var(--sky)",
+            "photo": "https://avatars.slack-edge.com/2024-10-22/7905267593719_af4e22e63399aa29662c_512.jpg"
+          },
+          {
             "name": "Fernando Velloso",
             "value": 1279996.84,
             "deals": 1,
@@ -386,13 +394,6 @@
             "deals": 2,
             "color": "var(--mint)",
             "photo": "https://avatars.slack-edge.com/2025-10-28/9780544893907_7bf5d63f04a9c28f15db_512.jpg"
-          },
-          {
-            "name": "Kaio Oliveira",
-            "value": 972538.72,
-            "deals": 2,
-            "color": "var(--sky)",
-            "photo": "https://avatars.slack-edge.com/2024-10-22/7905267593719_af4e22e63399aa29662c_512.jpg"
           }
         ]
       },
@@ -401,7 +402,7 @@
         "sellers": [
           {
             "name": "Matheus Ferreira",
-            "oportunidades": 18,
+            "oportunidades": 19,
             "color": "var(--coral)",
             "photo": "https://avatars.slack-edge.com/2025-11-18/9940118933413_1a51fa015cf3f9e6ce54_512.jpg",
             "metricLabel": "oportunidades"
@@ -453,7 +454,7 @@
         "sellers": [
           {
             "name": "Luciana Turisco",
-            "oportunidades": 14,
+            "oportunidades": 16,
             "metricLabel": "embarques confirmados",
             "color": "var(--sky)",
             "photo": "https://avatars.slack-edge.com/2026-07-06/11523554386418_8ca4e2220136e060a41f_512.png"
@@ -616,7 +617,7 @@
       },
       {
         "tag": "credito",
-        "title": "Crédito aprovado chega a R$ 15,3M no mês",
+        "title": "Crédito aprovado chega a R$ 19,9M no mês",
         "text": "Soma do limite de crédito aprovado nas ativações de setembro."
       },
       {
