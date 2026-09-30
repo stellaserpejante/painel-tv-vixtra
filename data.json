@@ -26,6 +26,39 @@
     "diasVisivel": 7
   },
   {
+    "type": "evento",
+    "duration": 18000,
+    "eyebrow": "Vixtra Talks",
+    "showMonth": false,
+    "numero": "47",
+    "titulo": "<b>inscritos</b> no primeiro Vixtra Talks",
+    "subtitulo": "Realizado junto com o lançamento do Câmbio em Stablecoin.",
+    "campeao": {
+      "name": "André Vitoretti",
+      "photo": "https://avatars.slack-edge.com/2024-05-13/7103451712710_5de33c00bd6f9eb06bd1_512.jpg",
+      "rotulo": "Campeão de convites",
+      "feito": "Levou os 7 convidados — e os 7 estiveram presentes.",
+      "premio": "🏅 R$ 100 de saldo no Flash"
+    },
+    "podio": [
+      {
+        "name": "André Vitoretti",
+        "photo": "https://avatars.slack-edge.com/2024-05-13/7103451712710_5de33c00bd6f9eb06bd1_512.jpg",
+        "quantos": 7
+      },
+      {
+        "name": "Franklin Santos",
+        "photo": "https://avatars.slack-edge.com/2026-08-26/11918136261217_c2a6d290c69afacafab5_512.jpg",
+        "quantos": 6
+      },
+      {
+        "name": "Antonio Mourão",
+        "photo": "https://avatars.slack-edge.com/2026-08-05/11743803696279_5a4e1f515c3cae4c40d8_512.png",
+        "quantos": 5
+      }
+    ]
+  },
+  {
     "type": "goal",
     "duration": 20000,
     "eyebrow": "Progresso da meta",

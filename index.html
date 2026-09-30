@@ -331,6 +331,49 @@ html,body{
   100%{transform:translateY(115vh) rotate(360deg);}
 }
 
+/* ===== SLIDE: EVENTO (Vixtra Talks) ===== */
+.evento-topo{display:flex;align-items:baseline;gap:clamp(16px,2.4vw,30px);flex-wrap:wrap;}
+.evento-num{
+  font-family:'Big Shoulders Display',sans-serif;font-weight:900;
+  font-size:clamp(56px,8vw,128px);line-height:0.95;color:var(--gold);
+}
+.evento-topo .oque{font-size:clamp(16px,1.7vw,24px);line-height:1.25;max-width:640px;}
+.evento-topo .oque b{color:var(--paper);}
+.evento-sub{color:var(--muted);font-size:clamp(13px,1.15vw,17px);margin-top:6px;}
+.evento-corpo{
+  display:flex;gap:clamp(24px,4vw,56px);align-items:center;flex-wrap:wrap;
+  margin-top:clamp(20px,3vh,32px);
+}
+.evento-campeao{display:flex;align-items:center;gap:clamp(16px,2.4vw,28px);}
+.evento-campeao .rotulo{
+  font-family:'IBM Plex Mono',monospace;font-size:clamp(11px,0.95vw,13px);
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);
+}
+.evento-campeao .nome{
+  font-family:'Big Shoulders Display',sans-serif;font-weight:800;
+  font-size:clamp(28px,3.4vw,50px);line-height:1.05;
+}
+.evento-campeao .feito{color:var(--muted);font-size:clamp(13px,1.1vw,16px);margin-top:6px;max-width:340px;line-height:1.4;}
+.evento-premio{
+  display:inline-block;margin-top:12px;
+  background:rgba(255,182,39,0.10);border:1px solid rgba(255,182,39,0.3);
+  color:var(--gold);border-radius:999px;padding:7px 16px;
+  font-family:'IBM Plex Mono',monospace;font-size:clamp(12px,1vw,14px);
+}
+.podio{display:flex;flex-direction:column;gap:10px;flex:1;min-width:300px;}
+.podio-linha{
+  display:flex;align-items:center;gap:12px;
+  background:var(--panel);border:1px solid var(--panel-line);
+  border-radius:14px;padding:10px 16px;
+}
+.podio-linha .medalha{font-size:clamp(20px,1.9vw,26px);flex-shrink:0;}
+.podio-linha .nome{flex:1;font-weight:600;font-size:clamp(13px,1.15vw,16px);}
+.podio-linha .quantos{
+  font-family:'Big Shoulders Display',sans-serif;font-weight:800;
+  font-size:clamp(16px,1.5vw,21px);color:var(--gold);flex-shrink:0;
+}
+.podio-linha .quantos span{font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:0.62em;color:var(--muted);margin-left:5px;}
+
 /* ===== SLIDE: BIRTHDAYS ===== */
 .grid-people{
   display:flex;gap:clamp(16px,2.4vw,28px);flex-wrap:wrap;margin-top:8px;
@@ -894,6 +937,8 @@ const DEFAULT_SLIDES = [
 // Dá para mudar caso a caso pondo "diasVisivel" no slide dentro do data.json.
 function isSlideActive(s){
   const now = new Date();
+  // Qualquer slide pode trazer "visivelAte" (data ISO) e sair de cena sozinho.
+  if(s.visivelAte && now > new Date(s.visivelAte + 'T23:59:59-03:00')) return false;
   if(s.type==='celebration' && s.postedAt){
     const horasDesde = (now - new Date(s.postedAt)) / (1000*60*60);
     return horasDesde <= (s.diasVisivel || 1) * 24;
@@ -917,7 +962,7 @@ function isSlideActive(s){
 //
 // IMPORTANTE: ao mexer no index.html, troque a data/número abaixo. É ela que
 // avisa às telas abertas que existe coisa nova.
-const VERSAO_PAINEL = /* versao-do-painel */ '2026-09-30-01';
+const VERSAO_PAINEL = /* versao-do-painel */ '2026-09-30-02';
 
 async function conferirVersaoDoPainel(){
   try{
@@ -1087,6 +1132,39 @@ function renderSlide(s){
         <div class="cel-valores">
           <div class="cel-chip destaque"><span class="rot">Valor da ativação</span><span class="val">${ativado}</span></div>
           ${credito ? `<div class="cel-chip credito"><span class="rot">Limite aprovado</span><span class="val">${credito}</span></div>` : ''}
+        </div>
+      </div>`;
+  }
+  if(s.type==='evento'){
+    const medalhas = ['🥇','🥈','🥉'];
+    return `
+      <div class="eyebrow">${eyebrowText(s)}</div>
+      <div class="evento-topo">
+        <div class="evento-num">${s.numero}</div>
+        <div>
+          <div class="oque">${s.titulo}</div>
+          ${s.subtitulo ? `<div class="evento-sub">${s.subtitulo}</div>` : ''}
+        </div>
+      </div>
+      <div class="evento-corpo">
+        ${s.campeao ? `
+          <div class="evento-campeao">
+            <div class="avatar-big" style="${s.campeao.photo ? 'background:transparent' : ''}">${avatarInner(s.campeao)}</div>
+            <div>
+              <div class="rotulo">${s.campeao.rotulo || 'Campeão'}</div>
+              <div class="nome">${s.campeao.name}</div>
+              <div class="feito">${s.campeao.feito}</div>
+              ${s.campeao.premio ? `<div class="evento-premio">${s.campeao.premio}</div>` : ''}
+            </div>
+          </div>` : ''}
+        <div class="podio">
+          ${(s.podio || []).map((p,i)=>`
+            <div class="podio-linha">
+              <span class="medalha">${medalhas[i] || ''}</span>
+              <div class="mini-avatar" style="background:${avatarBg(p)}">${avatarInner(p)}</div>
+              <span class="nome">${p.name}</span>
+              <span class="quantos">${p.quantos}<span>${p.quantos === 1 ? 'convidado' : 'convidados'}</span></span>
+            </div>`).join('')}
         </div>
       </div>`;
   }
