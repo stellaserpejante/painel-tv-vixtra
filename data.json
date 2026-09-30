@@ -4,6 +4,29 @@
     "duration": 16000,
     "eyebrow": "Nova ativação",
     "showMonth": false,
+    "who": "Kaio Oliveira",
+    "client": "Casa Flora",
+    "valorAtivado": 500004,
+    "limiteAprovado": 4900000,
+    "pessoas": [
+      {
+        "name": "Kaio Oliveira",
+        "photo": "https://avatars.slack-edge.com/2024-10-22/7905267593719_af4e22e63399aa29662c_512.jpg"
+      },
+      {
+        "name": "Cecília Moreira",
+        "photo": "https://avatars.slack-edge.com/2026-07-29/11703020069281_8682c109240963407884_512.jpg"
+      }
+    ],
+    "postedAt": "2026-09-30T19:57:08.251Z",
+    "diasVisivel": 7,
+    "photo": "https://avatars.slack-edge.com/2024-10-22/7905267593719_af4e22e63399aa29662c_512.jpg"
+  },
+  {
+    "type": "celebration",
+    "duration": 16000,
+    "eyebrow": "Nova ativação",
+    "showMonth": false,
     "who": "Fernando Velloso",
     "client": "Univel / Universal Automotive",
     "valorAtivado": 1279996.84,
@@ -104,14 +127,15 @@
     "eyebrow": "Progresso da meta",
     "showMonth": true,
     "metaValor": 17000000,
-    "atual": 8952531.56,
-    "clientesAtivados": 7,
+    "atual": 9452535.56,
+    "clientesAtivados": 8,
     "clientesLista": [
       "Aço Cearense Industrial",
-      "Univel/universal Automotive - Encomenda Prexx - New Deal",
-      "Duplor Comercio de Ferramentas Industriais e Servicos",
+      "Univel / Universal Automotive",
+      "Duplor Comércio de Ferramentas Industriais e Serviços",
       "Pneutek",
-      "Ar Fusion Brasil",
+      "Casa Flora",
+      "AR Fusion Brasil",
       "Texol Brasil",
       "Eggerding Brasil Minerais Industriais"
     ]
@@ -585,7 +609,7 @@
       },
       {
         "tag": "credito",
-        "title": "Crédito aprovado chega a R$ 10,4M no mês",
+        "title": "Crédito aprovado chega a R$ 15,3M no mês",
         "text": "Soma do limite de crédito aprovado nas ativações de setembro."
       },
       {
