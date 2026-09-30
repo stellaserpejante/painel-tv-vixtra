@@ -108,10 +108,10 @@
     "clientesAtivados": 7,
     "clientesLista": [
       "Aço Cearense Industrial",
-      "Univel / Universal Automotive",
-      "Duplor Comércio de Ferramentas Industriais e Serviços",
+      "Univel/universal Automotive - Encomenda Prexx - New Deal",
+      "Duplor Comercio de Ferramentas Industriais e Servicos",
       "Pneutek",
-      "AR Fusion Brasil",
+      "Ar Fusion Brasil",
       "Texol Brasil",
       "Eggerding Brasil Minerais Industriais"
     ]
@@ -256,7 +256,7 @@
     "eyebrow": "Forecasting closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 4579996.84,
+    "quenteTotal": 3300000,
     "mornoTotal": 10000000,
     "top3": [
       {
@@ -266,14 +266,14 @@
         "owner": "Kaio Oliveira"
       },
       {
-        "name": "Univel/universal Automotive - Encomenda Prexx - New Deal",
-        "value": 1279996.84,
-        "temp": "quente",
-        "owner": "Fernando Velloso"
-      },
-      {
         "name": "Valentin Comercio de Maquinas, Pecas e Solucoes Tecnicas",
         "value": 1000000,
+        "temp": "quente",
+        "owner": "Kaio Oliveira"
+      },
+      {
+        "name": "Cap Trade Brasil Comercio Exterior e Distribuicao Ltd",
+        "value": 500000,
         "temp": "quente",
         "owner": "Kaio Oliveira"
       }
