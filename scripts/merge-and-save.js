@@ -200,7 +200,9 @@ function main() {
     // --- Desempenho: closing -----------------------------------------
     const closing = findDivision(slides, 'Closing');
     if (closing && hubspot.ativados && hubspot.ativados.closers) {
-      if (aplicarLista(closing, hubspot.ativados.closers.slice(0, 3), 'Closing',
+      // Ate cinco: cortar em tres escondia quem ativou no mes, que e
+      // exatamente o contrario do que este card existe para fazer.
+      if (aplicarLista(closing, hubspot.ativados.closers.slice(0, 5), 'Closing',
             (l) => vestir(l, elenco))) {
         mudancas.push('ranking de closing');
       }

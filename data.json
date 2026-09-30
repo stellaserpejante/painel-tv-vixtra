@@ -386,6 +386,13 @@
             "deals": 2,
             "color": "var(--mint)",
             "photo": "https://avatars.slack-edge.com/2025-10-28/9780544893907_7bf5d63f04a9c28f15db_512.jpg"
+          },
+          {
+            "name": "Kaio Oliveira",
+            "value": 972538.72,
+            "deals": 2,
+            "color": "var(--sky)",
+            "photo": "https://avatars.slack-edge.com/2024-10-22/7905267593719_af4e22e63399aa29662c_512.jpg"
           }
         ]
       },
