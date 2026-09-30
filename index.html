@@ -239,6 +239,11 @@ html,body{
   line-height:1.02;
   max-width:1100px;
 }
+/* Razao social longa cabe encolhendo a manchete, nao quebrando em tres linhas
+   e empurrando o sino e os valores para fora da tela. O renderer escolhe a
+   faixa pelo tamanho do nome, entao vale para qualquer ativacao futura. */
+.celebrate .headline.medio{font-size:clamp(32px,4.9vw,74px);max-width:1180px;}
+.celebrate .headline.compacto{font-size:clamp(26px,3.7vw,56px);max-width:1240px;line-height:1.08;}
 .celebrate .headline .who{color:var(--gold);}
 .celebrate .sub{
   margin-top:16px;
@@ -912,7 +917,7 @@ function isSlideActive(s){
 //
 // IMPORTANTE: ao mexer no index.html, troque a data/número abaixo. É ela que
 // avisa às telas abertas que existe coisa nova.
-const VERSAO_PAINEL = /* versao-do-painel */ '2026-09-29-01';
+const VERSAO_PAINEL = /* versao-do-painel */ '2026-09-30-01';
 
 async function conferirVersaoDoPainel(){
   try{
@@ -1074,7 +1079,7 @@ function renderSlide(s){
         <div class="sino">🔔</div>
         <div class="eyebrow" style="justify-content:center;">${eyebrowText(s)}</div>
         <div class="toca">Toca o sino!</div>
-        <div class="headline">${s.client}</div>
+        <div class="headline ${s.client.length > 45 ? 'compacto' : s.client.length > 26 ? 'medio' : ''}">${s.client}</div>
         <div class="closer">
           <div class="foto" style="background:${avatarBg(s)}">${avatarInner({name:s.who, photo:s.photo})}</div>
           <span>Ativado por <b>${s.who}</b></span>
