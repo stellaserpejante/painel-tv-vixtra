@@ -10,7 +10,17 @@
     "limiteAprovado": 600000,
     "postedAt": "2026-09-30T14:32:41.835Z",
     "diasVisivel": 7,
-    "photo": "https://avatars.slack-edge.com/2026-03-30/10807564491522_be0bce2ea9cdd5372e0d_512.png"
+    "photo": "https://avatars.slack-edge.com/2026-03-30/10807564491522_be0bce2ea9cdd5372e0d_512.png",
+    "pessoas": [
+      {
+        "name": "Jarbas Vinícius",
+        "photo": "https://avatars.slack-edge.com/2026-03-30/10807564491522_be0bce2ea9cdd5372e0d_512.png"
+      },
+      {
+        "name": "Cecília Moreira",
+        "photo": "https://avatars.slack-edge.com/2026-07-29/11703020069281_8682c109240963407884_512.jpg"
+      }
+    ]
   },
   {
     "type": "celebration",
@@ -23,7 +33,13 @@
     "limiteAprovado": 5200000,
     "postedAt": "2026-09-25T12:10:32.113Z",
     "photo": "https://avatars.slack-edge.com/2026-03-30/10807564491522_be0bce2ea9cdd5372e0d_512.png",
-    "diasVisivel": 7
+    "diasVisivel": 7,
+    "pessoas": [
+      {
+        "name": "Jarbas Vinícius",
+        "photo": "https://avatars.slack-edge.com/2026-03-30/10807564491522_be0bce2ea9cdd5372e0d_512.png"
+      }
+    ]
   },
   {
     "type": "evento",
