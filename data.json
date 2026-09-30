@@ -81,12 +81,13 @@
     "eyebrow": "Progresso da meta",
     "showMonth": true,
     "metaValor": 17000000,
-    "atual": 7072534.72,
-    "clientesAtivados": 5,
+    "atual": 7672534.72,
+    "clientesAtivados": 6,
     "clientesLista": [
       "Aço Cearense Industrial",
+      "Duplor Comércio de Ferramentas Industriais e Serviços",
       "Pneutek",
-      "Ar Fusion Brasil",
+      "AR Fusion Brasil",
       "Texol Brasil",
       "Eggerding Brasil Minerais Industriais"
     ]
@@ -319,8 +320,8 @@
         "sellers": [
           {
             "name": "Jarbas Vinícius",
-            "value": 5500000,
-            "deals": 2,
+            "value": 6100000,
+            "deals": 3,
             "color": "var(--gold)",
             "photo": "https://avatars.slack-edge.com/2026-03-30/10807564491522_be0bce2ea9cdd5372e0d_512.png"
           },
