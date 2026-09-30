@@ -4,6 +4,29 @@
     "duration": 16000,
     "eyebrow": "Nova ativação",
     "showMonth": false,
+    "who": "Fernando Velloso",
+    "client": "Univel / Universal Automotive",
+    "valorAtivado": 1279996.84,
+    "limiteAprovado": 2200000,
+    "pessoas": [
+      {
+        "name": "Fernando Velloso",
+        "photo": "https://avatars.slack-edge.com/2026-08-28/11929341580899_ad448f83f67214a68488_512.jpg"
+      },
+      {
+        "name": "Jarbas Vinícius",
+        "photo": "https://avatars.slack-edge.com/2026-03-30/10807564491522_be0bce2ea9cdd5372e0d_512.png"
+      }
+    ],
+    "postedAt": "2026-09-30T18:50:33.222Z",
+    "diasVisivel": 7,
+    "photo": "https://avatars.slack-edge.com/2026-08-28/11929341580899_ad448f83f67214a68488_512.jpg"
+  },
+  {
+    "type": "celebration",
+    "duration": 16000,
+    "eyebrow": "Nova ativação",
+    "showMonth": false,
     "who": "Jarbas Vinícius",
     "client": "Duplor Comércio de Ferramentas Industriais e Serviços",
     "valorAtivado": 600000,
@@ -81,10 +104,11 @@
     "eyebrow": "Progresso da meta",
     "showMonth": true,
     "metaValor": 17000000,
-    "atual": 7672534.72,
-    "clientesAtivados": 6,
+    "atual": 8952531.56,
+    "clientesAtivados": 7,
     "clientesLista": [
       "Aço Cearense Industrial",
+      "Univel / Universal Automotive",
       "Duplor Comércio de Ferramentas Industriais e Serviços",
       "Pneutek",
       "AR Fusion Brasil",
@@ -326,18 +350,18 @@
             "photo": "https://avatars.slack-edge.com/2026-03-30/10807564491522_be0bce2ea9cdd5372e0d_512.png"
           },
           {
+            "name": "Fernando Velloso",
+            "value": 1279996.84,
+            "deals": 1,
+            "color": "var(--mint)",
+            "photo": "https://avatars.slack-edge.com/2026-08-28/11929341580899_ad448f83f67214a68488_512.jpg"
+          },
+          {
             "name": "Guilherme Belotto",
             "value": 1100000,
             "deals": 2,
             "color": "var(--mint)",
             "photo": "https://avatars.slack-edge.com/2025-10-28/9780544893907_7bf5d63f04a9c28f15db_512.jpg"
-          },
-          {
-            "name": "Kaio Oliveira",
-            "value": 472534.72,
-            "deals": 1,
-            "color": "var(--sky)",
-            "photo": "https://avatars.slack-edge.com/2024-10-22/7905267593719_af4e22e63399aa29662c_512.jpg"
           }
         ]
       },
@@ -561,7 +585,7 @@
       },
       {
         "tag": "credito",
-        "title": "Crédito aprovado chega a R$ 8,2M no mês",
+        "title": "Crédito aprovado chega a R$ 10,4M no mês",
         "text": "Soma do limite de crédito aprovado nas ativações de setembro."
       },
       {
