@@ -281,26 +281,26 @@
     "eyebrow": "Forecasting closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 800000,
-    "mornoTotal": 10000000,
+    "quenteTotal": 6945421.93,
+    "mornoTotal": 50250000,
     "top3": [
       {
-        "name": "Cap Trade Brasil Comercio Exterior e Distribuicao Ltd",
-        "value": 500000,
-        "temp": "quente",
-        "owner": "Kaio Oliveira"
-      },
-      {
-        "name": "Kabel Industria e Comercio de Chicotes Eletricos",
-        "value": 300000,
+        "name": "Munique Comercio e Representacoes",
+        "value": 3000000,
         "temp": "quente",
         "owner": "Guilherme Belotto"
       },
       {
-        "name": "Integralmedica- Encomenda Trust New Deal",
-        "value": 5000000,
-        "temp": "morno",
+        "name": "Veel Trade - Soc. Catarinense de Comércio (grupo Cecil) - New Deal",
+        "value": 1411000,
+        "temp": "quente",
         "owner": "Fernando Velloso"
+      },
+      {
+        "name": "Xp - (technogym) Panthera Leo Equipamentos",
+        "value": 1000000,
+        "temp": "quente",
+        "owner": "Kaio Oliveira"
       }
     ]
   },
@@ -442,7 +442,7 @@
         "sellers": [
           {
             "name": "Gal Silva",
-            "oportunidades": 2,
+            "oportunidades": 0,
             "color": "var(--mint)",
             "photo": "https://avatars.slack-edge.com/2026-07-28/11697637910849_01bfbadc9b3b85d6a7ed_512.jpg",
             "metricLabel": "oportunidades"
@@ -454,7 +454,7 @@
         "sellers": [
           {
             "name": "Luciana Turisco",
-            "oportunidades": 16,
+            "oportunidades": 0,
             "metricLabel": "embarques confirmados",
             "color": "var(--sky)",
             "photo": "https://avatars.slack-edge.com/2026-07-06/11523554386418_8ca4e2220136e060a41f_512.png"
