@@ -646,25 +646,25 @@
     "temp": "31°C",
     "cond": "Tempestade",
     "icon": "⛈️",
-    "trafficUpdatedAt": "30/09 · 22:21",
+    "trafficUpdatedAt": "01/10 · 06:08",
     "traffic": [
       {
-        "name": "Leste",
-        "km": 18,
-        "pct": 35,
+        "name": "Sul",
+        "km": 19,
+        "pct": 37,
         "level": "bad"
       },
       {
-        "name": "Sul",
-        "km": 18,
-        "pct": 35,
+        "name": "Leste",
+        "km": 14,
+        "pct": 27,
         "level": "bad"
       },
       {
         "name": "Norte",
-        "km": 7,
-        "pct": 14,
-        "level": "ok"
+        "km": 8,
+        "pct": 16,
+        "level": "mid"
       },
       {
         "name": "Oeste",
@@ -674,12 +674,12 @@
       },
       {
         "name": "Centro",
-        "km": 2,
-        "pct": 4,
+        "km": 4,
+        "pct": 8,
         "level": "ok"
       }
     ],
-    "rodizio": "Placas final 5 e 6"
+    "rodizio": "Placas final 7 e 8"
   },
   {
     "type": "currency",
