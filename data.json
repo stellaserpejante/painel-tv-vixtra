@@ -5,6 +5,29 @@
     "eyebrow": "Nova ativação",
     "showMonth": false,
     "who": "Kaio Oliveira",
+    "client": "Valentin Comércio de Máquinas, Peças e Soluções Técnicas",
+    "valorAtivado": 500004,
+    "limiteAprovado": 4000000,
+    "pessoas": [
+      {
+        "name": "Kaio Oliveira",
+        "photo": "https://avatars.slack-edge.com/2024-10-22/7905267593719_af4e22e63399aa29662c_512.jpg"
+      },
+      {
+        "name": "Cecília Moreira",
+        "photo": "https://avatars.slack-edge.com/2026-07-29/11703020069281_8682c109240963407884_512.jpg"
+      }
+    ],
+    "postedAt": "2026-10-01T12:38:28.743Z",
+    "diasVisivel": 7,
+    "photo": "https://avatars.slack-edge.com/2024-10-22/7905267593719_af4e22e63399aa29662c_512.jpg"
+  },
+  {
+    "type": "celebration",
+    "duration": 16000,
+    "eyebrow": "Nova ativação",
+    "showMonth": false,
+    "who": "Kaio Oliveira",
     "client": "Casa Flora",
     "valorAtivado": 500004,
     "limiteAprovado": 4900000,
@@ -432,7 +455,8 @@
       {
         "name": "José Macfarland",
         "date": "22/10",
-        "color": "var(--sky)"
+        "color": "var(--sky)",
+        "photo": "https://avatars.slack-edge.com/2024-06-14/7301894758352_5a83e1eddd5e7403ea1b_original.jpg"
       },
       {
         "name": "Franklin Santos",
