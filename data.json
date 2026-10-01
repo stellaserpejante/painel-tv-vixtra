@@ -295,7 +295,7 @@
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
     "quenteTotal": 6945421.93,
-    "mornoTotal": 50250000,
+    "mornoTotal": 52750000,
     "top3": [
       {
         "name": "Munique Comercio e Representacoes",
@@ -329,7 +329,14 @@
       },
       {
         "name": "Renovação",
-        "sellers": []
+        "sellers": [
+          {
+            "name": "André Vitoretti",
+            "value": 211000,
+            "color": "var(--gold)",
+            "photo": "https://avatars.slack-edge.com/2024-05-13/7103451712710_5de33c00bd6f9eb06bd1_512.jpg"
+          }
+        ]
       }
     ]
   },
