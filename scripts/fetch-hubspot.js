@@ -257,7 +257,13 @@ async function forecastingClosing() {
       { propertyName: 'pipeline', operator: 'IN', values: [PIPELINES.COMERCIAL] },
       { propertyName: 'dealstage', operator: 'IN', values: ['983479985', '983479986', '983479987', '1268615190'] },
       { propertyName: 'macro_canal', operator: 'IN', values: ['Direto', 'Farming', 'Parceirias', 'Trading'] },
-      { propertyName: 'hubspot_owner_id', operator: 'IN', values: ['746504206', '19342453', '1115600915', '252246912', '1411261526', '84532627', '89091132', '2069515993'] },
+      // O relatorio tem DOIS grupos de filtro, unidos por OU, e as listas de
+      // dono nao sao iguais: o primeiro grupo tem nove donos e o segundo, oito.
+      // Como os grupos sao OU, vale a uniao — ou seja, os nove. Faltava aqui o
+      // 98520710 (Josemir Sousa, que entrou no time em setembro), e com ele
+      // sumiam tres negocios mornos de outubro: MKRAFT (400k), IKIGAI (500k) e
+      // MACLER (600k). Exatamente os R$ 1,5 mi que o painel mostrava a menos.
+      { propertyName: 'hubspot_owner_id', operator: 'IN', values: ['746504206', '19342453', '1115600915', '252246912', '1411261526', '84532627', '89091132', '2069515993', '98520710'] },
       { propertyName: 'closedate', operator: 'BETWEEN', value: p.inicioHora, highValue: p.fimHora },
     ],
     ['dealname', 'amount', 'temperatura_do_negocio', 'closedate', 'hubspot_owner_id']
