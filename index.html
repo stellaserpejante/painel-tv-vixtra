@@ -741,10 +741,10 @@ html,body{
 
 <script>
 // ---------- MÊS VIGENTE (calculado a partir da data real — nunca precisa editar na mão) ----------
-const MES_ATUAL = (() => {
+function mesAtual(){
   const nome = new Date().toLocaleDateString('pt-BR', {month:'long', timeZone:'America/Sao_Paulo'});
   return nome.charAt(0).toUpperCase() + nome.slice(1);
-})();
+}
 
 // ---------- DADOS PADRÃO (usados na primeira carga; depois disso, o storage manda) ----------
 const DEFAULT_SLIDES = [
@@ -976,7 +976,7 @@ function isSlideActive(s){
 //
 // IMPORTANTE: ao mexer no index.html, troque a data/número abaixo. É ela que
 // avisa às telas abertas que existe coisa nova.
-const VERSAO_PAINEL = /* versao-do-painel */ '2026-09-30-04';
+const VERSAO_PAINEL = /* versao-do-painel */ '2026-10-01-01';
 
 async function conferirVersaoDoPainel(){
   try{
@@ -1069,11 +1069,26 @@ function rodizioDeHoje(){
 }
 
 function eyebrowText(s){
-  return s.showMonth ? `${s.eyebrow} · ${MES_ATUAL}` : s.eyebrow;
+  return s.showMonth ? `${s.eyebrow} · ${mesAtual()}` : s.eyebrow;
 }
 
 function renderSlide(s){
   if(s.type==='goal'){
+    // Meta do mes ainda nao definida: mostrar o que ja foi ativado sem
+    // inventar um percentual (0/0 virava "NaN%" na tela).
+    if(!s.metaValor){
+      return `
+      <div class="eyebrow">${eyebrowText(s)}</div>
+      <div class="goal-num" style="font-size:clamp(28px,3.4vw,46px)">Meta do mês a definir</div>
+      <div class="goal-sub">assim que a meta for fechada, a barra de progresso volta</div>
+      <div class="tiles-row">
+        <div class="tile"><div class="n">${fmtBRL(s.atual||0)}</div><div class="l">Valor ativado</div></div>
+        <div class="tile"><div class="n">${s.clientesAtivados||0}</div><div class="l">Clientes ativados</div></div>
+      </div>
+      <div class="clientes-lista">
+        ${(s.clientesLista||[]).map(c=>`<span class="client-chip">${c}</span>`).join('')}
+      </div>`;
+    }
     const pct = Math.round((s.atual/s.metaValor)*100);
     const falta = s.metaValor - s.atual;
     return `
