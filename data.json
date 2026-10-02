@@ -352,7 +352,15 @@
       },
       {
         "name": "Parcerias · Farming",
-        "sellers": []
+        "sellers": [
+          {
+            "name": "Matheus Ferreira",
+            "oportunidades": 1,
+            "color": "var(--gold)",
+            "photo": "https://avatars.slack-edge.com/2025-11-18/9940118933413_1a51fa015cf3f9e6ce54_512.jpg",
+            "metricLabel": "oportunidades"
+          }
+        ]
       }
     ]
   },
