@@ -981,7 +981,7 @@ function isSlideActive(s){
 //
 // IMPORTANTE: ao mexer no index.html, troque a data/número abaixo. É ela que
 // avisa às telas abertas que existe coisa nova.
-const VERSAO_PAINEL = /* versao-do-painel */ '2026-10-05-01';
+const VERSAO_PAINEL = /* versao-do-painel */ '2026-10-05-02';
 
 async function conferirVersaoDoPainel(){
   try{
@@ -1367,7 +1367,10 @@ function initials(name){
 
 // Retorna o conteúdo do avatar: foto real (Slack) se disponível, senão iniciais
 function avatarInner(p){
-  return p.photo ? `<img src="${p.photo}" alt="${p.name}" loading="lazy">` : initials(p.name);
+  // A imagem nao pode ser preguicosa: o slide so entra no DOM quando chega a
+  // vez dele, e o navegador concluia que a foto ainda nao era necessaria — ela
+  // ficava em branco para sempre. Sao poucas imagens; carregar e barato.
+  return p.photo ? `<img src="${p.photo}" alt="${p.name}" decoding="async">` : initials(p.name);
 }
 // Retorna a cor de fundo do avatar: só é usada quando não há foto (fica atrás das iniciais)
 function avatarBg(p){
