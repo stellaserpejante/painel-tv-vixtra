@@ -111,6 +111,44 @@
     ]
   },
   {
+    "type": "newhire",
+    "duration": 16000,
+    "eyebrow": "Novo talento no time",
+    "name": "Joana Lopes",
+    "role": "Specialist Commercial | Partnership",
+    "fatos": [
+      {
+        "rotulo": "Curiosidade:",
+        "texto": "é apaixonada por Fórmula 1 e adora acompanhar as corridas."
+      },
+      {
+        "rotulo": "Hobby:",
+        "texto": "ler, correr e fazer exercício — e passar horas numa cafeteria com um café e um livro."
+      }
+    ],
+    "photo": "fotos/joana-lopes.jpg",
+    "visivelAte": "2026-10-12"
+  },
+  {
+    "type": "newhire",
+    "duration": 16000,
+    "eyebrow": "Novo talento no time",
+    "name": "Juliane Gadi",
+    "role": "Senior Commercial Analyst | Retarget",
+    "fatos": [
+      {
+        "rotulo": "Curiosidade:",
+        "texto": "já teve 2 lojas de lingerie em shopping, aos 27 anos e com um bebê de 9 meses."
+      },
+      {
+        "rotulo": "Hobby:",
+        "texto": "ir para a academia e fazer pilates."
+      }
+    ],
+    "photo": "https://avatars.slack-edge.com/2026-10-05/12234002000721_ac6e03726475db01e092_original.jpg",
+    "visivelAte": "2026-10-12"
+  },
+  {
     "type": "evento",
     "duration": 18000,
     "eyebrow": "Vixtra Talks",

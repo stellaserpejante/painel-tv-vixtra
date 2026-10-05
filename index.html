@@ -465,6 +465,11 @@ html,body{
   margin-top:16px;font-size:clamp(15px,1.5vw,20px);
   color:var(--muted);max-width:560px;font-style:italic;
 }
+.spotlight .fato{
+  margin-top:14px;font-size:clamp(14px,1.35vw,19px);
+  color:var(--muted);max-width:620px;line-height:1.45;
+}
+.spotlight .fato b{color:var(--paper);font-weight:600;}
 
 /* ===== SLIDE: NEWS ===== */
 .news-row{display:flex;gap:clamp(16px,2.2vw,26px);flex-wrap:wrap;}
@@ -976,7 +981,7 @@ function isSlideActive(s){
 //
 // IMPORTANTE: ao mexer no index.html, troque a data/número abaixo. É ela que
 // avisa às telas abertas que existe coisa nova.
-const VERSAO_PAINEL = /* versao-do-painel */ '2026-10-01-01';
+const VERSAO_PAINEL = /* versao-do-painel */ '2026-10-05-01';
 
 async function conferirVersaoDoPainel(){
   try{
@@ -1231,14 +1236,20 @@ function renderSlide(s){
       </div>`;
   }
   if(s.type==='newhire'){
+    // "fatos" e uma lista de {rotulo, texto} — Curiosidade, Hobby, o que vier.
+    // Sem ela, cai no "quote" de antes. E a data de chegada so aparece se existir.
+    const corpo = (s.fatos && s.fatos.length)
+      ? s.fatos.map(f=>`<div class="fato"><b>${f.rotulo}</b> ${f.texto}</div>`).join('')
+      : (s.quote ? `<div class="quote">${s.quote}</div>` : '');
+    const cargo = [s.role, s.joined].filter(Boolean).join(' · ');
     return `
       <div class="eyebrow">${eyebrowText(s)}</div>
       <div class="spotlight">
         <div class="avatar-big" style="${s.photo ? 'background:transparent' : ''}">${avatarInner(s)}</div>
         <div>
           <div class="goal-num" style="font-size:clamp(30px,4vw,54px)">${s.name}</div>
-          <div class="role">${s.role} · ${s.joined}</div>
-          <div class="quote">${s.quote}</div>
+          <div class="role">${cargo}</div>
+          ${corpo}
         </div>
       </div>`;
   }
@@ -1441,7 +1452,7 @@ function buildTicker(){
   const cel = slides.find(s=>s.type==='celebration'); // undefined se já passou de 24h
   const bday = slides.find(s=>s.type==='birthdays');
   const curr = slides.find(s=>s.type==='currency');
-  const newhire = slides.find(s=>s.type==='newhire'); // undefined se já passou da janela de exibição
+  const novatos = slides.filter(s=>s.type==='newhire'); // vazio se já passou da janela de exibição
   const wallet = slides.find(s=>s.type==='wallet');
   const usd = curr ? curr.list.find(c=>c.code==='USD') : null;
   const falta = goal.metaValor - goal.atual;
@@ -1450,7 +1461,7 @@ function buildTicker(){
     `🔥 <b>${fmtBRL(slides.find(s=>s.type==='funnel').quenteTotal)}</b> em negócios quentes no pipeline de closing`,
     ...(cel ? [`🎉 <b>${cel.who}</b> ativou <b>${cel.client}</b> — ${cel.valorAtivado != null ? fmtBRL(cel.valorAtivado) : cel.amount}`] : []),
     `🎂 <b>${bday.people.length}</b> aniversários este mês`,
-    ...(newhire ? [`👋 Boas-vindas, <b>${newhire.name}</b>!`] : []),
+    ...(novatos.length ? [`👋 Boas-vindas, ${novatos.map(n=>`<b>${n.name}</b>`).join(' e ')}!`] : []),
     ...(usd ? [`💵 Dólar a <b>R$ ${usd.value.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</b>`] : []),
     ...(wallet ? [`📈 Carteira em <b>${fmtBRL(Math.round(wallet.current))}</b>`] : []),
   ];
