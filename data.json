@@ -332,14 +332,14 @@
     "eyebrow": "Forecasting closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 8245421.93,
-    "mornoTotal": 58250000,
+    "quenteTotal": 5911000,
+    "mornoTotal": 52450000,
     "top3": [
       {
-        "name": "Munique Comercio e Representacoes",
-        "value": 3000000,
+        "name": "Vila Porto International Business",
+        "value": 2000000,
         "temp": "quente",
-        "owner": "Guilherme Belotto"
+        "owner": "Kaio Oliveira"
       },
       {
         "name": "Veel Trade - Soc. Catarinense de Comércio (grupo Cecil) - New Deal",
@@ -348,10 +348,10 @@
         "owner": "Fernando Velloso"
       },
       {
-        "name": "Xp - (technogym) Panthera Leo Equipamentos",
+        "name": "Kabel Industria e Comercio de Chicotes Eletricos",
         "value": 1000000,
         "temp": "quente",
-        "owner": "Kaio Oliveira"
+        "owner": "Guilherme Belotto"
       }
     ]
   },
@@ -363,14 +363,27 @@
     "divisions": [
       {
         "name": "Aumento de volume tomado",
-        "sellers": []
+        "sellers": [
+          {
+            "name": "André Vitoretti",
+            "value": 1470000,
+            "color": "var(--gold)",
+            "photo": "https://avatars.slack-edge.com/2024-05-13/7103451712710_5de33c00bd6f9eb06bd1_512.jpg"
+          },
+          {
+            "name": "Tiago Viel",
+            "value": 1000000,
+            "color": "var(--mint)",
+            "photo": "https://avatars.slack-edge.com/2026-02-23/10565767228802_f4abc21f076826b0bcda_512.jpg"
+          }
+        ]
       },
       {
         "name": "Renovação",
         "sellers": [
           {
             "name": "André Vitoretti",
-            "value": 211000,
+            "value": 1145808.75,
             "color": "var(--gold)",
             "photo": "https://avatars.slack-edge.com/2024-05-13/7103451712710_5de33c00bd6f9eb06bd1_512.jpg"
           }
