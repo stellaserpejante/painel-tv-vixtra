@@ -371,7 +371,14 @@ async function parceriasFarming() {
     .sort((a, b) => b.oportunidades - a.oportunidades);
 }
 
-/** Retargeting: recorte por time, data de entrada na etapa. */
+/**
+ * Retargeting: recorte por time, data de entrada na etapa.
+ *
+ * Antes devolvia so a contagem do mes, e o painel tinha um nome fixo escrito
+ * no data.json para pendurar esse numero. Agora devolve a lista de donos das
+ * oportunidades, igual as outras colunas: quem aparece na TV e quem de fato
+ * tem oportunidade no mes, sem ninguem precisar editar nome na mao.
+ */
 async function retargeting() {
   const p = mesVigente();
   const negocios = await buscarNegocios(
@@ -380,9 +387,20 @@ async function retargeting() {
       { propertyName: 'hubspot_team_id', operator: 'IN', values: [TEAM_RETARGETING] },
       { propertyName: DATE_RETARGETING, operator: 'BETWEEN', value: p.inicioHora, highValue: p.fimHora },
     ],
-    ['dealname']
+    ['dealname', 'hubspot_owner_id']
   );
-  return negocios.length;
+
+  const nomes = await owners();
+  const porPessoa = {};
+  for (const d of negocios) {
+    const dono = d.properties.hubspot_owner_id;
+    if (!dono) continue;
+    porPessoa[dono] = (porPessoa[dono] || 0) + 1;
+  }
+
+  return Object.entries(porPessoa)
+    .map(([id, v]) => ({ name: nomes[id] || `Owner ${id}`, oportunidades: v }))
+    .sort((a, b) => b.oportunidades - a.oportunidades);
 }
 
 /**
@@ -423,7 +441,7 @@ async function main() {
   // aparece quando alguem nota a coluna sumida na TV.
   console.error(`[${p.ano}-${String(p.mes).padStart(2,"0")}] ativacoes=${ativados.clientesAtivados} ` +
     `closing=${closing.top3.length} farmer=${Object.entries(farmer).map(([k,v])=>k+":"+v.length).join(",")} ` +
-    `parcerias=${farmingParcerias.length} retargeting=${retg} frete=${frt}`);
+    `parcerias=${farmingParcerias.length} retargeting=${retg.length} frete=${frt}`);
 
   console.log(JSON.stringify({
     geradoEm: new Date().toISOString(),

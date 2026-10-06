@@ -224,7 +224,19 @@ function main() {
     // --- Desempenho: retargeting, frete e câmbio ----------------------
     // Aqui o HubSpot devolve só a contagem do mês; os nomes e as fotos de
     // quem responde por cada frente continuam vindo do data.json.
-    atualizarContagem(findDivision(slides, 'Retargeting'), hubspot.retargeting);
+    // Retargeting vem como lista de donos: quem aparece na TV e quem tem
+    // oportunidade no mes. Sem oportunidade nenhuma, a coluna fica vazia e o
+    // painel escreve "Em apuracao" — melhor do que um nome fixo com zero.
+    const retg = findDivision(slides, 'Retargeting');
+    if (retg && Array.isArray(hubspot.retargeting)) {
+      if (hubspot.retargeting.length) {
+        retg.sellers = vestir(hubspot.retargeting.slice(0, 4), elenco)
+          .map((v) => ({ ...v, metricLabel: 'oportunidades' }));
+      } else {
+        retg.sellers = [];
+      }
+    }
+    // Frete continua por contagem: a coluna mostra uma pessoa so, fixa.
     atualizarContagem(findDivision(slides, 'Frete'), hubspot.frete);
     // Câmbio não entra aqui: a divisão mostra quatro métricas próprias
     // (volume, margem, clientes, transações) e não uma contagem de negócios.

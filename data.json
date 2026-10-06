@@ -423,15 +423,7 @@
     "divisions": [
       {
         "name": "Retargeting",
-        "sellers": [
-          {
-            "name": "Gal Silva",
-            "oportunidades": 0,
-            "color": "var(--mint)",
-            "photo": "https://avatars.slack-edge.com/2026-07-28/11697637910849_01bfbadc9b3b85d6a7ed_512.jpg",
-            "metricLabel": "oportunidades"
-          }
-        ]
+        "sellers": []
       },
       {
         "name": "Frete",
@@ -607,10 +599,6 @@
         "tag": "evento",
         "title": "Próximos eventos",
         "linhas": [
-          {
-            "quando": "30/09",
-            "oque": "Evento co-branded com a Your Capital, em Jundiaí"
-          },
           {
             "quando": "10/11",
             "oque": "Café da manhã com o economista Pérsio Arida — Fasano Itaim, São Paulo"
