@@ -211,9 +211,11 @@
     "eyebrow": "Progresso da meta",
     "showMonth": true,
     "metaValor": 0,
-    "atual": 0,
-    "clientesAtivados": 0,
-    "clientesLista": []
+    "atual": 500000,
+    "clientesAtivados": 1,
+    "clientesLista": [
+      "Cap Trade Brasil Comercio Exterior e Distribuicao Ltd"
+    ]
   },
   {
     "type": "wallet",
@@ -355,8 +357,8 @@
     "eyebrow": "Forecasting closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 5911000,
-    "mornoTotal": 56950000,
+    "quenteTotal": 6011000,
+    "mornoTotal": 56350000,
     "top3": [
       {
         "name": "Vila Porto International Business",
@@ -422,7 +424,15 @@
     "divisions": [
       {
         "name": "Closing",
-        "sellers": []
+        "sellers": [
+          {
+            "name": "Kaio Oliveira",
+            "value": 500000,
+            "deals": 1,
+            "color": "var(--coral)",
+            "photo": "https://avatars.slack-edge.com/2024-10-22/7905267593719_af4e22e63399aa29662c_512.jpg"
+          }
+        ]
       },
       {
         "name": "Parcerias · Farming",
@@ -621,7 +631,7 @@
       },
       {
         "tag": "credito",
-        "title": "Crédito aprovado chega a R$ 0,0M no mês",
+        "title": "Crédito aprovado chega a R$ 0,5M no mês",
         "text": "Soma do limite de crédito aprovado nas ativações de setembro."
       },
       {
