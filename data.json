@@ -5,6 +5,29 @@
     "eyebrow": "Nova ativação",
     "showMonth": false,
     "who": "Kaio Oliveira",
+    "client": "Cap Trade Brasil Comércio Exterior e Distribuição",
+    "valorAtivado": 500000,
+    "limiteAprovado": 500000,
+    "pessoas": [
+      {
+        "name": "Kaio Oliveira",
+        "photo": "https://avatars.slack-edge.com/2024-10-22/7905267593719_af4e22e63399aa29662c_512.jpg"
+      },
+      {
+        "name": "Cecília Moreira",
+        "photo": "https://avatars.slack-edge.com/2026-07-29/11703020069281_8682c109240963407884_512.jpg"
+      }
+    ],
+    "postedAt": "2026-10-06T20:22:30.825Z",
+    "diasVisivel": 7,
+    "photo": "https://avatars.slack-edge.com/2024-10-22/7905267593719_af4e22e63399aa29662c_512.jpg"
+  },
+  {
+    "type": "celebration",
+    "duration": 16000,
+    "eyebrow": "Nova ativação",
+    "showMonth": false,
+    "who": "Kaio Oliveira",
     "client": "Valentin Comércio de Máquinas, Peças e Soluções Técnicas",
     "valorAtivado": 500004,
     "limiteAprovado": 4000000,
