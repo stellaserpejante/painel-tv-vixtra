@@ -438,16 +438,16 @@
         "name": "Parcerias · Farming",
         "sellers": [
           {
+            "name": "Raquel Figueiredo",
+            "oportunidades": 2,
+            "color": "var(--sky)",
+            "metricLabel": "oportunidades"
+          },
+          {
             "name": "Matheus Ferreira",
             "oportunidades": 1,
             "color": "var(--gold)",
             "photo": "https://avatars.slack-edge.com/2025-11-18/9940118933413_1a51fa015cf3f9e6ce54_512.jpg",
-            "metricLabel": "oportunidades"
-          },
-          {
-            "name": "Raquel Figueiredo",
-            "oportunidades": 1,
-            "color": "var(--sky)",
             "metricLabel": "oportunidades"
           }
         ]
@@ -469,7 +469,7 @@
         "sellers": [
           {
             "name": "Luciana Turisco",
-            "oportunidades": 13,
+            "oportunidades": 21,
             "metricLabel": "embarques confirmados",
             "color": "var(--sky)",
             "photo": "https://avatars.slack-edge.com/2026-07-06/11523554386418_8ca4e2220136e060a41f_512.png"
