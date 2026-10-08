@@ -357,9 +357,15 @@
     "eyebrow": "Forecasting closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 6011000,
-    "mornoTotal": 56350000,
+    "quenteTotal": 10511000,
+    "mornoTotal": 51850000,
     "top3": [
+      {
+        "name": "Siqueira Campos Importacao e Distribuicao",
+        "value": 4500000,
+        "temp": "quente",
+        "owner": "Guilherme Belotto"
+      },
       {
         "name": "Vila Porto International Business",
         "value": 2000000,
@@ -371,12 +377,6 @@
         "value": 1411000,
         "temp": "quente",
         "owner": "Fernando Velloso"
-      },
-      {
-        "name": "Kabel Industria e Comercio de Chicotes Eletricos",
-        "value": 1000000,
-        "temp": "quente",
-        "owner": "Guilherme Belotto"
       }
     ]
   },
@@ -469,7 +469,7 @@
         "sellers": [
           {
             "name": "Luciana Turisco",
-            "oportunidades": 21,
+            "oportunidades": 25,
             "metricLabel": "embarques confirmados",
             "color": "var(--sky)",
             "photo": "https://avatars.slack-edge.com/2026-07-06/11523554386418_8ca4e2220136e060a41f_512.png"
