@@ -381,7 +381,7 @@
     "eyebrow": "Forecasting closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 5411000,
+    "quenteTotal": 6411000,
     "mornoTotal": 51850000,
     "top3": [
       {
@@ -415,7 +415,7 @@
         "sellers": [
           {
             "name": "André Vitoretti",
-            "value": 1470000,
+            "value": 2970000,
             "color": "var(--gold)",
             "photo": "https://avatars.slack-edge.com/2024-05-13/7103451712710_5de33c00bd6f9eb06bd1_512.jpg"
           },
@@ -424,6 +424,12 @@
             "value": 1000000,
             "color": "var(--mint)",
             "photo": "https://avatars.slack-edge.com/2026-02-23/10565767228802_f4abc21f076826b0bcda_512.jpg"
+          },
+          {
+            "name": "Antonio Mourão",
+            "value": 1000000,
+            "color": "var(--sky)",
+            "photo": "https://avatars.slack-edge.com/2026-08-05/11743803696279_5a4e1f515c3cae4c40d8_512.png"
           }
         ]
       },
