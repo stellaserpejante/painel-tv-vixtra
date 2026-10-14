@@ -693,37 +693,37 @@
     "temp": "24°C",
     "cond": "Pancadas de chuva",
     "icon": "🌧️",
-    "trafficUpdatedAt": "14/10 · 10:52",
+    "trafficUpdatedAt": "14/10 · 15:44",
     "traffic": [
       {
         "name": "Oeste",
-        "km": 127,
-        "pct": 30,
-        "level": "bad"
-      },
-      {
-        "name": "Leste",
-        "km": 107,
+        "km": 108,
         "pct": 25,
         "level": "bad"
       },
       {
-        "name": "Sul",
-        "km": 93,
-        "pct": 22,
+        "name": "Leste",
+        "km": 101,
+        "pct": 23,
         "level": "mid"
       },
       {
-        "name": "Norte",
-        "km": 63,
-        "pct": 15,
+        "name": "Sul",
+        "km": 83,
+        "pct": 19,
         "level": "mid"
       },
       {
         "name": "Centro",
-        "km": 37,
-        "pct": 9,
-        "level": "ok"
+        "km": 73,
+        "pct": 17,
+        "level": "mid"
+      },
+      {
+        "name": "Norte",
+        "km": 69,
+        "pct": 16,
+        "level": "mid"
       }
     ],
     "rodizio": "Placas final 5 e 6"
