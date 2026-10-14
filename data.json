@@ -234,9 +234,10 @@
     "eyebrow": "Progresso da meta",
     "showMonth": true,
     "metaValor": 13000000,
-    "atual": 1040000,
-    "clientesAtivados": 2,
+    "atual": 1879319.4300000002,
+    "clientesAtivados": 3,
     "clientesLista": [
+      "Piloto Xp - Total Comercio de Importacao e Exportacao",
       "Lion Packing",
       "Cap Trade Brasil Comercio Exterior e Distribuicao"
     ]
@@ -381,7 +382,7 @@
     "eyebrow": "Forecasting closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 9411000,
+    "quenteTotal": 8411000,
     "mornoTotal": 43850000,
     "top3": [
       {
@@ -457,8 +458,8 @@
         "sellers": [
           {
             "name": "Jarbas Vinícius",
-            "value": 540000,
-            "deals": 1,
+            "value": 1379319.4300000002,
+            "deals": 2,
             "color": "var(--gold)",
             "photo": "https://avatars.slack-edge.com/2026-03-30/10807564491522_be0bce2ea9cdd5372e0d_512.png"
           },
@@ -668,7 +669,7 @@
       },
       {
         "tag": "credito",
-        "title": "Crédito aprovado chega a R$ 1,1M no mês",
+        "title": "Crédito aprovado chega a R$ 2,1M no mês",
         "text": "Soma do limite de crédito aprovado nas ativações de setembro."
       },
       {
