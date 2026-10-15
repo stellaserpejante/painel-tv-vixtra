@@ -461,6 +461,12 @@
             "value": 1145808.75,
             "color": "var(--gold)",
             "photo": "https://avatars.slack-edge.com/2024-05-13/7103451712710_5de33c00bd6f9eb06bd1_512.jpg"
+          },
+          {
+            "name": "Carlos Ferrarezi",
+            "value": 862303.76,
+            "color": "var(--mint)",
+            "photo": "https://avatars.slack-edge.com/2025-11-26/9998285655509_28c200815365935d41eb_512.jpg"
           }
         ]
       }
@@ -526,7 +532,7 @@
         "sellers": [
           {
             "name": "Luciana Turisco",
-            "oportunidades": 36,
+            "oportunidades": 38,
             "metricLabel": "embarques confirmados",
             "color": "var(--sky)",
             "photo": "https://avatars.slack-edge.com/2026-07-06/11523554386418_8ca4e2220136e060a41f_512.png"
