@@ -187,7 +187,7 @@ const temp = (v) => String(v || '').replace(/\s*\(.*\)\s*$/, '').trim().toLowerC
  */
 function nomeDeCliente(bruto) {
   let n = String(bruto || '').trim();
-  n = n.replace(/\s*[-–]\s*(cr[ée]dito|c[âa]mbio|frete|conta de c[âa]mbio).*$/i, '');
+  n = n.replace(/\s*[-–]\s*(cr[ée]dito|c[âa]mbio|frete|conta de c[âa]mbio|new deal).*$/i, '');
   // 'ltd' sem o A acontece no CRM (CAP TRADE ... DISTRIBUICAO LTD) e sobrava
   // um 'Ltd' solto no fim do nome na TV.
   n = n.replace(/\s*\b(ltda|ltd|s\.?\s?a\.?|me|epp|eireli|s\/a)\b\.?\s*$/i, '');

@@ -4,6 +4,29 @@
     "duration": 16000,
     "eyebrow": "Nova ativação",
     "showMonth": false,
+    "who": "Guilherme Belotto",
+    "client": "Siqueira Campos Importação e Distribuição",
+    "valorAtivado": 5000000,
+    "limiteAprovado": 5000000,
+    "pessoas": [
+      {
+        "name": "Guilherme Belotto",
+        "photo": "https://avatars.slack-edge.com/2025-10-28/9780544893907_7bf5d63f04a9c28f15db_512.jpg"
+      },
+      {
+        "name": "Matheus Ferreira",
+        "photo": "https://avatars.slack-edge.com/2025-11-18/9940118933413_1a51fa015cf3f9e6ce54_512.jpg"
+      }
+    ],
+    "postedAt": "2026-10-16T13:12:54.709Z",
+    "diasVisivel": 7,
+    "photo": "https://avatars.slack-edge.com/2025-10-28/9780544893907_7bf5d63f04a9c28f15db_512.jpg"
+  },
+  {
+    "type": "celebration",
+    "duration": 16000,
+    "eyebrow": "Nova ativação",
+    "showMonth": false,
     "who": "Jarbas Vinícius",
     "client": "Total Comércio de Importação e Exportação",
     "valorAtivado": 839319.43,
@@ -260,7 +283,7 @@
     "atual": 6879319.43,
     "clientesAtivados": 4,
     "clientesLista": [
-      "Siqueira Campos Importacao e Distribuicao Ltda- New Deal",
+      "Siqueira Campos Importacao e Distribuicao",
       "Piloto Xp - Total Comercio de Importacao e Exportacao",
       "Lion Packing",
       "Cap Trade Brasil Comercio Exterior e Distribuicao"
@@ -270,37 +293,33 @@
     "type": "wallet",
     "duration": 20000,
     "eyebrow": "Evolução da carteira · Últimos 30 dias",
-    "source": "Fonte: CR2 · série diária de 15/09 a 15/10",
-    "current": 247890000,
-    "pctChange": 1.7,
+    "source": "Fonte: CR2 · série diária de 16/09 a 16/10",
+    "current": 248390000,
+    "pctChange": 1.11,
     "series": [
       {
-        "t": "15/09",
-        "v": 243740000
-      },
-      {
         "t": "16/09",
-        "v": 245520000
+        "v": 245670000
       },
       {
         "t": "17/09",
-        "v": 248610000
+        "v": 248630000
       },
       {
         "t": "18/09",
-        "v": 247600000
+        "v": 247610000
       },
       {
         "t": "19/09",
-        "v": 247590000
+        "v": 247600000
       },
       {
         "t": "20/09",
-        "v": 247590000
+        "v": 247600000
       },
       {
         "t": "21/09",
-        "v": 246080000
+        "v": 246090000
       },
       {
         "t": "22/09",
@@ -308,27 +327,27 @@
       },
       {
         "t": "23/09",
-        "v": 246800000
+        "v": 246770000
       },
       {
         "t": "24/09",
-        "v": 252080000
+        "v": 252050000
       },
       {
         "t": "25/09",
-        "v": 253570000
+        "v": 253580000
       },
       {
         "t": "26/09",
-        "v": 253140000
+        "v": 253580000
       },
       {
         "t": "27/09",
-        "v": 253150000
+        "v": 253190000
       },
       {
         "t": "28/09",
-        "v": 253110000
+        "v": 253160000
       },
       {
         "t": "29/09",
@@ -336,11 +355,11 @@
       },
       {
         "t": "30/09",
-        "v": 253080000
+        "v": 253110000
       },
       {
         "t": "01/10",
-        "v": 253080000
+        "v": 253130000
       },
       {
         "t": "02/10",
@@ -356,11 +375,11 @@
       },
       {
         "t": "05/10",
-        "v": 252310000
+        "v": 252320000
       },
       {
         "t": "06/10",
-        "v": 252780000
+        "v": 252860000
       },
       {
         "t": "07/10",
@@ -368,7 +387,7 @@
       },
       {
         "t": "08/10",
-        "v": 252460000
+        "v": 252480000
       },
       {
         "t": "09/10",
@@ -388,15 +407,19 @@
       },
       {
         "t": "13/10",
-        "v": 245840000
+        "v": 245830000
       },
       {
         "t": "14/10",
-        "v": 248190000
+        "v": 248230000
       },
       {
         "t": "15/10",
-        "v": 247890000
+        "v": 248390000
+      },
+      {
+        "t": "16/10",
+        "v": 248390000
       }
     ]
   },
