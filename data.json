@@ -453,15 +453,9 @@
     "eyebrow": "Forecasting closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 7000000,
+    "quenteTotal": 4000000,
     "mornoTotal": 40761000,
     "top3": [
-      {
-        "name": "Pedroni Logistica",
-        "value": 3000000,
-        "temp": "quente",
-        "owner": "Guilherme Belotto"
-      },
       {
         "name": "Vila Porto International Business",
         "value": 2000000,
@@ -473,6 +467,12 @@
         "value": 1000000,
         "temp": "quente",
         "owner": "Guilherme Belotto"
+      },
+      {
+        "name": "Esfera Distribuidora de Geradores",
+        "value": 1000000,
+        "temp": "quente",
+        "owner": "Kaio Oliveira"
       }
     ]
   },
@@ -509,16 +509,16 @@
         "name": "Renovação",
         "sellers": [
           {
+            "name": "Carlos Ferrarezi",
+            "value": 2921884.42,
+            "color": "var(--mint)",
+            "photo": "https://avatars.slack-edge.com/2025-11-26/9998285655509_28c200815365935d41eb_512.jpg"
+          },
+          {
             "name": "André Vitoretti",
             "value": 1145808.75,
             "color": "var(--gold)",
             "photo": "https://avatars.slack-edge.com/2024-05-13/7103451712710_5de33c00bd6f9eb06bd1_512.jpg"
-          },
-          {
-            "name": "Carlos Ferrarezi",
-            "value": 862303.76,
-            "color": "var(--mint)",
-            "photo": "https://avatars.slack-edge.com/2025-11-26/9998285655509_28c200815365935d41eb_512.jpg"
           }
         ]
       }
@@ -542,7 +542,7 @@
           },
           {
             "name": "Jarbas Vinícius",
-            "value": 1379319.43,
+            "value": 1379319.4300000002,
             "deals": 2,
             "color": "var(--gold)",
             "photo": "https://avatars.slack-edge.com/2026-03-30/10807564491522_be0bce2ea9cdd5372e0d_512.png"
