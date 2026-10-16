@@ -429,11 +429,11 @@
     "eyebrow": "Forecasting closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 8411000,
-    "mornoTotal": 39350000,
+    "quenteTotal": 7000000,
+    "mornoTotal": 40761000,
     "top3": [
       {
-        "name": "Pedroni Logistica Ltda - New Deal",
+        "name": "Pedroni Logistica",
         "value": 3000000,
         "temp": "quente",
         "owner": "Guilherme Belotto"
@@ -445,10 +445,10 @@
         "owner": "Kaio Oliveira"
       },
       {
-        "name": "Veel Trade - Soc. Catarinense de Comércio (grupo Cecil) - New Deal",
-        "value": 1411000,
+        "name": "Kabel Industria e Comercio de Chicotes Eletricos",
+        "value": 1000000,
         "temp": "quente",
-        "owner": "Fernando Velloso"
+        "owner": "Guilherme Belotto"
       }
     ]
   },
