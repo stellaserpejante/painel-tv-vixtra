@@ -257,9 +257,10 @@
     "eyebrow": "Progresso da meta",
     "showMonth": true,
     "metaValor": 13000000,
-    "atual": 1879319.4300000002,
-    "clientesAtivados": 3,
+    "atual": 6879319.43,
+    "clientesAtivados": 4,
     "clientesLista": [
+      "Siqueira Campos Importacao e Distribuicao Ltda- New Deal",
       "Piloto Xp - Total Comercio de Importacao e Exportacao",
       "Lion Packing",
       "Cap Trade Brasil Comercio Exterior e Distribuicao"
@@ -486,6 +487,13 @@
         "name": "Closing",
         "sellers": [
           {
+            "name": "Guilherme Belotto",
+            "value": 5000000,
+            "deals": 1,
+            "color": "var(--sky)",
+            "photo": "https://avatars.slack-edge.com/2025-10-28/9780544893907_7bf5d63f04a9c28f15db_512.jpg"
+          },
+          {
             "name": "Jarbas Vinícius",
             "value": 1379319.4300000002,
             "deals": 2,
@@ -698,7 +706,7 @@
       },
       {
         "tag": "credito",
-        "title": "Crédito aprovado chega a R$ 2,1M no mês",
+        "title": "Crédito aprovado chega a R$ 7,1M no mês",
         "text": "Soma do limite de crédito aprovado nas ativações de setembro."
       },
       {
