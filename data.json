@@ -780,36 +780,36 @@
     "temp": "24°C",
     "cond": "Pancadas de chuva",
     "icon": "🌧️",
-    "trafficUpdatedAt": "19/10 · 01:56",
+    "trafficUpdatedAt": "19/10 · 10:42",
     "traffic": [
       {
-        "name": "Leste",
-        "km": 6,
-        "pct": 33,
-        "level": "bad"
-      },
-      {
-        "name": "Sul",
-        "km": 5,
-        "pct": 28,
-        "level": "bad"
-      },
-      {
-        "name": "Norte",
-        "km": 4,
-        "pct": 22,
+        "name": "Oeste",
+        "km": 71,
+        "pct": 24,
         "level": "mid"
       },
       {
-        "name": "Oeste",
-        "km": 2,
-        "pct": 11,
-        "level": "ok"
+        "name": "Leste",
+        "km": 72,
+        "pct": 24,
+        "level": "mid"
+      },
+      {
+        "name": "Sul",
+        "km": 69,
+        "pct": 23,
+        "level": "mid"
+      },
+      {
+        "name": "Norte",
+        "km": 63,
+        "pct": 21,
+        "level": "mid"
       },
       {
         "name": "Centro",
-        "km": 1,
-        "pct": 6,
+        "km": 24,
+        "pct": 8,
         "level": "ok"
       }
     ],
