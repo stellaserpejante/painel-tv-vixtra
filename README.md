@@ -35,6 +35,10 @@ De 2 em 2 horas, rotinas do GitHub Actions buscam os dados e reescrevem o
 
 ### O que continua manual
 
+Os slides temporários — nova ativação, novo talento, evento — somem da
+tela sozinhos na data combinada e, um dia depois, saem também do arquivo,
+para o `data.json` não ir crescendo com conteúdo morto.
+
 Aniversariantes do mês, aniversários de casa, novo talento no time, as
 novidades da empresa, a celebração de nova ativação, a cotação de moedas e o
 gráfico da carteira. Tudo isso se edita direto no `data.json`, pelo próprio

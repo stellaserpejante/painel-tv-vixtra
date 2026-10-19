@@ -133,6 +133,43 @@ function atualizarContagem(divisao, valor) {
 const milhoes = (v) =>
   `R$ ${(v / 1e6).toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}M`;
 
+/**
+ * Tira do arquivo os slides temporarios que ja sairam da tela.
+ *
+ * O painel ja esconde comemoracao, novo talento e evento depois da data, mas
+ * eles continuavam guardados no data.json para sempre — em tres semanas viraram
+ * dez slides mortos, e e justamente este arquivo que alguem abre no GitHub para
+ * editar na mao. A poda espera 24h depois do vencimento, e slide sem data de
+ * saida nunca e removido.
+ */
+const TIPOS_TEMPORARIOS = new Set(['celebration', 'newhire', 'evento']);
+
+function venceEm(s) {
+  if (s.visivelAte) return new Date(s.visivelAte + 'T23:59:59-03:00').getTime();
+  if (s.type === 'celebration' && s.postedAt) {
+    return new Date(s.postedAt).getTime() + (s.diasVisivel || 1) * 864e5;
+  }
+  if (s.type === 'newhire' && s.joinedAt) {
+    return new Date(s.joinedAt).getTime() + (s.diasVisivel || 30) * 864e5;
+  }
+  return null;  // sem data de saida: fica
+}
+
+function podarVencidos(slides) {
+  const agora = Date.now();
+  const fica = [];
+  const removidos = [];
+  for (const s of slides) {
+    const fim = TIPOS_TEMPORARIOS.has(s.type) ? venceEm(s) : null;
+    if (fim !== null && agora - fim > 864e5) {
+      removidos.push(s.name || s.client || s.eyebrow || s.type);
+    } else {
+      fica.push(s);
+    }
+  }
+  return { fica, removidos };
+}
+
 function main() {
   const slides = readJSON(dataJsonPath, []);
   if (!Array.isArray(slides) || slides.length === 0) {
@@ -272,7 +309,13 @@ function main() {
     }
   }
 
-  fs.writeFileSync(dataJsonPath, JSON.stringify(slides, null, 2) + '\n');
+  const poda = podarVencidos(slides);
+  if (poda.removidos.length) {
+    mudancas.push('poda de ' + poda.removidos.length + ' slide(s) vencido(s)');
+    console.error('Removidos do arquivo (já tinham saído da tela): ' + poda.removidos.join(', '));
+  }
+
+  fs.writeFileSync(dataJsonPath, JSON.stringify(poda.fica, null, 2) + '\n');
   console.log(`OK: ${dataJsonPath} atualizado (${mudancas.join(', ') || 'nada a aplicar'}).`);
 }
 
