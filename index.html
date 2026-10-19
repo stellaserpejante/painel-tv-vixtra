@@ -544,6 +544,27 @@ html,body{
 }
 .wallet-change.up{background:rgba(45,217,168,0.12);color:var(--mint);}
 .wallet-change.down{background:rgba(255,92,122,0.12);color:var(--coral);}
+.wallet-metas{
+  display:flex;gap:clamp(10px,1.2vw,16px);flex-wrap:wrap;
+  margin:-4px 0 clamp(12px,1.8vh,18px);
+}
+.wallet-chip{
+  display:flex;flex-direction:column;gap:2px;
+  background:var(--panel);border:1px solid var(--panel-line);
+  border-radius:12px;padding:8px clamp(12px,1.3vw,18px);
+}
+.wallet-chip .rot{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:clamp(9px,0.8vw,11px);letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--muted);
+}
+.wallet-chip .val{
+  font-family:'Big Shoulders Display',sans-serif;font-weight:800;
+  font-size:clamp(20px,2vw,30px);line-height:1;color:var(--paper);
+}
+.wallet-chip.alvo .val{color:var(--sky);}
+.wallet-chip.falta .val{color:var(--gold);}
+.wallet-chip.batida .val{color:var(--mint);}
 .wallet-chart{width:100%;max-width:1000px;}
 .wallet-svg{width:100%;height:clamp(220px,34vh,320px);display:block;}
 .wallet-source{margin-top:10px;color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:clamp(10px,0.9vw,12px);}
@@ -981,7 +1002,7 @@ function isSlideActive(s){
 //
 // IMPORTANTE: ao mexer no index.html, troque a data/número abaixo. É ela que
 // avisa às telas abertas que existe coisa nova.
-const VERSAO_PAINEL = /* versao-do-painel */ '2026-10-05-02';
+const VERSAO_PAINEL = /* versao-do-painel */ '2026-10-19-01';
 
 async function conferirVersaoDoPainel(){
   try{
@@ -1138,12 +1159,29 @@ function renderSlide(s){
   }
   if(s.type==='wallet'){
     const isUp = s.pctChange>=0;
+    // A meta de carteira e os chips abaixo: o "faltam" NAO fica gravado no
+    // data.json, e recalculado a cada render a partir do valor atual. Assim
+    // basta atualizar a carteira que o numero acompanha sozinho.
+    const meta = s.metaCarteira;
+    const falta = meta != null ? meta - s.current : null;
+    const metas = meta == null ? '' : `
+      <div class="wallet-metas">
+        <div class="wallet-chip alvo">
+          <span class="rot">${s.metaCarteiraRotulo || 'Meta da carteira'}</span>
+          <span class="val">${milhoesCurto(meta)}</span>
+        </div>
+        <div class="wallet-chip ${falta > 0 ? 'falta' : 'batida'}">
+          <span class="rot">${falta > 0 ? 'Faltam' : 'Meta batida'}</span>
+          <span class="val">${falta > 0 ? milhoesCurto(falta) : '+' + milhoesCurto(-falta)}</span>
+        </div>
+      </div>`;
     return `
       <div class="eyebrow">${eyebrowText(s)}</div>
       <div class="wallet-top">
         <div class="wallet-value">${fmtBRL(Math.round(s.current))}</div>
         <div class="wallet-change ${isUp?'up':'down'}">${isUp?'▲':'▼'} ${Math.abs(s.pctChange).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}% em 30 dias</div>
       </div>
+      ${metas}
       <div class="wallet-chart">${buildWalletSVG(s.series)}</div>
       <div class="wallet-source">${s.source}</div>`;
   }
@@ -1366,6 +1404,14 @@ function initials(name){
 }
 
 // Retorna o conteúdo do avatar: foto real (Slack) se disponível, senão iniciais
+// "R$ 324M", "R$ 69,5M": compacto para caber ao lado do valor da carteira.
+// Sem casa decimal quando o numero e redondo, uma casa quando nao e.
+function milhoesCurto(v){
+  const m = v / 1e6;
+  const casas = Math.abs(m - Math.round(m)) < 0.05 ? 0 : 1;
+  return 'R$ ' + m.toLocaleString('pt-BR', {minimumFractionDigits:casas, maximumFractionDigits:casas}) + 'M';
+}
+
 function avatarInner(p){
   // A imagem nao pode ser preguicosa: o slide so entra no DOM quando chega a
   // vez dele, e o navegador concluia que a foto ainda nao era necessaria — ela

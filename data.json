@@ -445,7 +445,9 @@
         "t": "19/10",
         "v": 254500000
       }
-    ]
+    ],
+    "metaCarteira": 324000000,
+    "metaCarteiraRotulo": "Carteira em dez/26"
   },
   {
     "type": "funnel",
