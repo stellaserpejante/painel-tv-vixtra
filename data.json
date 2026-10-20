@@ -353,7 +353,7 @@
         "sellers": [
           {
             "name": "Raquel Figueiredo",
-            "oportunidades": 5,
+            "oportunidades": 6,
             "color": "var(--sky)",
             "metricLabel": "oportunidades"
           },
