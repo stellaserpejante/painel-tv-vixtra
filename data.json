@@ -245,15 +245,9 @@
     "eyebrow": "Forecasting closing",
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
-    "quenteTotal": 4300000,
+    "quenteTotal": 2300000,
     "mornoTotal": 40761000,
     "top3": [
-      {
-        "name": "Vila Porto International Business",
-        "value": 2000000,
-        "temp": "quente",
-        "owner": "Kaio Oliveira"
-      },
       {
         "name": "Kabel Industria e Comercio de Chicotes Eletricos",
         "value": 1000000,
@@ -265,6 +259,12 @@
         "value": 1000000,
         "temp": "quente",
         "owner": "Kaio Oliveira"
+      },
+      {
+        "name": "Oslo Home",
+        "value": 300000,
+        "temp": "quente",
+        "owner": "Jarbas Vinícius"
       }
     ]
   },
