@@ -246,7 +246,7 @@
     "showMonth": true,
     "subtitle": "Proposta em aprovação · Abertura de conta · Aguardando ativação",
     "quenteTotal": 2300000,
-    "mornoTotal": 35761000,
+    "mornoTotal": 30861000,
     "top3": [
       {
         "name": "Kabel Industria e Comercio de Chicotes Eletricos",
@@ -383,7 +383,7 @@
         "sellers": [
           {
             "name": "Luciana Turisco",
-            "oportunidades": 39,
+            "oportunidades": 40,
             "metricLabel": "embarques confirmados",
             "color": "var(--sky)",
             "photo": "https://avatars.slack-edge.com/2026-07-06/11523554386418_8ca4e2220136e060a41f_512.png"
