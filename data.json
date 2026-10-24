@@ -23,29 +23,6 @@
     "photo": "https://avatars.slack-edge.com/2025-10-28/9780544893907_7bf5d63f04a9c28f15db_512.jpg"
   },
   {
-    "type": "celebration",
-    "duration": 16000,
-    "eyebrow": "Nova ativação",
-    "showMonth": false,
-    "who": "Guilherme Belotto",
-    "client": "Siqueira Campos Importação e Distribuição",
-    "valorAtivado": 5000000,
-    "limiteAprovado": 5000000,
-    "pessoas": [
-      {
-        "name": "Guilherme Belotto",
-        "photo": "https://avatars.slack-edge.com/2025-10-28/9780544893907_7bf5d63f04a9c28f15db_512.jpg"
-      },
-      {
-        "name": "Matheus Ferreira",
-        "photo": "https://avatars.slack-edge.com/2025-11-18/9940118933413_1a51fa015cf3f9e6ce54_512.jpg"
-      }
-    ],
-    "postedAt": "2026-10-16T13:12:54.709Z",
-    "diasVisivel": 7,
-    "photo": "https://avatars.slack-edge.com/2025-10-28/9780544893907_7bf5d63f04a9c28f15db_512.jpg"
-  },
-  {
     "type": "newhire",
     "duration": 16000,
     "eyebrow": "Novo talento no time",
@@ -547,36 +524,36 @@
     "temp": "24°C",
     "cond": "Pancadas de chuva",
     "icon": "🌧️",
-    "trafficUpdatedAt": "24/10 · 08:19",
+    "trafficUpdatedAt": "24/10 · 13:06",
     "traffic": [
       {
         "name": "Leste",
-        "km": 16,
-        "pct": 34,
-        "level": "bad"
-      },
-      {
-        "name": "Sul",
-        "km": 15,
+        "km": 127,
         "pct": 32,
         "level": "bad"
       },
       {
+        "name": "Sul",
+        "km": 94,
+        "pct": 23,
+        "level": "mid"
+      },
+      {
         "name": "Norte",
-        "km": 10,
-        "pct": 21,
+        "km": 70,
+        "pct": 17,
         "level": "mid"
       },
       {
         "name": "Oeste",
-        "km": 4,
-        "pct": 9,
-        "level": "ok"
+        "km": 63,
+        "pct": 16,
+        "level": "mid"
       },
       {
         "name": "Centro",
-        "km": 2,
-        "pct": 4,
+        "km": 47,
+        "pct": 12,
         "level": "ok"
       }
     ],
