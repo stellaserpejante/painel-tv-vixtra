@@ -1,24 +1,5 @@
 [
   {
-    "type": "newhire",
-    "duration": 16000,
-    "eyebrow": "Novo talento no time",
-    "name": "Bruna Marques",
-    "role": "People Manager | People",
-    "fatos": [
-      {
-        "rotulo": "Curiosidade:",
-        "texto": "já foi modelo da Dove e participou de três campanhas publicitárias na Tailândia."
-      },
-      {
-        "rotulo": "Hobbies:",
-        "texto": "desenhar e organizar coisas — tem uma Marie Kondo que vive nela e fica muito feliz colocando tudo em ordem."
-      }
-    ],
-    "photo": "fotos/bruna-marques.jpg",
-    "visivelAte": "2026-10-26"
-  },
-  {
     "type": "goal",
     "duration": 20000,
     "eyebrow": "Progresso da meta",
@@ -501,40 +482,40 @@
     "temp": "24°C",
     "cond": "Pancadas de chuva",
     "icon": "🌧️",
-    "trafficUpdatedAt": "27/10 · 22:30",
+    "trafficUpdatedAt": "28/10 · 05:44",
     "traffic": [
       {
         "name": "Sul",
-        "km": 14,
-        "pct": 32,
-        "level": "bad"
-      },
-      {
-        "name": "Leste",
-        "km": 11,
-        "pct": 25,
+        "km": 8,
+        "pct": 47,
         "level": "bad"
       },
       {
         "name": "Oeste",
-        "km": 10,
-        "pct": 23,
+        "km": 4,
+        "pct": 24,
+        "level": "mid"
+      },
+      {
+        "name": "Leste",
+        "km": 4,
+        "pct": 24,
         "level": "mid"
       },
       {
         "name": "Norte",
-        "km": 6,
-        "pct": 14,
+        "km": 1,
+        "pct": 6,
         "level": "ok"
       },
       {
         "name": "Centro",
-        "km": 3,
-        "pct": 7,
+        "km": 0,
+        "pct": 0,
         "level": "ok"
       }
     ],
-    "rodizio": "Placas final 3 e 4"
+    "rodizio": "Placas final 5 e 6"
   },
   {
     "type": "currency",
