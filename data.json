@@ -482,37 +482,37 @@
     "temp": "24°C",
     "cond": "Pancadas de chuva",
     "icon": "🌧️",
-    "trafficUpdatedAt": "01/11 · 10:40",
+    "trafficUpdatedAt": "01/11 · 16:00",
     "traffic": [
       {
-        "name": "Leste",
-        "km": 18,
-        "pct": 35,
-        "level": "bad"
-      },
-      {
         "name": "Sul",
-        "km": 18,
-        "pct": 35,
+        "km": 20,
+        "pct": 28,
         "level": "bad"
       },
       {
         "name": "Norte",
-        "km": 8,
-        "pct": 16,
+        "km": 13,
+        "pct": 18,
+        "level": "mid"
+      },
+      {
+        "name": "Oeste",
+        "km": 13,
+        "pct": 18,
         "level": "mid"
       },
       {
         "name": "Centro",
-        "km": 4,
-        "pct": 8,
-        "level": "ok"
+        "km": 13,
+        "pct": 18,
+        "level": "mid"
       },
       {
-        "name": "Oeste",
-        "km": 3,
-        "pct": 6,
-        "level": "ok"
+        "name": "Leste",
+        "km": 12,
+        "pct": 17,
+        "level": "mid"
       }
     ],
     "rodizio": "Sem rodízio no fim de semana"
