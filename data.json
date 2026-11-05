@@ -482,40 +482,40 @@
     "temp": "24°C",
     "cond": "Pancadas de chuva",
     "icon": "🌧️",
-    "trafficUpdatedAt": "04/11 · 20:47",
+    "trafficUpdatedAt": "05/11 · 04:03",
     "traffic": [
       {
+        "name": "Norte",
+        "km": 2,
+        "pct": 33,
+        "level": "bad"
+      },
+      {
         "name": "Sul",
-        "km": 59,
-        "pct": 35,
+        "km": 2,
+        "pct": 33,
         "level": "bad"
       },
       {
         "name": "Oeste",
-        "km": 52,
-        "pct": 31,
-        "level": "bad"
-      },
-      {
-        "name": "Leste",
-        "km": 28,
+        "km": 1,
         "pct": 17,
         "level": "mid"
       },
       {
-        "name": "Norte",
-        "km": 21,
-        "pct": 12,
-        "level": "ok"
+        "name": "Leste",
+        "km": 1,
+        "pct": 17,
+        "level": "mid"
       },
       {
         "name": "Centro",
-        "km": 9,
-        "pct": 5,
+        "km": 0,
+        "pct": 0,
         "level": "ok"
       }
     ],
-    "rodizio": "Placas final 5 e 6"
+    "rodizio": "Placas final 7 e 8"
   },
   {
     "type": "currency",
